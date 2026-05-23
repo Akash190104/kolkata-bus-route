@@ -54,6 +54,10 @@ SPELLING = {
     "bichali ghar": "bichali ghat",
     "parnashree": "parnasree",
     "safuipara": "sapuipara",
+    "khashmallik": "khasmallick",
+    "gobindopur": "gobindapur",
+    "malncha": "malancha",
+    "tegharia": "teghoria",
 }
 # 2) full-string aliases -> ONLY two-names-for-one-physical-point synonyms and
 #    shorthand disambiguation. We deliberately do NOT merge facility-tagged stops.
@@ -84,6 +88,11 @@ ALIASES = {
     "airport 3no": "airport gate 3", "airport 3": "airport gate 3",
     "airport 3 gate": "airport gate 3",
     "behala 14": "behala 14 no", "behala 14no": "behala 14 no",
+    "baruipur fultala central terminus": "baruipur fultala",
+    "barasat champadali": "barasat chapadali",
+    "shapooji housing": "shapoorji",
+    "shapoorji housing": "shapoorji",
+    "sukho brishti": "shapoorji", "sukhobrishti": "shapoorji",
 }
 # words that mark a junction -- "X More" is the same point as "X"
 JUNCTION = re.compile(r"\s+(more|crossing|xing)$")
