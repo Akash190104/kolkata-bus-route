@@ -90,6 +90,7 @@ ALIASES = {
     "behala 14": "behala 14 no", "behala 14no": "behala 14 no",
     "baruipur fultala central terminus": "baruipur fultala",
     "barasat champadali": "barasat chapadali",
+    "botanical garden": "b garden", "botanic garden": "b garden",
     "shapooji housing": "shapoorji",
     "shapoorji housing": "shapoorji",
     "sukho brishti": "shapoorji", "sukhobrishti": "shapoorji",
