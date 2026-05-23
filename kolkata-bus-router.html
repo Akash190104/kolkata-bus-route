@@ -10,69 +10,78 @@
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Hanken+Grotesque:wght@400;500;600;700&family=Spline+Sans+Mono:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --paper:#ece6d8; --ink:#191712; --soft:#6a6253; --line:#cfc4aa;
-    --card:#f8f4e9; --yellow:#f3b100; --rust:#b3471f; --teal:#1d6d68;
-    --legA:#e2920a; --legB:#b3471f; --legC:#1d6d68;
+    --paper:#f7f9f6; --ink:#16211a; --soft:#4f6156; --line:#cbd8cf;
+    --card:#ffffff; --cream:#eef4ec; --accent:#1f6f4a; --accent2:#0f5c78;
+    --warning:#b45309; --legA:#1f6f4a; --legB:#0f5c78; --legC:#8a4b12;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html,body{height:100%}
   body{
     font-family:'Hanken Grotesque',sans-serif;background:var(--paper);color:var(--ink);
-    -webkit-font-smoothing:antialiased;line-height:1.45;
-    background-image:repeating-linear-gradient(0deg,transparent,transparent 38px,rgba(0,0,0,.018) 38px,rgba(0,0,0,.018) 39px);
+    -webkit-font-smoothing:antialiased;line-height:1.55;font-size:17px;
   }
-  .wrap{max-width:1180px;margin:0 auto;padding:0 22px 80px}
+  a{color:inherit}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 24px 80px}
 
   /* ---- header ---- */
-  header{padding:34px 0 22px;border-bottom:2.5px solid var(--ink);position:relative}
+  header{padding:30px 0 22px;border-bottom:3px solid var(--ink);position:relative}
   .kicker{font-family:'Spline Sans Mono',monospace;font-size:11.5px;letter-spacing:.22em;
-    text-transform:uppercase;color:var(--rust);font-weight:600}
+    text-transform:uppercase;color:var(--accent);font-weight:700}
   h1{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(34px,5.4vw,58px);
-    line-height:.98;letter-spacing:-.025em;margin:6px 0 8px}
-  h1 em{font-style:normal;color:var(--rust)}
-  .blurb{max-width:560px;color:var(--soft);font-size:14.5px}
+    line-height:1;letter-spacing:0;margin:6px 0 10px}
+  h1 em{font-style:normal;color:var(--accent)}
+  .blurb{max-width:680px;color:var(--soft);font-size:17px}
   .stamp{position:absolute;right:2px;top:30px;font-family:'Spline Sans Mono',monospace;
     font-size:10.5px;text-align:right;color:var(--soft);line-height:1.7}
   .stamp b{color:var(--ink)}
+  .quicklinks{display:flex;flex-wrap:wrap;gap:12px;margin-top:16px;align-items:center}
+  .visitcount{display:inline-flex;align-items:center;gap:8px;min-height:36px;padding:7px 10px;
+    border:2px solid var(--line);background:var(--card);font-size:13px;font-weight:700;color:var(--soft)}
+  .visitcount img{height:20px;display:block}
+  .github-link{display:inline-flex;align-items:center;gap:9px;min-height:36px;padding:7px 12px;
+    border:2px solid var(--ink);background:var(--ink);color:#fff;text-decoration:none;
+    font-size:13px;font-weight:800}
+  .github-link svg{width:18px;height:18px;fill:currentColor;flex:0 0 auto}
+  .github-link:hover{background:var(--accent)}
 
   /* ---- search ---- */
-  .search{display:grid;grid-template-columns:1fr 1fr auto;gap:14px;margin:24px 0 6px;
+  .search{display:grid;grid-template-columns:1fr 1fr auto;gap:14px;margin:20px 0 6px;
     align-items:end}
   .field{position:relative}
-  .field label{font-family:'Spline Sans Mono',monospace;font-size:10.5px;letter-spacing:.16em;
+  .field label{font-family:'Spline Sans Mono',monospace;font-size:11px;letter-spacing:.12em;
     text-transform:uppercase;color:var(--soft);display:block;margin-bottom:6px;font-weight:600}
-  .field input{width:100%;font-family:'Hanken Grotesque',sans-serif;font-size:16px;font-weight:600;
-    padding:13px 14px;border:2px solid var(--ink);background:var(--card);color:var(--ink);
-    border-radius:0;outline:none}
-  .field input:focus{box-shadow:3px 3px 0 var(--yellow)}
-  .field input::placeholder{color:#a89e86;font-weight:400}
+  .field input{width:100%;font-family:'Hanken Grotesque',sans-serif;font-size:18px;font-weight:700;
+    padding:15px 15px;border:2px solid var(--ink);background:var(--card);color:var(--ink);
+    border-radius:6px;outline:none}
+  .field input:focus{box-shadow:0 0 0 4px rgba(31,111,74,.18)}
+  .field input::placeholder{color:#85938a;font-weight:500}
   .swap{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:3;
-    width:34px;height:34px;border:2px solid var(--ink);background:var(--paper);cursor:pointer;
+    width:38px;height:38px;border:2px solid var(--ink);background:var(--paper);cursor:pointer;
     border-radius:50%;font-size:15px;display:flex;align-items:center;justify-content:center;
     transition:transform .25s ease}
   .swap:hover{transform:translate(-50%,-50%) rotate(180deg)}
-  .go{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:16px;
-    padding:13px 26px;border:2px solid var(--ink);background:var(--yellow);color:var(--ink);
-    cursor:pointer;height:50px;box-shadow:4px 4px 0 var(--ink);transition:all .12s ease}
-  .go:hover{box-shadow:2px 2px 0 var(--ink);transform:translate(2px,2px)}
-  .go:active{box-shadow:0 0 0 var(--ink);transform:translate(4px,4px)}
+  .go{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:18px;
+    padding:14px 28px;border:2px solid var(--ink);background:var(--accent);color:#fff;
+    cursor:pointer;height:56px;border-radius:6px;box-shadow:0 4px 0 var(--ink);transition:all .12s ease}
+  .go:hover{background:#155d3d;transform:translateY(1px)}
+  .go:active{box-shadow:0 1px 0 var(--ink);transform:translateY(3px)}
   .ac{position:absolute;left:0;right:0;top:calc(100% + 4px);background:var(--card);
-    border:2px solid var(--ink);max-height:260px;overflow-y:auto;z-index:20;display:none;
-    box-shadow:5px 5px 0 rgba(0,0,0,.15)}
-  .ac div{padding:9px 13px;cursor:pointer;font-size:14px;font-weight:500;
+    border:2px solid var(--ink);max-height:280px;overflow-y:auto;z-index:20;display:none;
+    box-shadow:0 10px 24px rgba(0,0,0,.15)}
+  .ac div{padding:11px 13px;cursor:pointer;font-size:16px;font-weight:700;
     display:flex;justify-content:space-between;gap:10px;border-bottom:1px solid var(--line)}
   .ac div:last-child{border-bottom:none}
-  .ac div:hover,.ac div.hi{background:var(--yellow)}
-  .ac div span{font-family:'Spline Sans Mono',monospace;font-size:10.5px;color:var(--soft)}
+  .ac div:hover,.ac div.hi{background:#e5f3e8}
+  .ac div span{font-family:'Spline Sans Mono',monospace;font-size:11px;color:var(--soft)}
   .ac div:hover span,.ac div.hi span{color:var(--ink)}
 
   /* ---- story ---- */
-  .story{margin-top:24px;padding:18px 0 4px;display:grid;grid-template-columns:220px 1fr;
+  .story{margin-top:18px;padding:16px 0 0;display:grid;grid-template-columns:220px 1fr;
     gap:28px;border-top:1.5px solid var(--line)}
   .storytag{font-family:'Spline Sans Mono',monospace;font-size:11px;letter-spacing:.16em;
-    text-transform:uppercase;color:var(--rust);font-weight:700}
-  .storycopy{max-width:760px;font-size:15px;color:var(--soft)}
-  .storycopy b{color:var(--ink);font-family:'Bricolage Grotesque',sans-serif;font-size:18px}
+    text-transform:uppercase;color:var(--accent);font-weight:700}
+  .storycopy{max-width:800px;font-size:16.5px;color:var(--soft)}
+  .storycopy b{color:var(--ink);font-family:'Bricolage Grotesque',sans-serif;font-size:20px}
 
   /* ---- layout ---- */
   .main{display:grid;grid-template-columns:1fr 0.92fr;gap:26px;margin-top:26px}
@@ -83,23 +92,23 @@
   .panelhead::after{content:"";flex:1;height:2px;background:var(--line)}
 
   .empty{border:2px dashed var(--line);padding:38px 26px;text-align:center;color:var(--soft);
-    font-size:14px;background:rgba(255,255,255,.25)}
+    font-size:16px;background:rgba(255,255,255,.62)}
   .empty b{color:var(--ink);font-family:'Bricolage Grotesque',sans-serif}
 
   /* ---- result group ---- */
   .group{margin-bottom:26px}
   .grouptag{display:inline-flex;align-items:center;gap:8px;font-family:'Bricolage Grotesque',sans-serif;
-    font-weight:800;font-size:15px;margin-bottom:11px;padding:3px 11px 4px;border:2px solid var(--ink)}
-  .grouptag.t0{background:var(--yellow)}
-  .grouptag.t1{background:#e8ddc4}
-  .grouptag.t2{background:var(--paper)}
+    font-weight:800;font-size:16px;margin-bottom:11px;padding:5px 12px 6px;border:2px solid var(--ink)}
+  .grouptag.t0{background:#dff1e5}
+  .grouptag.t1{background:#dceff7}
+  .grouptag.t2{background:#f3eadc}
   .grouptag small{font-family:'Spline Sans Mono',monospace;font-weight:600;font-size:11px}
 
   /* ---- journey card ---- */
   .card{border:2px solid var(--ink);background:var(--card);margin-bottom:13px;cursor:pointer;
     transition:transform .1s ease,box-shadow .1s ease}
   .card:hover{transform:translate(-2px,-2px);box-shadow:4px 4px 0 var(--ink)}
-  .card.active{box-shadow:5px 5px 0 var(--rust);transform:translate(-2px,-2px)}
+  .card.active{box-shadow:5px 5px 0 var(--accent);transform:translate(-2px,-2px)}
   .card .top{display:flex;align-items:center;gap:9px;padding:12px 14px;flex-wrap:wrap;
     border-bottom:1.5px solid var(--line)}
   .bus{font-family:'Spline Sans Mono',monospace;font-weight:700;font-size:13px;
@@ -107,8 +116,8 @@
   .bus.k0{background:var(--legA)} .bus.k1{background:var(--legB)} .bus.k2{background:var(--legC)}
   .bus em{font-style:normal;opacity:.8;font-size:10px;font-weight:600;margin-left:3px}
   .arrow{font-size:13px;color:var(--soft)}
-  .changeat{font-size:11.5px;color:var(--soft);font-weight:600}
-  .changeat b{color:var(--rust);font-weight:700}
+  .changeat{font-size:13px;color:var(--soft);font-weight:700}
+  .changeat b{color:var(--accent);font-weight:800}
   .metrics{margin-left:auto;font-family:'Spline Sans Mono',monospace;font-size:10.5px;
     color:var(--soft);font-weight:600;text-align:right}
   .legs{padding:6px 14px 13px}
@@ -120,26 +129,26 @@
     border-radius:50%;background:var(--card)}
   .leg.k0 .legdot{background:var(--legA)} .leg.k1 .legdot{background:var(--legB)}
   .leg.k2 .legdot{background:var(--legC)}
-  .legtitle{font-size:13px;font-weight:700}
+  .legtitle{font-size:15px;font-weight:800}
   .legtitle .r{font-family:'Spline Sans Mono',monospace}
-  .legmeta{font-size:11.5px;color:var(--soft);margin-top:1px}
-  .stoplist{font-size:11.5px;color:var(--soft);margin-top:5px;display:none;line-height:1.7}
+  .legmeta{font-size:13px;color:var(--soft);margin-top:1px}
+  .stoplist{font-size:13px;color:var(--soft);margin-top:5px;display:none;line-height:1.7}
   .stoplist.show{display:block}
   .stoplist span{white-space:nowrap}
-  .toggle{font-family:'Spline Sans Mono',monospace;font-size:10px;color:var(--rust);
+  .toggle{font-family:'Spline Sans Mono',monospace;font-size:11px;color:var(--accent);
     cursor:pointer;font-weight:600;margin-top:4px;display:inline-block;
-    border-bottom:1.5px dotted var(--rust)}
+    border-bottom:1.5px dotted var(--accent)}
 
   /* ---- map ---- */
   .mapwrap{position:sticky;top:18px}
-  #map{height:520px;border:2.5px solid var(--ink);background:#dfd9c8}
-  .mapnote{font-size:11px;color:var(--soft);margin-top:7px;font-family:'Spline Sans Mono',monospace}
-  .leaflet-container{background:#dfd9c8;font-family:'Hanken Grotesque',sans-serif}
+  #map{height:520px;border:2.5px solid var(--ink);background:#e8eee9}
+  .mapnote{font-size:12px;color:var(--soft);margin-top:7px;font-family:'Spline Sans Mono',monospace}
+  .leaflet-container{background:#e8eee9;font-family:'Hanken Grotesque',sans-serif}
   .pin{font-family:'Spline Sans Mono',monospace;font-weight:700;font-size:11px}
 
   footer{margin-top:46px;padding-top:18px;border-top:2px solid var(--ink);
-    font-size:12px;color:var(--soft);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
-  footer code{font-family:'Spline Sans Mono',monospace;color:var(--rust)}
+    font-size:13px;color:var(--soft);display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px}
+  footer code{font-family:'Spline Sans Mono',monospace;color:var(--accent)}
   footer .madeby{color:var(--ink);font-weight:700}
 
   @media(max-width:880px){
@@ -162,7 +171,28 @@
     <p class="blurb">Pick where you are and where you're going. It finds direct buses,
        one-change routes, and two-change routes across the private &amp; government network —
        then draws the journey on the map.</p>
+    <div class="quicklinks" aria-label="Project links and visitor count">
+      <span class="visitcount">
+        <span>Website visits</span>
+        <img src="https://hits.sh/kolkata-bus-route.vercel.app.svg?label=&color=1f6f4a&labelColor=f7f9f6" alt="Visitor count">
+      </span>
+      <a class="github-link" href="https://github.com/Akash190104/kolkata-bus-route" target="_blank" rel="noopener noreferrer" aria-label="Star the Kolkata Bus Route project on GitHub">
+        <svg viewBox="0 0 16 16" aria-hidden="true">
+          <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82A7.65 7.65 0 0 1 8 3.86c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/>
+        </svg>
+        Star on GitHub
+      </a>
+    </div>
     <div class="stamp">DATASET <b id="rcount">—</b> ROUTES<br><b id="scount">—</b> STOPS<br>SRC · KOLBUSOPEDIA</div>
+
+    <section class="story" aria-label="Why this exists">
+      <div class="storytag">Why this exists</div>
+      <p class="storycopy"><b>Kolkata moves by bus, but the route data is scattered.</b>
+      People rely on memory, local advice, and half-complete route lists to figure out
+      how to get across the city. I built this as a small attempt to make that fragmented
+      knowledge searchable: normalize the stop names, connect the routes, and let anyone
+      see possible journeys in one place.</p>
+    </section>
   </header>
 
   <div class="search">
@@ -179,15 +209,6 @@
     </div>
     <button class="go" id="go">Find routes</button>
   </div>
-
-  <section class="story" aria-label="Why this exists">
-    <div class="storytag">Why this exists</div>
-    <p class="storycopy"><b>Kolkata moves by bus, but the route data is scattered.</b>
-      People rely on memory, local advice, and half-complete route lists to figure out
-      how to get across the city. I built this as a small attempt to make that fragmented
-      knowledge searchable: normalize the stop names, connect the routes, and let anyone
-      see possible journeys in one place.</p>
-  </section>
 
   <div class="main">
     <div class="results">
@@ -207,6 +228,12 @@
   <footer>
     <span>Built as a routing graph over <code>kolbusopedia</code> route data.
       Stop names normalised through a single <code>canon()</code> layer.</span>
+    <a class="github-link" href="https://github.com/Akash190104/kolkata-bus-route" target="_blank" rel="noopener noreferrer" aria-label="Star the Kolkata Bus Route project on GitHub">
+      <svg viewBox="0 0 16 16" aria-hidden="true">
+        <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82A7.65 7.65 0 0 1 8 3.86c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/>
+      </svg>
+      Star the repo
+    </a>
     <span class="madeby">Made with love, Akash.</span>
   </footer>
 </div>
@@ -428,7 +455,7 @@ L.tileLayer('https://{s}.basemaps.cartocdn.com/light_only_labels/{z}/{x}/{y}{r}.
   maxZoom:18, subdomains:'abcd'
 }).addTo(map);
 let layer = L.layerGroup().addTo(map);
-const LEGCOL=['#e2920a','#b3471f','#1d6d68'];
+const LEGCOL=['#1f6f4a','#0f5c78','#8a4b12'];
 
 function drawJourney(j){
   layer.clearLayers();
@@ -449,7 +476,7 @@ function drawJourney(j){
     const c=coord[m.s]; if(!c) return;
     const big=m.t!=='~';
     L.marker(c,{icon:L.divIcon({className:'',html:
-      `<div style="background:${big?'#191712':'#b3471f'};color:#fff;
+      `<div style="background:${big?'#16211a':'#1f6f4a'};color:#fff;
         width:${big?26:18}px;height:${big?26:18}px;border-radius:50%;
         display:flex;align-items:center;justify-content:center;
         border:2.5px solid #f8f4e9;box-shadow:0 1px 4px rgba(0,0,0,.4);
