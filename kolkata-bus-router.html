@@ -34,10 +34,12 @@
   .stamp{position:absolute;right:2px;top:30px;font-family:'Spline Sans Mono',monospace;
     font-size:10.5px;text-align:right;color:var(--soft);line-height:1.7}
   .stamp b{color:var(--ink)}
-  .quicklinks{display:flex;flex-wrap:wrap;gap:12px;margin-top:16px;align-items:center}
-  .visitcount{display:inline-flex;align-items:center;gap:8px;min-height:36px;padding:7px 10px;
-    border:2px solid var(--line);background:var(--card);font-size:13px;font-weight:700;color:var(--soft)}
-  .visitcount img{height:20px;display:block}
+  .quicklinks{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px;align-items:center}
+  .visitcount{display:inline-flex;align-items:center;gap:13px;min-height:58px;padding:10px 14px;
+    border:2px solid var(--ink);background:var(--card);color:var(--soft)}
+  .visitcount .visitlabel{font-family:'Spline Sans Mono',monospace;font-size:11px;letter-spacing:.12em;
+    line-height:1.2;text-transform:uppercase;font-weight:800;color:var(--soft)}
+  .visitcount img{height:32px;display:block;image-rendering:auto}
   .github-link{display:inline-flex;align-items:center;gap:9px;min-height:36px;padding:7px 12px;
     border:2px solid var(--ink);background:var(--ink);color:#fff;text-decoration:none;
     font-size:13px;font-weight:800}
@@ -173,8 +175,8 @@
        then draws the journey on the map.</p>
     <div class="quicklinks" aria-label="Project links and visitor count">
       <span class="visitcount">
-        <span>Website visits</span>
-        <img src="https://hits.sh/kolkata-bus-route.vercel.app.svg?label=&color=1f6f4a&labelColor=f7f9f6" alt="Visitor count">
+        <span class="visitlabel">People<br>checked routes</span>
+        <img src="https://hits.sh/kolkata-bus-route.vercel.app.svg?label=&color=1f6f4a&labelColor=ffffff" alt="Number of people who checked routes">
       </span>
       <a class="github-link" href="https://github.com/Akash190104/kolkata-bus-route" target="_blank" rel="noopener noreferrer" aria-label="Star the Kolkata Bus Route project on GitHub">
         <svg viewBox="0 0 16 16" aria-hidden="true">
