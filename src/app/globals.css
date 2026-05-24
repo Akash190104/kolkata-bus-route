@@ -176,6 +176,7 @@ body {
 .btn-install {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
   height: 38px;
   padding: 0 14px;
@@ -193,6 +194,16 @@ body {
 .btn-install:hover {
   background: var(--accent-dark);
   transform: translateY(-1px);
+}
+
+.btn-install:disabled {
+  opacity: 0.78;
+  cursor: default;
+}
+
+.btn-install:disabled:hover {
+  background: var(--accent);
+  transform: none;
 }
 
 .btn-install svg {

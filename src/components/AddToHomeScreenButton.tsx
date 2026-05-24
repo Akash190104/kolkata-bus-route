@@ -20,10 +20,12 @@ function isStandalone() {
 export default function AddToHomeScreenButton() {
   const [installPrompt, setInstallPrompt] = useState<BeforeInstallPromptEvent | null>(null);
   const [isInstalled, setIsInstalled] = useState(false);
+  const [canShare, setCanShare] = useState(false);
 
   useEffect(() => {
     const animationFrame = window.requestAnimationFrame(() => {
       setIsInstalled(isStandalone());
+      setCanShare(Boolean(navigator.share));
     });
 
     const handleBeforeInstallPrompt = (event: Event) => {
@@ -70,17 +72,16 @@ export default function AddToHomeScreenButton() {
   if (isInstalled) return null;
 
   return (
-    <div className="install-box">
-      <button
-        className="btn-install"
-        type="button"
-        onClick={handleInstall}
-      >
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M12 3a1 1 0 0 1 1 1v8.59l2.3-2.3a1 1 0 1 1 1.4 1.42l-4 4a1 1 0 0 1-1.4 0l-4-4a1 1 0 1 1 1.4-1.42l2.3 2.3V4a1 1 0 0 1 1-1Zm-7 11a1 1 0 0 1 1 1v3h12v-3a1 1 0 1 1 2 0v4a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-4a1 1 0 0 1 1-1Z" />
-        </svg>
-        Add to homescreen
-      </button>
-    </div>
+    <button
+      className="btn-install"
+      type="button"
+      onClick={handleInstall}
+      disabled={!installPrompt && !canShare}
+    >
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M12 3a1 1 0 0 1 1 1v8.59l2.3-2.3a1 1 0 1 1 1.4 1.42l-4 4a1 1 0 0 1-1.4 0l-4-4a1 1 0 1 1 1.4-1.42l2.3 2.3V4a1 1 0 0 1 1-1Zm-7 11a1 1 0 0 1 1 1v3h12v-3a1 1 0 1 1 2 0v4a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-4a1 1 0 0 1 1-1Z" />
+      </svg>
+      {installPrompt ? 'Install app' : 'Add to homescreen'}
+    </button>
   );
 }

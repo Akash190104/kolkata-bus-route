@@ -12,6 +12,9 @@ export const metadata: Metadata = {
     title: "Kolkata Bus",
     statusBarStyle: "default",
   },
+  icons: {
+    apple: "/apple-touch-icon.png",
+  },
   openGraph: {
     title: "Kolkata Bus Router",
     description:
@@ -24,6 +27,7 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   maximumScale: 1,
+  themeColor: "#1f6f4a",
 };
 
 export default function RootLayout({
