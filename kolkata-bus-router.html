@@ -341,6 +341,10 @@ function find(o,d){
 
 /* ========================= autocomplete ======================= */
 const sortedStops = stopNames.slice().sort();
+const esc = v => String(v).replace(/[&<>"']/g, ch => ({
+  '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;'
+}[ch]));
+
 function wire(input, box){
   let hi=-1, items=[];
   function close(){ box.style.display='none'; hi=-1; }
@@ -351,7 +355,7 @@ function wire(input, box){
     if(!items.length){ close(); return; }
     box.innerHTML = items.map(s=>{
       const n = stopRoutes[s] ? stopRoutes[s].length : 0;
-      return `<div data-v="${s}">${s}<span>${n} route${n!==1?'s':''}</span></div>`;
+      return `<div data-v="${esc(s)}">${esc(s)}<span>${n} route${n!==1?'s':''}</span></div>`;
     }).join('');
     box.style.display='block'; hi=-1;
     box.querySelectorAll('div').forEach(d=>{
@@ -383,20 +387,20 @@ let lastResult=null;
 function journeyCard(j, gi){
   const legs=j.legs;
   const totalStops = legs.reduce((a,l)=>a+l.stops.length-1,0)+1;
-  const buses = legs.map((l,i)=>`<span class="bus k${i}">${l.route}<em>${l.kind==='government'?'GOV':'PVT'}</em></span>`)
+  const buses = legs.map((l,i)=>`<span class="bus k${i}">${esc(l.route)}<em>${l.kind==='government'?'GOV':'PVT'}</em></span>`)
                     .join('<span class="arrow">&rsaquo;</span>');
-  const changes = legs.slice(0,-1).map(l=>`<b>${l.to}</b>`);
+  const changes = legs.slice(0,-1).map(l=>`<b>${esc(l.to)}</b>`);
   const changeTxt = changes.length
       ? `change at ${changes.join(' &amp; ')}` : 'no changes';
   const legHtml = legs.map((l,i)=>{
     const mid = l.stops.slice(1,-1);
     const sl = mid.length
       ? `<span class="toggle" onclick="event.stopPropagation();this.nextElementSibling.classList.toggle('show')">${mid.length} stops between &#9662;</span>
-         <div class="stoplist">${l.stops.map(s=>`<span>${s}</span>`).join(' &middot; ')}</div>`
+         <div class="stoplist">${l.stops.map(s=>`<span>${esc(s)}</span>`).join(' &middot; ')}</div>`
       : '';
     return `<div class="leg k${i}"><div class="legdot"></div>
-      <div class="legtitle">Bus <span class="r">${l.route}</span> &nbsp;&mdash;&nbsp; ${l.from} &rarr; ${l.to}</div>
-      <div class="legmeta">${l.stops.length} stops &middot; ${l.kind} service</div>
+      <div class="legtitle">Bus <span class="r">${esc(l.route)}</span> &nbsp;&mdash;&nbsp; ${esc(l.from)} &rarr; ${esc(l.to)}</div>
+      <div class="legmeta">${l.stops.length} stops &middot; ${esc(l.kind)} service</div>
       ${sl}</div>`;
   }).join('');
   return `<div class="card" data-g="${gi}">
@@ -484,7 +488,7 @@ function drawJourney(j){
         border:2.5px solid #f8f4e9;box-shadow:0 1px 4px rgba(0,0,0,.4);
         font:700 ${big?12:10}px 'Spline Sans Mono',monospace">${m.t==='~'?'&#8645;':m.t}</div>`,
       iconSize:[big?26:18,big?26:18],iconAnchor:[big?13:9,big?13:9]})})
-      .addTo(layer).bindPopup(`<b class="pin">${m.s}</b>`);
+      .addTo(layer).bindPopup(`<b class="pin">${esc(m.s)}</b>`);
   });
   if(allPts.length){
     map.fitBounds(L.latLngBounds(allPts).pad(0.25),{maxZoom:14});
