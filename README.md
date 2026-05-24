@@ -76,4 +76,4 @@ If this helped you, please star the repo:
 
 https://github.com/Akash190104/kolkata-bus-route
 
-Route corrections, stop-name fixes, and geocoding improvements are welcome.
+Route corrections, stop-name fixes, and geocoding improvements are welcome. Thank you.
