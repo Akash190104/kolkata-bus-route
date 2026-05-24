@@ -12,6 +12,7 @@ Burrabazar, Dum Dum/Dumdum, ...). Everything below funnels through canon().
 """
 import json, re, itertools
 from collections import defaultdict, deque
+from pathlib import Path
 
 # ---------------------------------------------------------------- normalisation
 # 1) token-level spelling fixes applied to the lowercased, punctuation-stripped key
@@ -336,7 +337,9 @@ data = {
                "lat": HUB.get(s, [None, None])[0], "lng": HUB.get(s, [None, None])[1]}
               for s in sorted(stops, key=lambda s: -len(stop_routes[s]))],
 }
-json.dump(data, open("busdata.json", "w"), ensure_ascii=False)
+for output_path in (Path("busdata.json"), Path("src/data/busdata.json")):
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    output_path.write_text(json.dumps(data, ensure_ascii=False), encoding="utf-8")
 print(f"exported busdata.json  ({len(data['routes'])} routes, {len(data['stops'])} stops, "
       f"{sum(1 for s in stops if s in HUB)} geocoded)")
 
