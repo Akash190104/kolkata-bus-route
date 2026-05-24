@@ -105,6 +105,7 @@ SPELLING = {
     "bidhan nagar college": "bidhannagar college",
     "p t s": "pts",
     "jadavpur p s": "jadavpur ps",
+    "jadavpur thana": "jadavpur ps",
     "e m bypass": "em bypass",
     "b k paul": "bk paul",
     "s m nagar": "sm nagar",
@@ -267,7 +268,52 @@ def display_code(route):
     origin = MINI_PUBLIC_ORIGINS.get(key, route["origin"])
     return f"{origin} {route['dest']} Mini"
 
+def enrich_short_gaps(routes, max_missing=2):
+    """Fill short omitted stops when another route proves they sit between a pair."""
+    between = {}
+    for route in routes:
+        stops = route["stops"]
+        for i, a in enumerate(stops):
+            for j in range(i + 2, min(len(stops), i + max_missing + 3)):
+                b = stops[j]
+                mid = stops[i + 1:j]
+                if not mid:
+                    continue
+                cur = between.get((a, b))
+                if cur is None or len(mid) > len(cur):
+                    between[(a, b)] = mid
+                    between[(b, a)] = list(reversed(mid))
+
+    added = 0
+    for route in routes:
+        expanded = []
+        stops = route["stops"]
+        for a, b in zip(stops, stops[1:]):
+            expanded.append(a)
+            mid = between.get((a, b))
+            if not mid:
+                continue
+            if b in mid or a in mid:
+                continue
+            if any(stop in stops or stop in expanded for stop in mid):
+                continue
+            if expanded[-1] == mid[0]:
+                mid = mid[1:]
+            if mid and b == mid[-1]:
+                mid = mid[:-1]
+            if not mid:
+                continue
+            for stop in mid:
+                if stop != expanded[-1]:
+                    expanded.append(stop)
+                    added += 1
+        expanded.append(stops[-1])
+        route["stops"] = expanded
+    print(f"filled {added} short omitted stops")
+
 # ---------------------------------------------------------------- graph
+enrich_short_gaps(routes)
+
 stop_routes = defaultdict(set)          # stop -> set(route index)
 for i, r in enumerate(routes):
     for s in set(r["stops"]):
@@ -315,7 +361,7 @@ def find(o, d):
 
     # ---- direct
     for r in sorted(start & end, key=lambda r: abs(idx(r, o) - idx(r, d))):
-        out["direct"].append({"legs": [{"route": routes[r]["code"],
+        out["direct"].append({"legs": [{"route": display_code(routes[r]),
                                         "kind": routes[r]["kind"],
                                         "from": o, "to": d,
                                         "stops": seg(r, o, d)}]})
@@ -336,9 +382,9 @@ def find(o, d):
             cands.append((cost, r1, r2, t))
     for cost, r1, r2, t in sorted(cands)[:10]:
         out["one"].append({"legs": [
-            {"route": routes[r1]["code"], "kind": routes[r1]["kind"],
+            {"route": display_code(routes[r1]), "kind": routes[r1]["kind"],
              "from": o, "to": t, "stops": seg(r1, o, t)},
-            {"route": routes[r2]["code"], "kind": routes[r2]["kind"],
+            {"route": display_code(routes[r2]), "kind": routes[r2]["kind"],
              "from": t, "to": d, "stops": seg(r2, t, d)}]})
 
     # ---- two transfers
@@ -374,11 +420,11 @@ def find(o, d):
                     c2.append((bcost, r1, r2, r3, bt[0], bt[1]))
         for cost, r1, r2, r3, a, b in sorted(c2)[:6]:
             out["two"].append({"legs": [
-                {"route": routes[r1]["code"], "kind": routes[r1]["kind"],
+                {"route": display_code(routes[r1]), "kind": routes[r1]["kind"],
                  "from": o, "to": a, "stops": seg(r1, o, a)},
-                {"route": routes[r2]["code"], "kind": routes[r2]["kind"],
+                {"route": display_code(routes[r2]), "kind": routes[r2]["kind"],
                  "from": a, "to": b, "stops": seg(r2, a, b)},
-                {"route": routes[r3]["code"], "kind": routes[r3]["kind"],
+                {"route": display_code(routes[r3]), "kind": routes[r3]["kind"],
                  "from": b, "to": d, "stops": seg(r3, b, d)}]})
     return out
 
