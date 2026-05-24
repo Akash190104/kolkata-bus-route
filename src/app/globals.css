@@ -173,14 +173,6 @@ body {
   transform: translateY(-1px);
 }
 
-.install-box {
-  position: relative;
-  display: inline-flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 8px;
-}
-
 .btn-install {
   display: inline-flex;
   align-items: center;
@@ -208,30 +200,6 @@ body {
   height: 16px;
   fill: currentColor;
   flex-shrink: 0;
-}
-
-.install-guide {
-  width: min(300px, calc(100vw - 36px));
-  padding: 12px 14px;
-  border: 1.5px solid var(--accent);
-  background: var(--accent-soft);
-  border-radius: var(--radius);
-  color: var(--soft);
-}
-
-.install-guide b {
-  display: block;
-  font-family: var(--font-display);
-  font-size: 15px;
-  line-height: 1.25;
-  color: var(--ink);
-  margin-bottom: 4px;
-}
-
-.install-guide span {
-  display: block;
-  font-size: 13px;
-  line-height: 1.45;
 }
 
 .hits-chip {
@@ -409,10 +377,6 @@ body {
     justify-content: center;
   }
 
-  .install-box,
-  .install-guide {
-    width: 100%;
-  }
 }
 
 /* Go button */
