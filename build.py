@@ -129,6 +129,8 @@ def canon(name):
 #   CODE:- Origin to Destination [via a, b]
 #   CODE: Origin to Destination ( via a, b )
 #   VS1:- Origin to Destination via a, b        (no brackets)
+#   DN12: Origin - Destination [Via: a, b]
+#   RT-35: Origin to Destination [a, b]          (bracketed stops, no "via")
 def parse(path, kind):
     routes, skipped = [], 0
     for raw in open(path, encoding="utf-8"):
@@ -138,16 +140,29 @@ def parse(path, kind):
         code, rest = line.split(":", 1)
         code = code.strip()
         rest = rest.strip().lstrip("-").strip()
-        m = re.search(r"\bvia\b", rest, re.I)                 # locate the via-list
-        head, via = (rest[:m.start()], rest[m.end():]) if m else (rest, "")
+        bracket = re.search(r"\[(.*?)\]\s*$", rest)
+        if bracket:
+            head = rest[:bracket.start()]
+            via = bracket.group(1)
+        else:
+            m = re.search(r"\bvia\b", rest, re.I)             # locate the via-list
+            head, via = (rest[:m.start()], rest[m.end():]) if m else (rest, "")
         head = head.strip().rstrip("[(").strip()
+        via = re.sub(r"^\s*via\s*[:-]?\s*", "", via, flags=re.I)
         via = via.strip().lstrip(":").strip(" []()").rstrip(").]").strip()
         low = head.lower()
-        if " to " not in low:
+        if " to " in low:
+            i = low.find(" to ")
+            origin, dest = head[:i], head[i+4:]
+        else:
+            m = re.search(r"\s+-\s+", head)
+            if not m:
+                skipped += 1; continue
+            origin, dest = head[:m.start()], head[m.end():]
+        if not origin.strip() or not dest.strip():
             skipped += 1; continue
-        i = low.find(" to ")
-        origin = re.sub(r"\(.*?\)", "", head[:i]).strip()     # drop parentheticals
-        dest   = re.sub(r"\(.*?\)", "", head[i+4:]).strip()
+        origin = re.sub(r"\(.*?\)", "", origin).strip()       # drop parentheticals
+        dest   = re.sub(r"\(.*?\)", "", dest).strip()
         parts = [origin] + re.split(r"[,/]", via) + [dest]    # split on , and /
         seq = []
         for p in parts:
