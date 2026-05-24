@@ -1,0 +1,24 @@
+{
+  "name": "Kolkata Bus Router",
+  "short_name": "Kolkata Bus",
+  "description": "Find direct buses, one-change routes, and two-change routes across Kolkata.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#f7f9f6",
+  "theme_color": "#1f6f4a",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

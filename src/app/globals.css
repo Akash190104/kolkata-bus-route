@@ -173,8 +173,15 @@ body {
   transform: translateY(-1px);
 }
 
-.btn-install {
+.install-box {
   position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.btn-install {
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -203,52 +210,28 @@ body {
   flex-shrink: 0;
 }
 
-.install-popover {
-  position: fixed;
-  right: 24px;
-  bottom: 24px;
-  z-index: 50;
-  width: min(320px, calc(100vw - 36px));
-  padding: 18px 46px 18px 18px;
-  border: 1.5px solid var(--ink);
-  background: var(--card);
+.install-guide {
+  width: min(300px, calc(100vw - 36px));
+  padding: 12px 14px;
+  border: 1.5px solid var(--accent);
+  background: var(--accent-soft);
   border-radius: var(--radius);
-  box-shadow: 0 18px 40px -18px rgba(22, 33, 26, 0.35);
   color: var(--soft);
 }
 
-.install-popover b {
+.install-guide b {
   display: block;
   font-family: var(--font-display);
-  font-size: 17px;
+  font-size: 15px;
   line-height: 1.25;
   color: var(--ink);
-  margin-bottom: 6px;
+  margin-bottom: 4px;
 }
 
-.install-popover span {
+.install-guide span {
   display: block;
-  font-size: 14px;
+  font-size: 13px;
   line-height: 1.45;
-}
-
-.install-popover-close {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  width: 28px;
-  height: 28px;
-  border: 1px solid var(--line);
-  background: var(--paper);
-  color: var(--ink);
-  border-radius: 999px;
-  cursor: pointer;
-  font-size: 18px;
-  line-height: 1;
-}
-
-.install-popover-close:hover {
-  background: var(--accent-soft);
 }
 
 .hits-chip {
@@ -426,9 +409,9 @@ body {
     justify-content: center;
   }
 
-  .install-popover {
-    right: 18px;
-    bottom: 18px;
+  .install-box,
+  .install-guide {
+    width: 100%;
   }
 }
 

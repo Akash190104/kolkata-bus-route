@@ -11,6 +11,11 @@ type NavigatorWithStandalone = Navigator & {
   standalone?: boolean;
 };
 
+function isIosDevice() {
+  if (typeof window === 'undefined') return false;
+  return /iphone|ipad|ipod/i.test(window.navigator.userAgent);
+}
+
 function isStandalone() {
   if (typeof window === 'undefined') return false;
   const navigatorWithStandalone = window.navigator as NavigatorWithStandalone;
@@ -20,11 +25,13 @@ function isStandalone() {
 export default function AddToHomeScreenButton() {
   const [installPrompt, setInstallPrompt] = useState<BeforeInstallPromptEvent | null>(null);
   const [isInstalled, setIsInstalled] = useState(false);
-  const [showHelp, setShowHelp] = useState(false);
+  const [showGuide, setShowGuide] = useState(false);
+  const [isIos, setIsIos] = useState(false);
 
   useEffect(() => {
     const animationFrame = window.requestAnimationFrame(() => {
       setIsInstalled(isStandalone());
+      setIsIos(isIosDevice());
     });
 
     const handleBeforeInstallPrompt = (event: Event) => {
@@ -36,7 +43,7 @@ export default function AddToHomeScreenButton() {
     const handleInstalled = () => {
       setInstallPrompt(null);
       setIsInstalled(true);
-      setShowHelp(false);
+      setShowGuide(false);
     };
 
     window.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
@@ -51,7 +58,7 @@ export default function AddToHomeScreenButton() {
 
   const handleInstall = async () => {
     if (!installPrompt) {
-      setShowHelp(true);
+      setShowGuide((current) => !current);
       return;
     }
 
@@ -66,28 +73,24 @@ export default function AddToHomeScreenButton() {
   if (isInstalled) return null;
 
   return (
-    <>
+    <div className="install-box">
       <button className="btn-install" type="button" onClick={handleInstall}>
         <svg viewBox="0 0 24 24" aria-hidden="true">
           <path d="M12 3a1 1 0 0 1 1 1v8.59l2.3-2.3a1 1 0 1 1 1.4 1.42l-4 4a1 1 0 0 1-1.4 0l-4-4a1 1 0 1 1 1.4-1.42l2.3 2.3V4a1 1 0 0 1 1-1Zm-7 11a1 1 0 0 1 1 1v3h12v-3a1 1 0 1 1 2 0v4a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-4a1 1 0 0 1 1-1Z" />
         </svg>
-        Add to homescreen
+        {installPrompt ? 'Add to homescreen' : 'How to add'}
       </button>
 
-      {showHelp && (
-        <div className="install-popover" role="dialog" aria-label="Add to homescreen instructions">
-          <button
-            className="install-popover-close"
-            type="button"
-            onClick={() => setShowHelp(false)}
-            aria-label="Close add to homescreen instructions"
-          >
-            ×
-          </button>
+      {showGuide && !installPrompt && (
+        <div className="install-guide" aria-live="polite">
           <b>Add this app to your homescreen</b>
-          <span>Use your browser menu, then choose Add to Home Screen or Install App.</span>
+          {isIos ? (
+            <span>Open Safari, tap Share, then choose Add to Home Screen.</span>
+          ) : (
+            <span>Open your browser menu and choose Install App or Add to Home screen.</span>
+          )}
         </div>
       )}
-    </>
+    </div>
   );
 }

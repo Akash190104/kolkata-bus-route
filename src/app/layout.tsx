@@ -1,10 +1,17 @@
 import type { Metadata, Viewport } from "next";
+import ServiceWorkerRegistration from "@/components/ServiceWorkerRegistration";
 import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Kolkata Bus Router",
   description:
     "Find direct buses, one-change routes, and two-change routes across Kolkata's private & government bus network.",
+  manifest: "/manifest.webmanifest",
+  appleWebApp: {
+    capable: true,
+    title: "Kolkata Bus",
+    statusBarStyle: "default",
+  },
   openGraph: {
     title: "Kolkata Bus Router",
     description:
@@ -32,7 +39,10 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body>{children}</body>
+      <body>
+        <ServiceWorkerRegistration />
+        {children}
+      </body>
     </html>
   );
 }
