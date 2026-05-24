@@ -3,9 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "predev": "python3 build.py",
     "dev": "next dev",
-    "prebuild": "python3 build.py",
     "build": "next build",
     "start": "next start",
     "lint": "eslint"
