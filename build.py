@@ -249,6 +249,24 @@ def parse(path, kind):
 routes = parse("raw_private.txt", "private") + parse("raw_govt.txt", "government")
 print(f"parsed {len(routes)} routes")
 
+PRIVATE_MINI_CODE = re.compile(r"^(S-\d|M-\d|MM\d|MN\d)", re.I)
+MINI_PUBLIC_ORIGINS = {
+    "s-106": "Santoshpur",
+    "santoshpur mini": "Santoshpur",
+}
+
+def display_code(route):
+    """Use public-facing names for private mini buses instead of fleet-style codes."""
+    code = route["code"].strip()
+    key = code.lower()
+    is_mini = route["kind"] == "private" and (
+        PRIVATE_MINI_CODE.match(code) or key.endswith(" mini")
+    )
+    if not is_mini:
+        return code
+    origin = MINI_PUBLIC_ORIGINS.get(key, route["origin"])
+    return f"{origin} {route['dest']} Mini"
+
 # ---------------------------------------------------------------- graph
 stop_routes = defaultdict(set)          # stop -> set(route index)
 for i, r in enumerate(routes):
@@ -401,7 +419,7 @@ HUB = {
 
 # ---------------------------------------------------------------- export
 data = {
-    "routes": [{"code": r["code"], "kind": r["kind"], "stops": r["stops"]} for r in routes],
+    "routes": [{"code": display_code(r), "kind": r["kind"], "stops": r["stops"]} for r in routes],
     "stops": [{"name": s, "routes": len(stop_routes[s]),
                "lat": HUB.get(s, [None, None])[0], "lng": HUB.get(s, [None, None])[1]}
               for s in sorted(stops, key=lambda s: -len(stop_routes[s]))],
