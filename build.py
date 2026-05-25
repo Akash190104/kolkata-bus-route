@@ -767,8 +767,9 @@ try:
         flags=re.S,
     )
     if replaced:
-        open("kolkata-bus-router.html", "w", encoding="utf-8").write(html)
-        print("embedded route data in kolkata-bus-router.html")
+        for page in ("kolkata-bus-router.html", "kolkata-travel-router.html", "index.html"):
+            open(page, "w", encoding="utf-8").write(html)
+        print("embedded route data in kolkata-bus-router.html and travel aliases")
     else:
         print("warning: could not find embedded DATA block to refresh")
 except FileNotFoundError:
