@@ -34,6 +34,7 @@ SPELLING = {
     "girishpark": "girish park",
     "manicktala": "maniktala",
     "ballygaunj": "ballygunge", "ballygunj": "ballygunge",
+    "belgachhia": "belgachia",
     "sova bajar": "sovabazar", "sova bazar": "sovabazar",
     "sobhabazar": "sovabazar", "shobhabazar": "sovabazar",
     "haldiram": "haldirams",
@@ -247,13 +248,17 @@ def parse(path, kind):
         print(f"  ({skipped} non-route lines skipped in {path})")
     return routes
 
-routes = parse("raw_private.txt", "private") + parse("raw_govt.txt", "government")
-print(f"parsed {len(routes)} routes")
-
 PRIVATE_MINI_CODE = re.compile(r"^(S-\d|M-\d|MM\d|MN\d)", re.I)
 MINI_PUBLIC_ORIGINS = {
     "s-106": "Santoshpur",
     "santoshpur mini": "Santoshpur",
+}
+METRO_LINE_LABELS = {
+    "BLUE": "Metro Blue Line",
+    "GREEN": "Metro Green Line",
+    "ORANGE": "Metro Orange Line",
+    "YELLOW": "Metro Yellow Line",
+    "PURPLE": "Metro Purple Line",
 }
 
 def display_code(route):
@@ -311,8 +316,65 @@ def enrich_short_gaps(routes, max_missing=2):
         route["stops"] = expanded
     print(f"filled {added} short omitted stops")
 
+def nearest_bus_stops(raw):
+    raw = raw.replace("—", "/")
+    raw = re.sub(r"\([^)]*\)", "", raw)
+    out = []
+    for part in re.split(r"\s*/\s*", raw):
+        stop = canon(part)
+        if stop and stop not in out:
+            out.append(stop)
+    return out
+
+def parse_metro(path):
+    routes, current, stops = [], None, []
+
+    def flush():
+        nonlocal stops, current
+        if current and len(stops) >= 2:
+            routes.append({
+                "code": current,
+                "kind": "metro",
+                "origin": stops[0],
+                "dest": stops[-1],
+                "stops": stops,
+            })
+        stops = []
+
+    try:
+        rows = open(path, encoding="utf-8")
+    except FileNotFoundError:
+        return routes
+
+    for raw in rows:
+        line = raw.strip()
+        m = re.match(r"([A-Z]+) LINE .*—", line)
+        if m:
+            flush()
+            current = METRO_LINE_LABELS.get(m.group(1))
+            continue
+        if not current or "|" not in line or line.startswith("-"):
+            continue
+        station, nearest = [p.strip() for p in line.split("|", 1)]
+        if not station or station.lower().startswith("metro station"):
+            continue
+        station_stop = canon(station)
+        access_stops = nearest_bus_stops(nearest)
+        for stop in [station_stop, *access_stops]:
+            if stop and (not stops or stops[-1] != stop):
+                stops.append(stop)
+    flush()
+    return routes
+
 # ---------------------------------------------------------------- graph
-enrich_short_gaps(routes)
+bus_routes = parse("raw_private.txt", "private") + parse("raw_govt.txt", "government")
+print(f"parsed {len(bus_routes)} bus routes")
+enrich_short_gaps(bus_routes)
+
+metro_routes = parse_metro("Kolkata_Metro_Bus_Connections.txt")
+print(f"parsed {len(metro_routes)} metro routes")
+
+routes = bus_routes + metro_routes
 
 stop_routes = defaultdict(set)          # stop -> set(route index)
 for i, r in enumerate(routes):
@@ -351,6 +413,12 @@ def best_transfer(r1, r2, o, d):
             best, bc = t, c
     return best, bc
 
+def uses_metro(*route_ids):
+    return any(routes[r]["kind"] == "metro" for r in route_ids)
+
+def metro_count(*route_ids):
+    return sum(1 for r in route_ids if routes[r]["kind"] == "metro")
+
 def find(o, d):
     o, d = canon(o), canon(d)
     out = {"origin": o, "dest": d, "direct": [], "one": [], "two": []}
@@ -360,7 +428,7 @@ def find(o, d):
     start, end = stop_routes[o], stop_routes[d]
 
     # ---- direct
-    for r in sorted(start & end, key=lambda r: abs(idx(r, o) - idx(r, d))):
+    for r in sorted(start & end, key=lambda r: (not uses_metro(r), abs(idx(r, o) - idx(r, d)))):
         out["direct"].append({"legs": [{"route": display_code(routes[r]),
                                         "kind": routes[r]["kind"],
                                         "from": o, "to": d,
@@ -379,8 +447,8 @@ def find(o, d):
             if t is None or t in (o, d):
                 continue
             seen.add(key)
-            cands.append((cost, r1, r2, t))
-    for cost, r1, r2, t in sorted(cands)[:10]:
+            cands.append((not uses_metro(r1, r2), -metro_count(r1, r2), cost, r1, r2, t))
+    for _, _, cost, r1, r2, t in sorted(cands)[:10]:
         out["one"].append({"legs": [
             {"route": display_code(routes[r1]), "kind": routes[r1]["kind"],
              "from": o, "to": t, "stops": seg(r1, o, t)},
@@ -417,8 +485,8 @@ def find(o, d):
                     if bt is None:
                         continue
                     seen2.add(key)
-                    c2.append((bcost, r1, r2, r3, bt[0], bt[1]))
-        for cost, r1, r2, r3, a, b in sorted(c2)[:6]:
+                    c2.append((not uses_metro(r1, r2, r3), -metro_count(r1, r2, r3), bcost, r1, r2, r3, bt[0], bt[1]))
+        for _, _, cost, r1, r2, r3, a, b in sorted(c2)[:6]:
             out["two"].append({"legs": [
                 {"route": display_code(routes[r1]), "kind": routes[r1]["kind"],
                  "from": o, "to": a, "stops": seg(r1, o, a)},

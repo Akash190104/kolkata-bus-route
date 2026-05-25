@@ -1,8 +1,8 @@
-# Kolkata Bus Route
+# Kolkata Bus + Metro Route
 
-A simple, static route finder for Kolkata buses.
+A simple, static route finder for Kolkata buses and metro connections.
 
-Kolkata moves by bus, but route information is scattered across memory, local advice, and fragmented lists. This project turns that route data into a searchable graph so people can find direct buses, one-change journeys, and two-change journeys between stops.
+Kolkata moves by bus and metro, but route information is scattered across memory, local advice, and fragmented lists. This project turns that route data into a searchable graph so people can find direct, one-change, and two-change journeys between stops.
 
 Live site: https://kolkata-bus-route.vercel.app
 
@@ -11,7 +11,8 @@ Live site: https://kolkata-bus-route.vercel.app
 - Search by starting stop and destination stop
 - Autocomplete for known bus stops
 - Direct, one-change, and two-change route suggestions
-- Route cards showing buses, transfers, and stop counts
+- Metro-first recommendations when a useful metro route is available
+- Route cards showing buses, metro legs, transfers, and stop counts
 - Map plotting for geocoded stops
 - Vercel Web Analytics support
 - Public visitor badge on the site
@@ -24,6 +25,7 @@ Live site: https://kolkata-bus-route.vercel.app
 - `busdata.json` - generated route dataset
 - `raw_private.txt` - raw private bus route source data
 - `raw_govt.txt` - raw government bus route source data
+- `Kolkata_Metro_Bus_Connections.txt` - metro lines and nearest bus-stop connections
 - `vercel.json` - Vercel static hosting configuration
 
 ## Run Locally
