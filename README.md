@@ -1,10 +1,12 @@
-# Kolkata Bus + Metro Route
+# Kolkata Travel Router
 
 A simple, static route finder for Kolkata buses and metro connections.
 
 Kolkata moves by bus and metro, but route information is scattered across memory, local advice, and fragmented lists. This project turns that route data into a searchable graph so people can find direct, one-change, and two-change journeys between stops.
 
-Live site: https://kolkata-bus-route.vercel.app
+Live site: https://kolkata-travel-router.vercel.app
+
+Old link: https://kolkata-bus-route.vercel.app redirects to the new site after the Vercel project/domain change is deployed.
 
 ## Features
 
@@ -41,7 +43,7 @@ python3 -m http.server 8080
 Then visit:
 
 ```text
-http://localhost:8080/kolkata-bus-router.html
+http://localhost:8080/kolkata-travel-router
 ```
 
 ## Rebuild Data
@@ -53,10 +55,13 @@ python3 build.py
 ```
 
 This regenerates `busdata.json`. If you change the dataset, make sure the app's embedded `DATA` object is refreshed before deploying.
+`build.py` refreshes both `busdata.json` and the embedded app data.
 
 ## Deploy
 
-The site is deployed on Vercel as a static project.
+The site is deployed on Vercel as a static project. Use `kolkata-travel-router`
+as the new project name, and keep the old `kolkata-bus-route.vercel.app`
+deployment configured with the redirect in `vercel.json`.
 
 ```bash
 vercel deploy --prod

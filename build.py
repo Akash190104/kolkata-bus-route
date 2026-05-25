@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Kolkata Bus Router — data pipeline
+Kolkata Travel Router — data pipeline
 ----------------------------------
 Reads raw route dumps (format:  CODE: Origin to Destination | stop, stop, ...),
 normalises the inconsistent stop names, builds a routing graph, and exports a
@@ -13,12 +13,18 @@ Burrabazar, Dum Dum/Dumdum, ...). Everything below funnels through canon().
 import json, re, itertools
 from collections import defaultdict, deque
 
+GRAPH_INSERT_MIN_KM = 0.8
+GRAPH_INSERT_MAX_KM = 2.2
+GRAPH_INSERT_MAX_PER_EDGE = 3
+
 # ---------------------------------------------------------------- normalisation
 # 1) token-level spelling fixes applied to the lowercased, punctuation-stripped key
 SPELLING = {
     "rashbihari": "rashbehari", "rasbehari": "rashbehari",
     "khiderpur": "kidderpore", "khidirpur": "kidderpore", "kidderpur": "kidderpore",
+    "khidderpore": "kidderpore", "khiderpore": "kidderpore",
     "burrabazar": "barabazar", "burra bazar": "barabazar",
+    "bazer": "bazar",
     "mominpur": "mominpore",
     "bhawanipur": "bhowanipore", "bhowanipur": "bhowanipore", "bhawanipore": "bhowanipore",
     "tollygunj": "tollygunge",
@@ -35,17 +41,26 @@ SPELLING = {
     "manicktala": "maniktala",
     "ballygaunj": "ballygunge", "ballygunj": "ballygunge",
     "belgachhia": "belgachia",
+    "belgacchia": "belgachia",
+    "belghoria": "belgharia",
+    "beliaghata": "beleghata",
     "sova bajar": "sovabazar", "sova bazar": "sovabazar",
     "sobhabazar": "sovabazar", "shobhabazar": "sovabazar",
     "haldiram": "haldirams",
     "anwarsah road": "anwar shah road", "anwar sha connector": "prince anwar shah connector",
+    "p a sha connector": "prince anwar shah connector",
+    "p a shah road": "anwar shah road", "pa shah road": "anwar shah road",
+    "p a sha road": "anwar shah road",
     # --- added after duplicate audit (pure spelling variants) ---
     "dakshineshwar": "dakshineswar",
     "chadni": "chandni",
     "nagerbazar": "nager bazar",
     "sakherbazar": "sakher bazar",
+    "sakherbzar": "sakher bazar",
     "mallickbazar": "mallick bazar",
+    "mullickbazar": "mallick bazar",
     "shishu": "sishu",
+    "shishumangal": "sishu mangal",
     "alipur": "alipore",
     "baishnabghata": "baisnabghata",
     "golfgreen": "golf green",
@@ -59,6 +74,55 @@ SPELLING = {
     "gobindopur": "gobindapur",
     "malncha": "malancha",
     "tegharia": "teghoria",
+    "majerhat": "majherhat",
+    "sarobar": "sarovar",
+    "phillips": "philips",
+    "chingrihata": "chingrighata",
+    "uttar panchannangram": "uttar panchannagram",
+    "techonopolis": "technopolis",
+    "akansha": "akanksha",
+    "akankha": "akanksha",
+    "highland park": "hiland park",
+    "belepol": "belepole",
+    "moulai": "moulali",
+    "rabinrasadan": "rabindra sadan",
+    "susrut": "sushrut",
+    "shreebhumi": "sreebhumi",
+    "santragachhi": "santragachi",
+    "bamangachhi": "bamangachi",
+    "joygachhi": "joygachi",
+    "joygacchi": "joygachi",
+    "bhaban": "bhawan",
+    "udainarayanpur": "udaynarayanpur",
+    "udanarayanpur": "udaynarayanpur",
+    "udaynaryanpur": "udaynarayanpur",
+    "bashirhat": "basirhat",
+    "ramnarayanpurramnarayanpur": "ramnarayanpur",
+    "v i p": "vip",
+    "ultodanga": "ultadanga",
+    "doltola": "doltala",
+    "bonhoogly": "bonhooghly",
+    "silpara": "shilpara",
+    "champadali": "chapadali",
+    "nababpur": "nawabpur",
+    "bakshara": "baksara",
+    "mallikbazar": "mallick bazar",
+    "jinjira": "jhinjhira",
+    "bajar": "bazar",
+    "shirakol": "shirakole",
+    "shirakhole": "shirakole",
+    "kadambagacchi": "kadambagachi",
+    "sevasram": "sevashram",
+    "sodpur": "sodepur",
+    "murarishah": "murarisha",
+    "vandergachha": "vandergacha",
+    "notun rastar": "natun rasta",
+    "natun rastar": "natun rasta",
+    "mahisbatan": "mahishbathan",
+    "mahisbathan": "mahishbathan",
+    "subhasnagar": "subhash nagar",
+    "najrul": "nazrul",
+    "kazi bari": "kazibari",
     "d l f": "dlf",
     "b t": "bt",
     "b t college": "bt college",
@@ -79,12 +143,15 @@ SPELLING = {
     "new barrack pore": "new barrackpore",
     "michael nagar": "michaelnagar",
     "ashok nagar": "ashoknagar",
+    "ashoknaga": "ashoknagar",
+    "ashokenagar": "ashoknagar",
     "lake town": "laketown",
     "bally halt": "ballyhalt",
     "bally ghat": "ballyghat",
     "sukanta nagar": "sukantanagar",
     "rabindrasadan": "rabindra sadan",
     "beckbagan": "beck bagan",
+    "bekbagan": "beck bagan",
     "dutta pukur": "duttapukur",
     "bakul tala": "bakultala",
     "bow bazar": "bowbazar",
@@ -132,10 +199,32 @@ ALIASES = {
     "sealdah station": "sealdah", "sealdah stn": "sealdah",
     "central metro": "central",
     "maidan metro": "maidan",
+    "howrah": "howrah station",
     "chandni": "chandni chowk", "chandni market": "chandni chowk",
     "shyambazar 5 point": "shyambazar",
     "rg kar hospital": "rg kar", "r g kar": "rg kar",
     "ruby hospital": "ruby",
+    "belgachia metro": "belgachia",
+    "sovabazar metro": "sovabazar", "sovabazar sutanuti": "sovabazar",
+    "mahatma gandhi road": "mg road", "mg road metro": "mg road",
+    "building": "beleghata building",
+    "cit": "beleghata cit",
+    "id hospital": "beleghata id hospital",
+    "sales tax": "beleghata sales tax",
+    "college": "college more",
+    "saltlake karunamoyee": "karunamoyee",
+    "saltlake sector v": "sector v", "sector v saltlake": "sector v",
+    "sec v": "sector v",
+    "city center": "city center 1", "city centre": "city center 1",
+    "city centre 1": "city center 1", "city centre 2": "city center 2",
+    "durgapur city centre": "durgapur city center",
+    "ballygunge stn": "ballygunge station",
+    "ballygunge s t n": "ballygunge station",
+    "santragachi bus terminal": "santragachi bus terminus",
+    "unitech gate no 1": "unitech gate 1",
+    "airport 1 no gate": "airport gate 1",
+    "airport 3 no gate": "airport gate 3",
+    "bridge 4": "4 no bridge", "bridge no 4": "4 no bridge",
     # shorthand -> full name (keeps the place distinct, just spelled in full)
     "8b": "jadavpur 8b",
     "hudco": "ultadanga hudco",
@@ -164,12 +253,44 @@ ALIASES = {
     "shapoorji housing": "shapoorji",
     "sukho brishti": "shapoorji", "sukhobrishti": "shapoorji",
 }
+IGNORED_STOPS = {"more", "2", "3"}
+STOP_EXPANSIONS = {
+    "thakurpukur bazar thakurpukur 3a": ["Thakurpukur Bazar", "Thakurpukur 3A"],
+}
 # words that mark a junction -- "X More" is the same point as "X"
 JUNCTION = re.compile(r"\s+(more|crossing|xing)$")
 
+def strip_notes(name):
+    """Remove bracketed clarifications that otherwise become fake stop names."""
+    s = re.sub(r"\([^)]*\)", "", name)
+    s = re.sub(r"\[[^\]]*\]", "", s)
+    s = re.sub(r"[\(\[].*$", "", s)
+    s = s.replace(")", " ").replace("]", " ")
+    return re.sub(r"\s+", " ", s).strip()
+
+def raw_key(name):
+    s = strip_notes(name).lower().strip()
+    s = s.replace("&", "and")
+    s = re.sub(r"[.\(\)\[\]]", " ", s)
+    s = re.sub(r"\bno\.?\b", "no", s)
+    s = re.sub(r"\bnumber\b", "no", s)
+    return re.sub(r"\s+", " ", s).strip()
+
+def terminal_name(name):
+    s = strip_notes(name)
+    if "/" in s:
+        s = s.split("/", 1)[0].strip()
+    return s
+
+def add_stop(seq, raw_stop):
+    for item in STOP_EXPANSIONS.get(raw_key(raw_stop), [raw_stop]):
+        c = canon(item)
+        if c and (not seq or seq[-1] != c):
+            seq.append(c)
+
 def canon(name):
     """messy stop string -> canonical Title-Case display name."""
-    s = name.lower().strip()
+    s = strip_notes(name).lower().strip()
     s = s.replace("&", "and")
     s = re.sub(r"[.\(\)\[\]]", " ", s)              # drop punctuation
     s = re.sub(r"\bno\.?\b", "no", s)               # no. / no -> no
@@ -180,12 +301,15 @@ def canon(name):
     s = re.sub(r"\s+", " ", s).strip()
     s = JUNCTION.sub("", s)                         # "X More/Crossing" == "X"
     s = ALIASES.get(s, s)                           # synonym merge
+    if s in IGNORED_STOPS:
+        return ""
     out = []
     for w in s.split():
         if w in ("bbd", "rg", "mg", "ps", "pts", "bnr", "sdf", "cit",
                  "gpo", "hmg", "nshm", "dlf", "sm", "wbtc", "id", "ils",
                  "kbkc", "amri", "gst", "ca", "fd", "gd", "bt", "apc",
-                 "rn", "pg", "pnb", "em", "bk", "be"):
+                 "rn", "pg", "pnb", "em", "bk", "be", "vip", "ibm", "itc",
+                 "ongc", "bit"):
             out.append(w.upper())
         elif re.fullmatch(r"dlf\d+", w):
             out.append("DLF " + w[3:])
@@ -233,14 +357,12 @@ def parse(path, kind):
             origin, dest = head[:m.start()], head[m.end():]
         if not origin.strip() or not dest.strip():
             skipped += 1; continue
-        origin = re.sub(r"\(.*?\)", "", origin).strip()       # drop parentheticals
-        dest   = re.sub(r"\(.*?\)", "", dest).strip()
+        origin = terminal_name(origin)
+        dest = terminal_name(dest)
         parts = [origin] + re.split(r"[,/]", via) + [dest]    # split on , and /
         seq = []
         for p in parts:
-            c = canon(p)
-            if c and (not seq or seq[-1] != c):               # drop consecutive dupes
-                seq.append(c)
+            add_stop(seq, p)
         if len(seq) >= 2:
             routes.append({"code": code, "kind": kind,
                             "origin": seq[0], "dest": seq[-1], "stops": seq})
@@ -316,12 +438,105 @@ def enrich_short_gaps(routes, max_missing=2):
         route["stops"] = expanded
     print(f"filled {added} short omitted stops")
 
+def route_graph_parts(routes):
+    stop_routes = defaultdict(set)
+    for i, r in enumerate(routes):
+        for s in set(r["stops"]):
+            stop_routes[s].add(i)
+    stops = sorted(stop_routes)
+    route_set = [set(r["stops"]) for r in routes]
+    route_adj = defaultdict(set)
+    for rs in stop_routes.values():
+        for a, b in itertools.combinations(rs, 2):
+            route_adj[a].add(b)
+            route_adj[b].add(a)
+    return stop_routes, stops, route_set, route_adj
+
+def xy(stop, hub):
+    lat, lng = hub[stop]
+    return lng * 102.7, lat * 111.1
+
+def segment_match(a, b, p, hub):
+    ax, ay = xy(a, hub)
+    bx, by = xy(b, hub)
+    px, py = xy(p, hub)
+    vx, vy = bx - ax, by - ay
+    wx, wy = px - ax, py - ay
+    length2 = vx * vx + vy * vy
+    if not length2:
+        return None
+    t = (wx * vx + wy * vy) / length2
+    if t <= 0.12 or t >= 0.88:
+        return None
+    cx, cy = ax + t * vx, ay + t * vy
+    dist = ((px - cx) ** 2 + (py - cy) ** 2) ** 0.5
+    length = length2 ** 0.5
+    return t, dist, length
+
+def route_neighbors_and_counts(routes):
+    neighbors = defaultdict(set)
+    route_counts = defaultdict(int)
+    for route in routes:
+        for stop in set(route["stops"]):
+            route_counts[stop] += 1
+        for a, b in zip(route["stops"], route["stops"][1:]):
+            neighbors[a].add(b)
+            neighbors[b].add(a)
+    return neighbors, route_counts
+
+def enrich_geocoded_segments(routes, hub):
+    """
+    Insert known, geocoded stops into long route edges when geography and another
+    route both say the stop belongs on that segment.
+    """
+    neighbors, route_counts = route_neighbors_and_counts(routes)
+    candidates = [s for s in hub if route_counts.get(s, 0) >= 2]
+    added = 0
+    for route in routes:
+        stops = route["stops"]
+        route_stops = set(stops)
+        expanded = []
+        for a, b in zip(stops, stops[1:]):
+            expanded.append(a)
+            if a not in hub or b not in hub:
+                continue
+            ax, ay = xy(a, hub)
+            bx, by = xy(b, hub)
+            length = ((bx - ax) ** 2 + (by - ay) ** 2) ** 0.5
+            if length < GRAPH_INSERT_MIN_KM or length > GRAPH_INSERT_MAX_KM:
+                continue
+            threshold = min(0.36, max(0.18, length * 0.34))
+            matches = []
+            for stop in candidates:
+                if stop in route_stops or stop in (a, b):
+                    continue
+                if stop not in neighbors[a] and stop not in neighbors[b]:
+                    continue
+                match = segment_match(a, b, stop, hub)
+                if not match:
+                    continue
+                t, dist, _ = match
+                if dist <= threshold:
+                    matches.append((t, dist, stop))
+            chosen = []
+            for t, dist, stop in sorted(matches):
+                if all(abs(t - prev_t) > 0.08 for prev_t, _, _ in chosen):
+                    chosen.append((t, dist, stop))
+                if len(chosen) >= GRAPH_INSERT_MAX_PER_EDGE:
+                    break
+            for _, _, stop in chosen:
+                if stop != expanded[-1]:
+                    expanded.append(stop)
+                    added += 1
+        expanded.append(stops[-1])
+        route["stops"] = expanded
+    print(f"filled {added} geocoded segment stops")
+
 def nearest_bus_stops(raw):
     raw = raw.replace("—", "/")
-    raw = re.sub(r"\([^)]*\)", "", raw)
     out = []
     for part in re.split(r"\s*/\s*", raw):
-        stop = canon(part)
+        stop = canon(strip_notes(part))
         if stop and stop not in out:
             out.append(stop)
     return out
@@ -366,7 +581,7 @@ def parse_metro(path):
     flush()
     return routes
 
-# ---------------------------------------------------------------- graph
+# ---------------------------------------------------------------- route loading
 bus_routes = parse("raw_private.txt", "private") + parse("raw_govt.txt", "government")
 print(f"parsed {len(bus_routes)} bus routes")
 enrich_short_gaps(bus_routes)
@@ -374,22 +589,11 @@ enrich_short_gaps(bus_routes)
 metro_routes = parse_metro("Kolkata_Metro_Bus_Connections.txt")
 print(f"parsed {len(metro_routes)} metro routes")
 
-routes = bus_routes + metro_routes
-
-stop_routes = defaultdict(set)          # stop -> set(route index)
-for i, r in enumerate(routes):
-    for s in set(r["stops"]):
-        stop_routes[s].add(i)
-stops = sorted(stop_routes)
-print(f"{len(stops)} unique stops after normalisation")
-
-route_set = [set(r["stops"]) for r in routes]
-# route adjacency: two routes are linked if they share >=1 stop
+routes = []
+stop_routes = defaultdict(set)
+stops = []
+route_set = []
 route_adj = defaultdict(set)
-by_stop = list(stop_routes.values())
-for rs in by_stop:
-    for a, b in itertools.combinations(rs, 2):
-        route_adj[a].add(b); route_adj[b].add(a)
 
 def idx(r, s):
     return routes[r]["stops"].index(s)
@@ -506,8 +710,12 @@ HUB = {
  "Moulali":[22.5610,88.3680],"Rabindra Sadan":[22.5440,88.3470],"Maidan":[22.5530,88.3460],
  "Park Street":[22.5530,88.3520],"Exide":[22.5430,88.3520],"Hazra More":[22.5260,88.3450],
  "Kalighat":[22.5180,88.3430],"Rashbehari":[22.5140,88.3530],"Gariahat":[22.5170,88.3660],
- "Golpark":[22.5130,88.3650],"Dhakuria":[22.5040,88.3680],"Jadavpur 8B":[22.4970,88.3710],
+ "Golpark":[22.5130,88.3650],"Dhakuria":[22.5040,88.3680],"Jodhpur Park":[22.5055,88.3635],
+ "Jadavpur 8B":[22.4970,88.3710],
  "Jadavpur PS":[22.4960,88.3690],"Tollygunge":[22.5010,88.3460],"Tollygunge Phari":[22.5020,88.3500],
+ "South City":[22.5017,88.3617],"Lords":[22.5020,88.3564],"Lake Gardens":[22.5053,88.3548],
+ "Anwar Shah Road":[22.5020,88.3495],"Prince Anwar Shah Connector":[22.5018,88.3520],
+ "Jogesh Chandra College":[22.5030,88.3495],
  "Behala Chowrasta":[22.4980,88.3110],"Behala 14 No":[22.5060,88.3170],"Taratala":[22.5160,88.3120],
  "Majherhat":[22.5230,88.3210],"Mominpore":[22.5310,88.3270],"Ekbalpur":[22.5350,88.3280],
  "Kidderpore":[22.5380,88.3320],"Hastings":[22.5470,88.3340],"Fort William":[22.5540,88.3410],
@@ -531,6 +739,12 @@ HUB = {
  "Rajabazar":[22.5790,88.3760],"Khanna Cinema":[22.5950,88.3830],"Patipukur":[22.6150,88.3960],
 }
 
+# ---------------------------------------------------------------- graph
+enrich_geocoded_segments(bus_routes, HUB)
+routes = bus_routes + metro_routes
+stop_routes, stops, route_set, route_adj = route_graph_parts(routes)
+print(f"{len(stops)} unique stops after normalisation")
+
 # ---------------------------------------------------------------- export
 data = {
     "routes": [{"code": display_code(r), "kind": r["kind"], "stops": r["stops"]} for r in routes],
@@ -541,6 +755,24 @@ data = {
 json.dump(data, open("busdata.json", "w"), ensure_ascii=False)
 print(f"exported busdata.json  ({len(data['routes'])} routes, {len(data['stops'])} stops, "
       f"{sum(1 for s in stops if s in HUB)} geocoded)")
+
+try:
+    html = open("kolkata-bus-router.html", encoding="utf-8").read()
+    embedded = "const DATA = " + json.dumps(data, ensure_ascii=False) + ";"
+    html, replaced = re.subn(
+        r"const DATA = .*?;\n\n/\* ===================== graph construction ===================== \*/",
+        embedded + "\n\n/* ===================== graph construction ===================== */",
+        html,
+        count=1,
+        flags=re.S,
+    )
+    if replaced:
+        open("kolkata-bus-router.html", "w", encoding="utf-8").write(html)
+        print("embedded route data in kolkata-bus-router.html")
+    else:
+        print("warning: could not find embedded DATA block to refresh")
+except FileNotFoundError:
+    pass
 
 # ---------------------------------------------------------------- smoke tests
 for o, d in [("Garia Metro", "Howrah Station"), ("Behala Chowrasta", "Salt Lake"),

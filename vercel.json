@@ -1,9 +1,59 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "cleanUrls": true,
+  "redirects": [
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "kolkata-bus-route.vercel.app"
+        }
+      ],
+      "destination": "https://kolkata-travel-router.vercel.app/kolkata-travel-router",
+      "permanent": true
+    },
+    {
+      "source": "/kolkata-bus-router",
+      "has": [
+        {
+          "type": "host",
+          "value": "kolkata-bus-route.vercel.app"
+        }
+      ],
+      "destination": "https://kolkata-travel-router.vercel.app/kolkata-travel-router",
+      "permanent": true
+    },
+    {
+      "source": "/kolkata-bus-router.html",
+      "has": [
+        {
+          "type": "host",
+          "value": "kolkata-bus-route.vercel.app"
+        }
+      ],
+      "destination": "https://kolkata-travel-router.vercel.app/kolkata-travel-router",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "kolkata-bus-route.vercel.app"
+        }
+      ],
+      "destination": "https://kolkata-travel-router.vercel.app/:path*",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     {
       "source": "/",
+      "destination": "/kolkata-bus-router.html"
+    },
+    {
+      "source": "/kolkata-travel-router",
       "destination": "/kolkata-bus-router.html"
     }
   ]
