@@ -30,7 +30,6 @@ Old link: https://kolkata-bus-route.vercel.app redirects to the new site after t
 - `raw_busrepo_routes2.js` - NBSTC/intercity route source data from Bus Repository
 - `raw_busrepo_routes3.js` - SBSTC/intercity route source data from Bus Repository
 - `raw_busrepo_routes4.js` - additional regional route source data from Bus Repository
-- `supplemental_routes.json` - lower-priority local gap-fill routes kept after removing the old raw text files
 - `Kolkata_Metro_Bus_Connections.txt` - metro lines and nearest bus-stop connections
 - `vercel.json` - Vercel static hosting configuration
 
@@ -40,7 +39,7 @@ Old link: https://kolkata-bus-route.vercel.app redirects to the new site after t
 - Imported all four Bus Repository source files: `routes1.js`, `routes2.js`, `routes3.js`, and `routes4.js`.
 - Preserved bus direction instead of treating every bus route as reversible, so separate up/down entries are respected.
 - Kept regional/intercity routes in the data, but ranked local city routes ahead of them for normal Kolkata searches.
-- Added `supplemental_routes.json` for local stops that were missing from Bus Repository but still useful in the app, such as routes touching `Lords`.
+- Removed supplemental gap-fill routes so routing only uses stops present in the Bus Repository sources and metro file.
 - Kept metro data from `Kolkata_Metro_Bus_Connections.txt` unchanged.
 
 ## Run Locally

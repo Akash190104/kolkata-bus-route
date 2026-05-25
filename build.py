@@ -380,7 +380,6 @@ BUSREPO_FILES = (
     "raw_busrepo_routes3.js",
     "raw_busrepo_routes4.js",
 )
-SUPPLEMENTAL_ROUTES_FILE = "supplemental_routes.json"
 BUSREPO_ROUTE_RE = re.compile(
     r"^\s*(.*?)\s*:\s*(.*?)\s*\[\s*via\s*:?\s*(.*?)\s*\]\s*:",
     re.I,
@@ -441,34 +440,6 @@ def parse_busrepo_routes():
     if not all(os.path.exists(path) for path in BUSREPO_FILES):
         return []
     return list(itertools.chain.from_iterable(parse_busrepo_file(path) for path in BUSREPO_FILES))
-
-def parse_supplemental_routes(path=SUPPLEMENTAL_ROUTES_FILE):
-    try:
-        items = json.load(open(path, encoding="utf-8"))
-    except FileNotFoundError:
-        return []
-    routes = []
-    for item in items:
-        seq = []
-        for stop in item.get("stops", []):
-            add_stop(seq, stop)
-        code = item.get("code", "").strip()
-        if not code or len(seq) < 2:
-            continue
-        route = {
-            "code": code,
-            "kind": item.get("kind", "private"),
-            "origin": seq[0],
-            "dest": seq[-1],
-            "stops": seq,
-            "scope": item.get("scope", "legacy"),
-            "source": "supplemental",
-        }
-        if item.get("directional", True):
-            route["directional"] = True
-        routes.append(route)
-    print(f"parsed {len(routes)} supplemental routes from {path}")
-    return routes
 
 PRIVATE_MINI_CODE = re.compile(r"^(S-\d|M-\d|MM\d|MN\d)", re.I)
 MINI_PUBLIC_NAMES = {
@@ -687,10 +658,7 @@ def parse_metro(path):
 # ---------------------------------------------------------------- route loading
 bus_routes = parse_busrepo_routes()
 if bus_routes:
-    supplemental_routes = parse_supplemental_routes()
     print(f"using {len(bus_routes)} directional bus routes from Bus Repository")
-    print(f"added {len(supplemental_routes)} lower-priority supplemental routes for missing local stops")
-    bus_routes += supplemental_routes
 else:
     raise SystemExit("Missing Bus Repository route sources. Expected raw_busrepo_routes1.js through raw_busrepo_routes4.js.")
 print("using listed bus stops only; inferred bus stop insertion disabled")
@@ -755,8 +723,6 @@ def route_scope_cost(r):
     scope = routes[r].get("scope")
     if scope == "regional":
         return 3
-    if scope == "legacy":
-        return 2
     return 1
 
 def find(o, d):
