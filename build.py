@@ -584,7 +584,7 @@ def parse_metro(path):
 # ---------------------------------------------------------------- route loading
 bus_routes = parse("raw_private.txt", "private") + parse("raw_govt.txt", "government")
 print(f"parsed {len(bus_routes)} bus routes")
-enrich_short_gaps(bus_routes)
+print("using listed bus stops only; inferred bus stop insertion disabled")
 
 metro_routes = parse_metro("Kolkata_Metro_Bus_Connections.txt")
 print(f"parsed {len(metro_routes)} metro routes")
@@ -740,7 +740,6 @@ HUB = {
 }
 
 # ---------------------------------------------------------------- graph
-enrich_geocoded_segments(bus_routes, HUB)
 routes = bus_routes + metro_routes
 stop_routes, stops, route_set, route_adj = route_graph_parts(routes)
 print(f"{len(stops)} unique stops after normalisation")
