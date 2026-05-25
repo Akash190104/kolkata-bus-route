@@ -10,7 +10,7 @@ The normalisation layer is the important part: the source data spells the same
 place many ways (Rashbehari/Rashbihari, Kidderpore/Khiderpur, Barabazar/
 Burrabazar, Dum Dum/Dumdum, ...). Everything below funnels through canon().
 """
-import json, re, itertools
+import ast, json, os, re, itertools, unicodedata
 from collections import defaultdict, deque
 
 GRAPH_INSERT_MIN_KM = 0.8
@@ -262,7 +262,8 @@ JUNCTION = re.compile(r"\s+(more|crossing|xing)$")
 
 def strip_notes(name):
     """Remove bracketed clarifications that otherwise become fake stop names."""
-    s = re.sub(r"\([^)]*\)", "", name)
+    s = unicodedata.normalize("NFKC", name).replace("|", " ")
+    s = re.sub(r"\([^)]*\)", "", s)
     s = re.sub(r"\[[^\]]*\]", "", s)
     s = re.sub(r"[\(\[].*$", "", s)
     s = s.replace(")", " ").replace("]", " ")
@@ -327,7 +328,7 @@ def canon(name):
 #   VS1:- Origin to Destination via a, b        (no brackets)
 #   DN12: Origin - Destination [Via: a, b]
 #   RT-35: Origin to Destination [a, b]          (bracketed stops, no "via")
-def parse(path, kind):
+def parse(path, kind, directional=False, scope="local", source="kolbusopedia"):
     routes, skipped = [], 0
     for raw in open(path, encoding="utf-8"):
         line = raw.strip()
@@ -364,16 +365,115 @@ def parse(path, kind):
         for p in parts:
             add_stop(seq, p)
         if len(seq) >= 2:
-            routes.append({"code": code, "kind": kind,
-                            "origin": seq[0], "dest": seq[-1], "stops": seq})
+            route = {"code": code, "kind": kind, "origin": seq[0], "dest": seq[-1],
+                     "stops": seq, "scope": scope, "source": source}
+            if directional:
+                route["directional"] = True
+            routes.append(route)
     if skipped:
         print(f"  ({skipped} non-route lines skipped in {path})")
     return routes
 
+BUSREPO_FILES = (
+    "raw_busrepo_routes1.js",
+    "raw_busrepo_routes2.js",
+    "raw_busrepo_routes3.js",
+    "raw_busrepo_routes4.js",
+)
+SUPPLEMENTAL_ROUTES_FILE = "supplemental_routes.json"
+BUSREPO_ROUTE_RE = re.compile(
+    r"^\s*(.*?)\s*:\s*(.*?)\s*\[\s*via\s*:?\s*(.*?)\s*\]\s*:",
+    re.I,
+)
+
+def busrepo_kind(code, head):
+    text = f"{code} {head}".lower()
+    if "mini" in text:
+        return "mini"
+    if any(tag in text for tag in ("nbstc", "sbstc", "wbtc", "cstc", "ctc")):
+        return "government"
+    if re.match(r"^(ac|vs|st|e-|d-|s-?\d|sd-|dn-|kb|k-|c\b)", code.strip(), re.I):
+        return "government"
+    return "private"
+
+def iter_js_route_strings(path):
+    """Yield quoted route strings from Bus Repository's route JS arrays."""
+    for raw in open(path, encoding="utf-8"):
+        line = raw.strip()
+        if not line or line.startswith("//") or not line.startswith(('"', "'")):
+            continue
+        try:
+            yield ast.literal_eval(line.rstrip(","))
+        except (SyntaxError, ValueError):
+            continue
+
+def parse_busrepo_file(path):
+    routes, skipped = [], 0
+    scope = "local" if path.endswith("routes1.js") else "regional"
+    for raw_route in iter_js_route_strings(path):
+        m = BUSREPO_ROUTE_RE.match(raw_route)
+        if not m:
+            skipped += 1
+            continue
+        code, head, via = (m.group(1).strip(), m.group(2).strip(), m.group(3).strip())
+        seq = []
+        for part in via.split(","):
+            add_stop(seq, part)
+        if len(seq) < 2:
+            skipped += 1
+            continue
+        routes.append({
+            "code": code,
+            "kind": busrepo_kind(code, head),
+            "origin": seq[0],
+            "dest": seq[-1],
+            "stops": seq,
+            "directional": True,
+            "scope": scope,
+            "source": "busrepo",
+        })
+    print(f"parsed {len(routes)} directional routes from {path}")
+    if skipped:
+        print(f"  ({skipped} non-route lines skipped in {path})")
+    return routes
+
+def parse_busrepo_routes():
+    if not all(os.path.exists(path) for path in BUSREPO_FILES):
+        return []
+    return list(itertools.chain.from_iterable(parse_busrepo_file(path) for path in BUSREPO_FILES))
+
+def parse_supplemental_routes(path=SUPPLEMENTAL_ROUTES_FILE):
+    try:
+        items = json.load(open(path, encoding="utf-8"))
+    except FileNotFoundError:
+        return []
+    routes = []
+    for item in items:
+        seq = []
+        for stop in item.get("stops", []):
+            add_stop(seq, stop)
+        code = item.get("code", "").strip()
+        if not code or len(seq) < 2:
+            continue
+        route = {
+            "code": code,
+            "kind": item.get("kind", "private"),
+            "origin": seq[0],
+            "dest": seq[-1],
+            "stops": seq,
+            "scope": item.get("scope", "legacy"),
+            "source": "supplemental",
+        }
+        if item.get("directional", True):
+            route["directional"] = True
+        routes.append(route)
+    print(f"parsed {len(routes)} supplemental routes from {path}")
+    return routes
+
 PRIVATE_MINI_CODE = re.compile(r"^(S-\d|M-\d|MM\d|MN\d)", re.I)
-MINI_PUBLIC_ORIGINS = {
-    "s-106": "Santoshpur",
-    "santoshpur mini": "Santoshpur",
+MINI_PUBLIC_NAMES = {
+    "s-106": "Santoshpur BBD Bag Mini",
+    "santoshpur mini": "Santoshpur BBD Bag Mini",
 }
 METRO_LINE_LABELS = {
     "BLUE": "Metro Blue Line",
@@ -387,13 +487,16 @@ def display_code(route):
     """Use public-facing names for private mini buses instead of fleet-style codes."""
     code = route["code"].strip()
     key = code.lower()
-    is_mini = route["kind"] == "private" and (
-        PRIVATE_MINI_CODE.match(code) or key.endswith(" mini")
+    is_mini = route["kind"] == "mini" or route.get("is_mini") or (
+        route["kind"] == "private" and (
+            PRIVATE_MINI_CODE.match(code) or key.endswith(" mini")
+        )
     )
     if not is_mini:
         return code
-    origin = MINI_PUBLIC_ORIGINS.get(key, route["origin"])
-    return f"{origin} {route['dest']} Mini"
+    if key in MINI_PUBLIC_NAMES:
+        return MINI_PUBLIC_NAMES[key]
+    return f"{route['origin']} {route['dest']} Mini"
 
 def enrich_short_gaps(routes, max_missing=2):
     """Fill short omitted stops when another route proves they sit between a pair."""
@@ -582,8 +685,14 @@ def parse_metro(path):
     return routes
 
 # ---------------------------------------------------------------- route loading
-bus_routes = parse("raw_private.txt", "private") + parse("raw_govt.txt", "government")
-print(f"parsed {len(bus_routes)} bus routes")
+bus_routes = parse_busrepo_routes()
+if bus_routes:
+    supplemental_routes = parse_supplemental_routes()
+    print(f"using {len(bus_routes)} directional bus routes from Bus Repository")
+    print(f"added {len(supplemental_routes)} lower-priority supplemental routes for missing local stops")
+    bus_routes += supplemental_routes
+else:
+    raise SystemExit("Missing Bus Repository route sources. Expected raw_busrepo_routes1.js through raw_busrepo_routes4.js.")
 print("using listed bus stops only; inferred bus stop insertion disabled")
 
 metro_routes = parse_metro("Kolkata_Metro_Bus_Connections.txt")
@@ -598,10 +707,25 @@ route_adj = defaultdict(set)
 def idx(r, s):
     return routes[r]["stops"].index(s)
 
+def can_ride(r, a, b):
+    if a not in route_set[r] or b not in route_set[r]:
+        return False
+    if routes[r].get("directional"):
+        return idx(r, a) <= idx(r, b)
+    return True
+
+def ride_cost(r, a, b):
+    if not can_ride(r, a, b):
+        return 1e9
+    i, j = idx(r, a), idx(r, b)
+    return j - i if routes[r].get("directional") else abs(i - j)
+
 def seg(r, a, b):
-    """ordered stop list travelled on route r from a to b (routes are bidirectional)."""
+    """ordered stop list travelled on route r from a to b."""
     i, j = idx(r, a), idx(r, b)
     st = routes[r]["stops"]
+    if routes[r].get("directional") and i > j:
+        return []
     return st[i:j+1] if i <= j else st[j:i+1][::-1]
 
 def shared(r1, r2):
@@ -612,7 +736,9 @@ def best_transfer(r1, r2, o, d):
     cands = shared(r1, r2)
     best, bc = None, 1e9
     for t in cands:
-        c = abs(idx(r1, o) - idx(r1, t)) + abs(idx(r2, t) - idx(r2, d))
+        if not can_ride(r1, o, t) or not can_ride(r2, t, d):
+            continue
+        c = ride_cost(r1, o, t) + ride_cost(r2, t, d)
         if c < bc:
             best, bc = t, c
     return best, bc
@@ -623,6 +749,16 @@ def uses_metro(*route_ids):
 def metro_count(*route_ids):
     return sum(1 for r in route_ids if routes[r]["kind"] == "metro")
 
+def route_scope_cost(r):
+    if routes[r]["kind"] == "metro":
+        return 0
+    scope = routes[r].get("scope")
+    if scope == "regional":
+        return 3
+    if scope == "legacy":
+        return 2
+    return 1
+
 def find(o, d):
     o, d = canon(o), canon(d)
     out = {"origin": o, "dest": d, "direct": [], "one": [], "two": []}
@@ -632,11 +768,14 @@ def find(o, d):
     start, end = stop_routes[o], stop_routes[d]
 
     # ---- direct
-    for r in sorted(start & end, key=lambda r: (not uses_metro(r), abs(idx(r, o) - idx(r, d)))):
+    direct_routes = [r for r in start & end if can_ride(r, o, d)]
+    for r in sorted(direct_routes, key=lambda r: (not uses_metro(r), route_scope_cost(r), ride_cost(r, o, d))):
         out["direct"].append({"legs": [{"route": display_code(routes[r]),
                                         "kind": routes[r]["kind"],
                                         "from": o, "to": d,
-                                        "stops": seg(r, o, d)}]})
+                                        "towards": routes[r].get("dest", ""),
+                                        "stops": seg(r, o, d)}],
+                              "cost": ride_cost(r, o, d)})
     # ---- one transfer
     seen = set()
     cands = []
@@ -644,20 +783,21 @@ def find(o, d):
         for r2 in end & route_adj[r1]:
             if r1 == r2:
                 continue
-            key = tuple(sorted((routes[r1]["code"], routes[r2]["code"])))
-            if key in seen:
-                continue
             t, cost = best_transfer(r1, r2, o, d)
             if t is None or t in (o, d):
                 continue
+            key = (r1, r2, t)
+            if key in seen:
+                continue
             seen.add(key)
-            cands.append((not uses_metro(r1, r2), -metro_count(r1, r2), cost, r1, r2, t))
-    for _, _, cost, r1, r2, t in sorted(cands)[:10]:
+            cands.append((not uses_metro(r1, r2), route_scope_cost(r1) + route_scope_cost(r2), -metro_count(r1, r2), cost, r1, r2, t))
+    for _, _, _, cost, r1, r2, t in sorted(cands)[:10]:
         out["one"].append({"legs": [
             {"route": display_code(routes[r1]), "kind": routes[r1]["kind"],
-             "from": o, "to": t, "stops": seg(r1, o, t)},
+             "from": o, "to": t, "towards": routes[r1].get("dest", ""), "stops": seg(r1, o, t)},
             {"route": display_code(routes[r2]), "kind": routes[r2]["kind"],
-             "from": t, "to": d, "stops": seg(r2, t, d)}]})
+             "from": t, "to": d, "towards": routes[r2].get("dest", ""), "stops": seg(r2, t, d)}],
+            "cost": cost})
 
     # ---- two transfers
     if len(out["direct"]) + len(out["one"]) < 4:
@@ -671,7 +811,7 @@ def find(o, d):
                 for r2 in mids:
                     if r2 in (r1, r3) or r2 in start or r2 in end:
                         continue
-                    key = (routes[r1]["code"], routes[r2]["code"], routes[r3]["code"])
+                    key = (r1, r2, r3)
                     if key in seen2:
                         continue
                     # choose t1 in r1&r2, t2 in r2&r3
@@ -681,23 +821,24 @@ def find(o, d):
                         for b in s23:
                             if len({o, a, b, d}) < 4:
                                 continue
-                            cc = (abs(idx(r1, o) - idx(r1, a)) +
-                                  abs(idx(r2, a) - idx(r2, b)) +
-                                  abs(idx(r3, b) - idx(r3, d)))
+                            if not can_ride(r1, o, a) or not can_ride(r2, a, b) or not can_ride(r3, b, d):
+                                continue
+                            cc = ride_cost(r1, o, a) + ride_cost(r2, a, b) + ride_cost(r3, b, d)
                             if cc < bcost:
                                 bt, bcost = (a, b), cc
                     if bt is None:
                         continue
                     seen2.add(key)
-                    c2.append((not uses_metro(r1, r2, r3), -metro_count(r1, r2, r3), bcost, r1, r2, r3, bt[0], bt[1]))
-        for _, _, cost, r1, r2, r3, a, b in sorted(c2)[:6]:
+                    c2.append((not uses_metro(r1, r2, r3), route_scope_cost(r1) + route_scope_cost(r2) + route_scope_cost(r3), -metro_count(r1, r2, r3), bcost, r1, r2, r3, bt[0], bt[1]))
+        for _, _, _, cost, r1, r2, r3, a, b in sorted(c2)[:6]:
             out["two"].append({"legs": [
                 {"route": display_code(routes[r1]), "kind": routes[r1]["kind"],
-                 "from": o, "to": a, "stops": seg(r1, o, a)},
+                 "from": o, "to": a, "towards": routes[r1].get("dest", ""), "stops": seg(r1, o, a)},
                 {"route": display_code(routes[r2]), "kind": routes[r2]["kind"],
-                 "from": a, "to": b, "stops": seg(r2, a, b)},
+                 "from": a, "to": b, "towards": routes[r2].get("dest", ""), "stops": seg(r2, a, b)},
                 {"route": display_code(routes[r3]), "kind": routes[r3]["kind"],
-                 "from": b, "to": d, "stops": seg(r3, b, d)}]})
+                 "from": b, "to": d, "towards": routes[r3].get("dest", ""), "stops": seg(r3, b, d)}],
+                "cost": cost})
     return out
 
 # ---------------------------------------------------------------- hub coords
@@ -745,8 +886,16 @@ stop_routes, stops, route_set, route_adj = route_graph_parts(routes)
 print(f"{len(stops)} unique stops after normalisation")
 
 # ---------------------------------------------------------------- export
+def export_route(route):
+    out = {"code": display_code(route), "kind": route["kind"], "stops": route["stops"]}
+    out["scope"] = route.get("scope") or ("metro" if route["kind"] == "metro" else "local")
+    if route.get("directional"):
+        out["directional"] = True
+        out["towards"] = route["dest"]
+    return out
+
 data = {
-    "routes": [{"code": display_code(r), "kind": r["kind"], "stops": r["stops"]} for r in routes],
+    "routes": [export_route(r) for r in routes],
     "stops": [{"name": s, "routes": len(stop_routes[s]),
                "lat": HUB.get(s, [None, None])[0], "lng": HUB.get(s, [None, None])[1]}
               for s in sorted(stops, key=lambda s: -len(stop_routes[s]))],

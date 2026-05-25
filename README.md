@@ -13,6 +13,7 @@ Old link: https://kolkata-bus-route.vercel.app redirects to the new site after t
 - Search by starting stop and destination stop
 - Autocomplete for known bus stops
 - Direct, one-change, and two-change route suggestions
+- Direction-aware bus routing using separate up/down route records
 - Metro-first recommendations when a useful metro route is available
 - Route cards showing buses, metro legs, transfers, and stop counts
 - Map plotting for geocoded stops
@@ -25,10 +26,22 @@ Old link: https://kolkata-bus-route.vercel.app redirects to the new site after t
 - `index.html` - redirects the root URL to the app page
 - `build.py` - parses and normalizes raw route data
 - `busdata.json` - generated route dataset
-- `raw_private.txt` - raw private bus route source data
-- `raw_govt.txt` - raw government bus route source data
+- `raw_busrepo_routes1.js` - local Kolkata/Howrah route source data from Bus Repository
+- `raw_busrepo_routes2.js` - NBSTC/intercity route source data from Bus Repository
+- `raw_busrepo_routes3.js` - SBSTC/intercity route source data from Bus Repository
+- `raw_busrepo_routes4.js` - additional regional route source data from Bus Repository
+- `supplemental_routes.json` - lower-priority local gap-fill routes kept after removing the old raw text files
 - `Kolkata_Metro_Bus_Connections.txt` - metro lines and nearest bus-stop connections
 - `vercel.json` - Vercel static hosting configuration
+
+## Recent Data Changes
+
+- Replaced the older `raw_private.txt` and `raw_govt.txt` inputs with Bus Repository route files.
+- Imported all four Bus Repository source files: `routes1.js`, `routes2.js`, `routes3.js`, and `routes4.js`.
+- Preserved bus direction instead of treating every bus route as reversible, so separate up/down entries are respected.
+- Kept regional/intercity routes in the data, but ranked local city routes ahead of them for normal Kolkata searches.
+- Added `supplemental_routes.json` for local stops that were missing from Bus Repository but still useful in the app, such as routes touching `Lords`.
+- Kept metro data from `Kolkata_Metro_Bus_Connections.txt` unchanged.
 
 ## Run Locally
 
@@ -54,8 +67,8 @@ After editing route sources:
 python3 build.py
 ```
 
-This regenerates `busdata.json`. If you change the dataset, make sure the app's embedded `DATA` object is refreshed before deploying.
-`build.py` refreshes both `busdata.json` and the embedded app data.
+This regenerates `busdata.json` and refreshes the embedded app data in
+`kolkata-bus-router.html`, `kolkata-travel-router.html`, and `index.html`.
 
 ## Deploy
 
