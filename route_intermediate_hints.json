@@ -1,0 +1,4634 @@
+[
+  {
+    "code": "57A",
+    "from": "Golabarai PS",
+    "to": "Howrah Station",
+    "stops": [
+      "Pilkhana"
+    ],
+    "legacyCode": "57A"
+  },
+  {
+    "code": "57A",
+    "from": "Pilkhana",
+    "to": "Salkia Chowrasta",
+    "stops": [
+      "Golabarai PS",
+      "Bandha Ghat"
+    ],
+    "legacyCode": "57A"
+  },
+  {
+    "code": "61",
+    "from": "Kazipara",
+    "to": "Shibpur Bazar",
+    "stops": [
+      "Avani Mall"
+    ],
+    "legacyCode": "61"
+  },
+  {
+    "code": "7A",
+    "from": "BBD Bag",
+    "to": "Barabazar",
+    "stops": [
+      "GPO"
+    ],
+    "legacyCode": "7A"
+  },
+  {
+    "code": "7A",
+    "from": "Barabazar",
+    "to": "BBD Bag",
+    "stops": [
+      "GPO"
+    ],
+    "legacyCode": "7A"
+  },
+  {
+    "code": "7A",
+    "from": "Behala 14 No",
+    "to": "Behala Chowrasta",
+    "stops": [
+      "Manton"
+    ],
+    "legacyCode": "7A"
+  },
+  {
+    "code": "7A",
+    "from": "Behala 14 No",
+    "to": "Majherhat",
+    "stops": [
+      "Taratala"
+    ],
+    "legacyCode": "7A"
+  },
+  {
+    "code": "7A",
+    "from": "Behala Chowrasta",
+    "to": "Behala 14 No",
+    "stops": [
+      "Manton"
+    ],
+    "legacyCode": "7A"
+  },
+  {
+    "code": "7A",
+    "from": "Majherhat",
+    "to": "Behala 14 No",
+    "stops": [
+      "Taratala"
+    ],
+    "legacyCode": "7A"
+  },
+  {
+    "code": "80",
+    "from": "Kazipara",
+    "to": "Shibpur Bazar",
+    "stops": [
+      "Avani Mall"
+    ],
+    "legacyCode": "80"
+  },
+  {
+    "code": "AC10",
+    "from": "BT College",
+    "to": "Birati",
+    "stops": [
+      "Gouripur"
+    ],
+    "legacyCode": "AC10"
+  },
+  {
+    "code": "AC10",
+    "from": "Barabazar",
+    "to": "MG Road",
+    "stops": [
+      "Satyanarayan Park",
+      "Chitpur",
+      "Mechua Bazar"
+    ],
+    "legacyCode": "AC10"
+  },
+  {
+    "code": "AC10",
+    "from": "Birati",
+    "to": "BT College",
+    "stops": [
+      "Gouripur"
+    ],
+    "legacyCode": "AC10"
+  },
+  {
+    "code": "AC10",
+    "from": "Girish Park",
+    "to": "MG Road",
+    "stops": [
+      "Ram Mandir",
+      "Mahajati Sadan",
+      "Central Avenue"
+    ],
+    "legacyCode": "AC10"
+  },
+  {
+    "code": "AC10",
+    "from": "Kankurgachi",
+    "to": "Maniktala",
+    "stops": [
+      "Bagmari Bazar"
+    ],
+    "legacyCode": "AC10"
+  },
+  {
+    "code": "AC10",
+    "from": "MG Road",
+    "to": "Barabazar",
+    "stops": [
+      "Mechua Bazar",
+      "Chitpur",
+      "Satyanarayan Park"
+    ],
+    "legacyCode": "AC10"
+  },
+  {
+    "code": "AC10",
+    "from": "MG Road",
+    "to": "Girish Park",
+    "stops": [
+      "Central Avenue",
+      "Mahajati Sadan",
+      "Ram Mandir"
+    ],
+    "legacyCode": "AC10"
+  },
+  {
+    "code": "AC10",
+    "from": "Maniktala",
+    "to": "Kankurgachi",
+    "stops": [
+      "Bagmari Bazar"
+    ],
+    "legacyCode": "AC10"
+  },
+  {
+    "code": "AC12",
+    "from": "BBD Bag",
+    "to": "Barabazar",
+    "stops": [
+      "GPO",
+      "Shipping Corporation"
+    ],
+    "legacyCode": "AC12"
+  },
+  {
+    "code": "AC12",
+    "from": "Barabazar",
+    "to": "BBD Bag",
+    "stops": [
+      "Shipping Corporation",
+      "GPO"
+    ],
+    "legacyCode": "AC12"
+  },
+  {
+    "code": "AC12",
+    "from": "College More",
+    "to": "DLF 1",
+    "stops": [
+      "Technopolis"
+    ],
+    "legacyCode": "AC12"
+  },
+  {
+    "code": "AC12",
+    "from": "DLF 1",
+    "to": "College More",
+    "stops": [
+      "Technopolis"
+    ],
+    "legacyCode": "AC12"
+  },
+  {
+    "code": "AC12D",
+    "from": "BBD Bag",
+    "to": "Barabazar",
+    "stops": [
+      "GPO",
+      "Shipping Corporation"
+    ],
+    "legacyCode": "AC12D"
+  },
+  {
+    "code": "AC12D",
+    "from": "Barabazar",
+    "to": "BBD Bag",
+    "stops": [
+      "Shipping Corporation",
+      "GPO"
+    ],
+    "legacyCode": "AC12D"
+  },
+  {
+    "code": "AC14",
+    "from": "Harinavi",
+    "to": "Khasmallick",
+    "stops": [
+      "Haritala",
+      "Malancha",
+      "Gobindapur",
+      "Antara Mental Hospital"
+    ],
+    "legacyCode": "AC14"
+  },
+  {
+    "code": "AC14",
+    "from": "Khasmallick",
+    "to": "Harinavi",
+    "stops": [
+      "Antara Mental Hospital",
+      "Gobindapur",
+      "Malancha",
+      "Haritala"
+    ],
+    "legacyCode": "AC14"
+  },
+  {
+    "code": "AC14",
+    "from": "Khasmallick",
+    "to": "Padmapukur",
+    "stops": [
+      "Jogi Battala"
+    ],
+    "legacyCode": "AC14"
+  },
+  {
+    "code": "AC14",
+    "from": "Padmapukur",
+    "to": "Khasmallick",
+    "stops": [
+      "Jogi Battala"
+    ],
+    "legacyCode": "AC14"
+  },
+  {
+    "code": "AC2",
+    "from": "Barasat Chapadali",
+    "to": "Madhyamgram",
+    "stops": [
+      "Dakbanglow"
+    ],
+    "legacyCode": "AC-2"
+  },
+  {
+    "code": "AC2",
+    "from": "Madhyamgram",
+    "to": "Barasat Chapadali",
+    "stops": [
+      "Dakbanglow"
+    ],
+    "legacyCode": "AC-2"
+  },
+  {
+    "code": "AC23A",
+    "from": "Aliah University",
+    "to": "Ecopark",
+    "stops": [
+      "Westin"
+    ],
+    "legacyCode": "AC23A"
+  },
+  {
+    "code": "AC23A",
+    "from": "Ballyhalt",
+    "to": "Dakshineswar",
+    "stops": [
+      "Ballyghat"
+    ],
+    "legacyCode": "AC23A"
+  },
+  {
+    "code": "AC23A",
+    "from": "College More",
+    "to": "DLF 1",
+    "stops": [
+      "R S Software",
+      "Technopolis"
+    ],
+    "legacyCode": "AC23A"
+  },
+  {
+    "code": "AC23A",
+    "from": "DLF 1",
+    "to": "College More",
+    "stops": [
+      "Technopolis",
+      "R S Software"
+    ],
+    "legacyCode": "AC23A"
+  },
+  {
+    "code": "AC23A",
+    "from": "Dakshineswar",
+    "to": "Ballyhalt",
+    "stops": [
+      "Ballyghat"
+    ],
+    "legacyCode": "AC23A"
+  },
+  {
+    "code": "AC23A",
+    "from": "Ecopark",
+    "to": "Aliah University",
+    "stops": [
+      "Westin"
+    ],
+    "legacyCode": "AC23A"
+  },
+  {
+    "code": "AC23A",
+    "from": "Narkelbagan",
+    "to": "Unitech Gate 2",
+    "stops": [
+      "Tata Cancer Hospital"
+    ],
+    "legacyCode": "AC23A"
+  },
+  {
+    "code": "AC23A",
+    "from": "Unitech Gate 2",
+    "to": "Narkelbagan",
+    "stops": [
+      "Tata Cancer Hospital"
+    ],
+    "legacyCode": "AC23A"
+  },
+  {
+    "code": "AC24",
+    "from": "BBD Bag",
+    "to": "Barabazar",
+    "stops": [
+      "GPO",
+      "Shipping Corporation"
+    ],
+    "legacyCode": "AC24"
+  },
+  {
+    "code": "AC24",
+    "from": "Barabazar",
+    "to": "BBD Bag",
+    "stops": [
+      "Shipping Corporation",
+      "GPO"
+    ],
+    "legacyCode": "AC24"
+  },
+  {
+    "code": "AC24",
+    "from": "Deshapriya Park",
+    "to": "Rashbehari",
+    "stops": [
+      "Lake Mall"
+    ],
+    "legacyCode": "AC24"
+  },
+  {
+    "code": "AC24",
+    "from": "Rashbehari",
+    "to": "Deshapriya Park",
+    "stops": [
+      "Lake Mall"
+    ],
+    "legacyCode": "AC24"
+  },
+  {
+    "code": "AC24A",
+    "from": "BBD Bag",
+    "to": "Barabazar",
+    "stops": [
+      "GPO",
+      "Shipping Corporation"
+    ],
+    "legacyCode": "AC24A"
+  },
+  {
+    "code": "AC24A",
+    "from": "Barabazar",
+    "to": "BBD Bag",
+    "stops": [
+      "Shipping Corporation",
+      "GPO"
+    ],
+    "legacyCode": "AC24A"
+  },
+  {
+    "code": "AC24A",
+    "from": "Bhowanipore",
+    "to": "Rabindra Sadan",
+    "stops": [
+      "Elgin"
+    ],
+    "legacyCode": "AC24A"
+  },
+  {
+    "code": "AC24A",
+    "from": "Deshapriya Park",
+    "to": "Rashbehari",
+    "stops": [
+      "Lake Mall"
+    ],
+    "legacyCode": "AC24A"
+  },
+  {
+    "code": "AC24A",
+    "from": "Rabindra Sadan",
+    "to": "Bhowanipore",
+    "stops": [
+      "Elgin"
+    ],
+    "legacyCode": "AC24A"
+  },
+  {
+    "code": "AC24A",
+    "from": "Rashbehari",
+    "to": "Deshapriya Park",
+    "stops": [
+      "Lake Mall"
+    ],
+    "legacyCode": "AC24A"
+  },
+  {
+    "code": "AC30S",
+    "from": "Apollo Hospital",
+    "to": "Beleghata Building",
+    "stops": [
+      "Swabhumi",
+      "Saltlake Stadium"
+    ],
+    "legacyCode": "AC30S (IT Special)"
+  },
+  {
+    "code": "AC30S",
+    "from": "Apollo Hospital",
+    "to": "Bengal Chemical",
+    "stops": [
+      "Mani Square"
+    ],
+    "legacyCode": "AC30S (IT Special)"
+  },
+  {
+    "code": "AC30S",
+    "from": "Beleghata Building",
+    "to": "Apollo Hospital",
+    "stops": [
+      "Saltlake Stadium",
+      "Swabhumi"
+    ],
+    "legacyCode": "AC30S (IT Special)"
+  },
+  {
+    "code": "AC30S",
+    "from": "Bengal Chemical",
+    "to": "Apollo Hospital",
+    "stops": [
+      "Mani Square"
+    ],
+    "legacyCode": "AC30S (IT Special)"
+  },
+  {
+    "code": "AC30S",
+    "from": "Bengal Chemical",
+    "to": "Ultadanga",
+    "stops": [
+      "Saltlake Gate",
+      "Ultadanga Hudco"
+    ],
+    "legacyCode": "AC30S (IT Special)"
+  },
+  {
+    "code": "AC30S",
+    "from": "Chingrighata",
+    "to": "Nicco Park",
+    "stops": [
+      "Sukantanagar"
+    ],
+    "legacyCode": "AC30S (IT Special)"
+  },
+  {
+    "code": "AC30S",
+    "from": "College More",
+    "to": "DLF 1",
+    "stops": [
+      "Technopolis"
+    ],
+    "legacyCode": "AC30S (IT Special)"
+  },
+  {
+    "code": "AC30S",
+    "from": "DLF 1",
+    "to": "College More",
+    "stops": [
+      "Technopolis"
+    ],
+    "legacyCode": "AC30S (IT Special)"
+  },
+  {
+    "code": "AC30S",
+    "from": "Narkelbagan",
+    "to": "Unitech Gate 2",
+    "stops": [
+      "Tata Cancer Hospital"
+    ],
+    "legacyCode": "AC30S (IT Special)"
+  },
+  {
+    "code": "AC30S",
+    "from": "Nicco Park",
+    "to": "Chingrighata",
+    "stops": [
+      "Sukantanagar"
+    ],
+    "legacyCode": "AC30S (IT Special)"
+  },
+  {
+    "code": "AC30S",
+    "from": "Ultadanga",
+    "to": "Bengal Chemical",
+    "stops": [
+      "Ultadanga Hudco",
+      "Saltlake Gate"
+    ],
+    "legacyCode": "AC30S (IT Special)"
+  },
+  {
+    "code": "AC30S",
+    "from": "Unitech Gate 2",
+    "to": "Narkelbagan",
+    "stops": [
+      "Tata Cancer Hospital"
+    ],
+    "legacyCode": "AC30S (IT Special)"
+  },
+  {
+    "code": "AC31",
+    "from": "Behala Chowrasta",
+    "to": "Sakher Bazar",
+    "stops": [
+      "Janakalyan"
+    ],
+    "legacyCode": "AC31"
+  },
+  {
+    "code": "AC31",
+    "from": "Jadavpur 8B",
+    "to": "South City",
+    "stops": [
+      "Jadavpur University",
+      "Jadavpur PS"
+    ],
+    "legacyCode": "AC31"
+  },
+  {
+    "code": "AC31",
+    "from": "Sakher Bazar",
+    "to": "Behala Chowrasta",
+    "stops": [
+      "Janakalyan"
+    ],
+    "legacyCode": "AC31"
+  },
+  {
+    "code": "AC31",
+    "from": "South City",
+    "to": "Jadavpur 8B",
+    "stops": [
+      "Jadavpur PS",
+      "Jadavpur University"
+    ],
+    "legacyCode": "AC31"
+  },
+  {
+    "code": "AC37",
+    "from": "Apollo Hospital",
+    "to": "Beleghata Building",
+    "stops": [
+      "Swabhumi"
+    ],
+    "legacyCode": "AC37"
+  },
+  {
+    "code": "AC37",
+    "from": "Apollo Hospital",
+    "to": "Bengal Chemical",
+    "stops": [
+      "Mani Square"
+    ],
+    "legacyCode": "AC37"
+  },
+  {
+    "code": "AC37",
+    "from": "BT College",
+    "to": "Birati",
+    "stops": [
+      "Sukantanagar"
+    ],
+    "legacyCode": "AC37"
+  },
+  {
+    "code": "AC37",
+    "from": "Beleghata Building",
+    "to": "Apollo Hospital",
+    "stops": [
+      "Swabhumi"
+    ],
+    "legacyCode": "AC37"
+  },
+  {
+    "code": "AC37",
+    "from": "Bengal Chemical",
+    "to": "Apollo Hospital",
+    "stops": [
+      "Mani Square"
+    ],
+    "legacyCode": "AC37"
+  },
+  {
+    "code": "AC37",
+    "from": "Birati",
+    "to": "BT College",
+    "stops": [
+      "Sukantanagar"
+    ],
+    "legacyCode": "AC37"
+  },
+  {
+    "code": "AC37",
+    "from": "Ruby",
+    "to": "VIP Bazar",
+    "stops": [
+      "Fortis"
+    ],
+    "legacyCode": "AC37"
+  },
+  {
+    "code": "AC37",
+    "from": "VIP Bazar",
+    "to": "Ruby",
+    "stops": [
+      "Fortis"
+    ],
+    "legacyCode": "AC37"
+  },
+  {
+    "code": "AC37A",
+    "from": "College More",
+    "to": "DLF 1",
+    "stops": [
+      "Technopolis"
+    ],
+    "legacyCode": "AC37A"
+  },
+  {
+    "code": "AC37A",
+    "from": "DLF 1",
+    "to": "College More",
+    "stops": [
+      "Technopolis"
+    ],
+    "legacyCode": "AC37A"
+  },
+  {
+    "code": "AC37A",
+    "from": "Ecopark",
+    "to": "Narkelbagan",
+    "stops": [
+      "Westin",
+      "Jatragachi"
+    ],
+    "legacyCode": "AC37A"
+  },
+  {
+    "code": "AC37A",
+    "from": "Narkelbagan",
+    "to": "Ecopark",
+    "stops": [
+      "Jatragachi",
+      "Westin"
+    ],
+    "legacyCode": "AC37A"
+  },
+  {
+    "code": "AC37A",
+    "from": "Ruby",
+    "to": "VIP Bazar",
+    "stops": [
+      "Fortis Hospital"
+    ],
+    "legacyCode": "AC37A"
+  },
+  {
+    "code": "AC37A",
+    "from": "VIP Bazar",
+    "to": "Ruby",
+    "stops": [
+      "Fortis Hospital"
+    ],
+    "legacyCode": "AC37A"
+  },
+  {
+    "code": "AC38",
+    "from": "Aliah University",
+    "to": "Ecopark",
+    "stops": [
+      "Westin"
+    ],
+    "legacyCode": "AC38"
+  },
+  {
+    "code": "AC38",
+    "from": "Central Jail",
+    "to": "Nager Bazar",
+    "stops": [
+      "ILS Hospital"
+    ],
+    "legacyCode": "AC38"
+  },
+  {
+    "code": "AC38",
+    "from": "College More",
+    "to": "DLF 1",
+    "stops": [
+      "Technopolis"
+    ],
+    "legacyCode": "AC38"
+  },
+  {
+    "code": "AC38",
+    "from": "DLF 1",
+    "to": "College More",
+    "stops": [
+      "Technopolis"
+    ],
+    "legacyCode": "AC38"
+  },
+  {
+    "code": "AC38",
+    "from": "Ecopark",
+    "to": "Aliah University",
+    "stops": [
+      "Westin"
+    ],
+    "legacyCode": "AC38"
+  },
+  {
+    "code": "AC38",
+    "from": "Karunamoyee",
+    "to": "Wipro",
+    "stops": [
+      "Saltlake 10no Tank"
+    ],
+    "legacyCode": "AC38"
+  },
+  {
+    "code": "AC38",
+    "from": "Nager Bazar",
+    "to": "Central Jail",
+    "stops": [
+      "ILS Hospital"
+    ],
+    "legacyCode": "AC38"
+  },
+  {
+    "code": "AC38",
+    "from": "Narkelbagan",
+    "to": "Unitech Gate 2",
+    "stops": [
+      "Tata Cancer Hospital"
+    ],
+    "legacyCode": "AC38"
+  },
+  {
+    "code": "AC38",
+    "from": "Unitech Gate 2",
+    "to": "Narkelbagan",
+    "stops": [
+      "Tata Cancer Hospital"
+    ],
+    "legacyCode": "AC38"
+  },
+  {
+    "code": "AC38",
+    "from": "Wipro",
+    "to": "Karunamoyee",
+    "stops": [
+      "Saltlake 10no Tank"
+    ],
+    "legacyCode": "AC38"
+  },
+  {
+    "code": "AC39",
+    "from": "BBD Bag",
+    "to": "Barabazar",
+    "stops": [
+      "GPO",
+      "Shipping Corporation"
+    ],
+    "legacyCode": "AC39"
+  },
+  {
+    "code": "AC39",
+    "from": "Barabazar",
+    "to": "BBD Bag",
+    "stops": [
+      "Shipping Corporation",
+      "GPO"
+    ],
+    "legacyCode": "AC39"
+  },
+  {
+    "code": "AC39",
+    "from": "Central",
+    "to": "BBD Bag",
+    "stops": [
+      "Lalbazar"
+    ],
+    "legacyCode": "AC39"
+  },
+  {
+    "code": "AC40",
+    "from": "Central Jail",
+    "to": "Nager Bazar",
+    "stops": [
+      "ILS Hospital"
+    ],
+    "legacyCode": "AC40"
+  },
+  {
+    "code": "AC40",
+    "from": "Nager Bazar",
+    "to": "Central Jail",
+    "stops": [
+      "ILS Hospital"
+    ],
+    "legacyCode": "AC40"
+  },
+  {
+    "code": "AC43",
+    "from": "College More",
+    "to": "DLF 1",
+    "stops": [
+      "Technopolis"
+    ],
+    "legacyCode": "AC43"
+  },
+  {
+    "code": "AC43",
+    "from": "DLF 1",
+    "to": "College More",
+    "stops": [
+      "Technopolis"
+    ],
+    "legacyCode": "AC43"
+  },
+  {
+    "code": "AC43",
+    "from": "Ecopark",
+    "to": "Narkelbagan",
+    "stops": [
+      "Westin",
+      "Jatragachi"
+    ],
+    "legacyCode": "AC43"
+  },
+  {
+    "code": "AC43",
+    "from": "Narkelbagan",
+    "to": "Ecopark",
+    "stops": [
+      "Jatragachi",
+      "Westin"
+    ],
+    "legacyCode": "AC43"
+  },
+  {
+    "code": "AC43",
+    "from": "Ruby",
+    "to": "VIP Bazar",
+    "stops": [
+      "Fortis Hospital"
+    ],
+    "legacyCode": "AC43"
+  },
+  {
+    "code": "AC43",
+    "from": "VIP Bazar",
+    "to": "Ruby",
+    "stops": [
+      "Fortis Hospital"
+    ],
+    "legacyCode": "AC43"
+  },
+  {
+    "code": "AC47",
+    "from": "College More",
+    "to": "DLF 1",
+    "stops": [
+      "Technopolis"
+    ],
+    "legacyCode": "AC47"
+  },
+  {
+    "code": "AC47",
+    "from": "DLF 1",
+    "to": "College More",
+    "stops": [
+      "Technopolis"
+    ],
+    "legacyCode": "AC47"
+  },
+  {
+    "code": "AC47",
+    "from": "Deshapriya Park",
+    "to": "Rashbehari",
+    "stops": [
+      "Lake Mall"
+    ],
+    "legacyCode": "AC47"
+  },
+  {
+    "code": "AC47",
+    "from": "Narkelbagan",
+    "to": "Unitech Gate 1",
+    "stops": [
+      "Tata Cancer Hospital"
+    ],
+    "legacyCode": "AC47"
+  },
+  {
+    "code": "AC47",
+    "from": "Rabindra Sarovar",
+    "to": "Rashbehari",
+    "stops": [
+      "Mudiali"
+    ],
+    "legacyCode": "AC47"
+  },
+  {
+    "code": "AC47",
+    "from": "Rabindra Sarovar",
+    "to": "Tollygunge Metro",
+    "stops": [
+      "M R Bangur Hospital"
+    ],
+    "legacyCode": "AC47"
+  },
+  {
+    "code": "AC47",
+    "from": "Rashbehari",
+    "to": "Deshapriya Park",
+    "stops": [
+      "Lake Mall"
+    ],
+    "legacyCode": "AC47"
+  },
+  {
+    "code": "AC47",
+    "from": "Rashbehari",
+    "to": "Rabindra Sarovar",
+    "stops": [
+      "Mudiali"
+    ],
+    "legacyCode": "AC47"
+  },
+  {
+    "code": "AC47",
+    "from": "Tollygunge Metro",
+    "to": "Rabindra Sarovar",
+    "stops": [
+      "M R Bangur Hospital"
+    ],
+    "legacyCode": "AC47"
+  },
+  {
+    "code": "AC47",
+    "from": "Unitech Gate 1",
+    "to": "Narkelbagan",
+    "stops": [
+      "Tata Cancer Hospital"
+    ],
+    "legacyCode": "AC47"
+  },
+  {
+    "code": "AC49",
+    "from": "Acropolis Mall",
+    "to": "Ruby",
+    "stops": [
+      "GST Bhawan"
+    ],
+    "legacyCode": "AC49"
+  },
+  {
+    "code": "AC49",
+    "from": "College More",
+    "to": "DLF 1",
+    "stops": [
+      "Technopolis"
+    ],
+    "legacyCode": "AC49"
+  },
+  {
+    "code": "AC49",
+    "from": "DLF 1",
+    "to": "College More",
+    "stops": [
+      "Technopolis"
+    ],
+    "legacyCode": "AC49"
+  },
+  {
+    "code": "AC49",
+    "from": "Ruby",
+    "to": "Acropolis Mall",
+    "stops": [
+      "GST Bhawan"
+    ],
+    "legacyCode": "AC49"
+  },
+  {
+    "code": "AC5",
+    "from": "Baghajatin",
+    "to": "Jadavpur 8B",
+    "stops": [
+      "Sulekha"
+    ],
+    "legacyCode": "AC5"
+  },
+  {
+    "code": "AC5",
+    "from": "Bhowanipore",
+    "to": "Rabindra Sadan",
+    "stops": [
+      "Elgin",
+      "Exide"
+    ],
+    "legacyCode": "AC5"
+  },
+  {
+    "code": "AC5",
+    "from": "Dhakuria",
+    "to": "Jadavpur 8B",
+    "stops": [
+      "Jodhpur Park",
+      "Jadavpur PS"
+    ],
+    "legacyCode": "AC5"
+  },
+  {
+    "code": "AC5",
+    "from": "Esplanade",
+    "to": "Park Street",
+    "stops": [
+      "Mayo Road"
+    ],
+    "legacyCode": "AC5"
+  },
+  {
+    "code": "AC5",
+    "from": "Jadavpur 8B",
+    "to": "Baghajatin",
+    "stops": [
+      "Sulekha"
+    ],
+    "legacyCode": "AC5"
+  },
+  {
+    "code": "AC5",
+    "from": "Jadavpur 8B",
+    "to": "Dhakuria",
+    "stops": [
+      "Jadavpur PS",
+      "Jodhpur Park"
+    ],
+    "legacyCode": "AC5"
+  },
+  {
+    "code": "AC5",
+    "from": "Park Street",
+    "to": "Esplanade",
+    "stops": [
+      "Mayo Road"
+    ],
+    "legacyCode": "AC5"
+  },
+  {
+    "code": "AC5",
+    "from": "Rabindra Sadan",
+    "to": "Bhowanipore",
+    "stops": [
+      "Exide",
+      "Elgin"
+    ],
+    "legacyCode": "AC5"
+  },
+  {
+    "code": "AC50A",
+    "from": "Apollo Hospital",
+    "to": "Beleghata Building",
+    "stops": [
+      "Swabhumi",
+      "Saltlake Stadium"
+    ],
+    "legacyCode": "AC50A"
+  },
+  {
+    "code": "AC50A",
+    "from": "Apollo Hospital",
+    "to": "Bengal Chemical",
+    "stops": [
+      "Mani Square"
+    ],
+    "legacyCode": "AC50A"
+  },
+  {
+    "code": "AC50A",
+    "from": "Ballyhalt",
+    "to": "Dakshineswar",
+    "stops": [
+      "Ballyghat"
+    ],
+    "legacyCode": "AC50A"
+  },
+  {
+    "code": "AC50A",
+    "from": "Beleghata Building",
+    "to": "Apollo Hospital",
+    "stops": [
+      "Saltlake Stadium",
+      "Swabhumi"
+    ],
+    "legacyCode": "AC50A"
+  },
+  {
+    "code": "AC50A",
+    "from": "Bengal Chemical",
+    "to": "Apollo Hospital",
+    "stops": [
+      "Mani Square"
+    ],
+    "legacyCode": "AC50A"
+  },
+  {
+    "code": "AC50A",
+    "from": "Dakshineswar",
+    "to": "Ballyhalt",
+    "stops": [
+      "Ballyghat"
+    ],
+    "legacyCode": "AC50A"
+  },
+  {
+    "code": "AC50A",
+    "from": "Ruby",
+    "to": "VIP Bazar",
+    "stops": [
+      "Fortis Hospital"
+    ],
+    "legacyCode": "AC50A"
+  },
+  {
+    "code": "AC50A",
+    "from": "VIP Bazar",
+    "to": "Ruby",
+    "stops": [
+      "Fortis Hospital"
+    ],
+    "legacyCode": "AC50A"
+  },
+  {
+    "code": "AC52",
+    "from": "BBD Bag",
+    "to": "Barabazar",
+    "stops": [
+      "GPO",
+      "Shipping Corporation"
+    ],
+    "legacyCode": "AC52"
+  },
+  {
+    "code": "AC52",
+    "from": "Barabazar",
+    "to": "BBD Bag",
+    "stops": [
+      "Shipping Corporation",
+      "GPO"
+    ],
+    "legacyCode": "AC52"
+  },
+  {
+    "code": "AC52",
+    "from": "Behala 14 No",
+    "to": "Behala Chowrasta",
+    "stops": [
+      "Manton"
+    ],
+    "legacyCode": "AC52"
+  },
+  {
+    "code": "AC52",
+    "from": "Behala 14 No",
+    "to": "Majherhat",
+    "stops": [
+      "Taratala"
+    ],
+    "legacyCode": "AC52"
+  },
+  {
+    "code": "AC52",
+    "from": "Behala Chowrasta",
+    "to": "Behala 14 No",
+    "stops": [
+      "Manton"
+    ],
+    "legacyCode": "AC52"
+  },
+  {
+    "code": "AC52",
+    "from": "Majherhat",
+    "to": "Behala 14 No",
+    "stops": [
+      "Taratala"
+    ],
+    "legacyCode": "AC52"
+  },
+  {
+    "code": "AC6",
+    "from": "BBD Bag",
+    "to": "Barabazar",
+    "stops": [
+      "GPO"
+    ],
+    "legacyCode": "AC6"
+  },
+  {
+    "code": "AC6",
+    "from": "Barabazar",
+    "to": "BBD Bag",
+    "stops": [
+      "GPO"
+    ],
+    "legacyCode": "AC6"
+  },
+  {
+    "code": "AC9",
+    "from": "Central Park",
+    "to": "Karunamoyee",
+    "stops": [
+      "City Center 1",
+      "Bikash Bhawan",
+      "Bidyut Bhawan"
+    ],
+    "legacyCode": "AC9"
+  },
+  {
+    "code": "AC9",
+    "from": "Karunamoyee",
+    "to": "Central Park",
+    "stops": [
+      "Bidyut Bhawan",
+      "Bikash Bhawan",
+      "City Center 1"
+    ],
+    "legacyCode": "AC9"
+  },
+  {
+    "code": "AC9B",
+    "from": "College More",
+    "to": "DLF 1",
+    "stops": [
+      "Technopolis"
+    ],
+    "legacyCode": "AC9B"
+  },
+  {
+    "code": "AC9B",
+    "from": "DLF 1",
+    "to": "College More",
+    "stops": [
+      "Technopolis"
+    ],
+    "legacyCode": "AC9B"
+  },
+  {
+    "code": "AC9B",
+    "from": "Narkelbagan",
+    "to": "Unitech Gate 2",
+    "stops": [
+      "Tata Cancer Hospital"
+    ],
+    "legacyCode": "AC9B"
+  },
+  {
+    "code": "AC9B",
+    "from": "Santoshpur",
+    "to": "Jadavpur",
+    "stops": [
+      "Sulekha"
+    ],
+    "legacyCode": "AC9B"
+  },
+  {
+    "code": "AC9B",
+    "from": "Unitech Gate 2",
+    "to": "Narkelbagan",
+    "stops": [
+      "Tata Cancer Hospital"
+    ],
+    "legacyCode": "AC9B"
+  },
+  {
+    "code": "C111",
+    "from": "Bargachia",
+    "to": "Munshirhat",
+    "stops": [
+      "Pantihal"
+    ],
+    "legacyCode": "C11/1"
+  },
+  {
+    "code": "C111",
+    "from": "Munshirhat",
+    "to": "Bargachia",
+    "stops": [
+      "Pantihal"
+    ],
+    "legacyCode": "C11/1"
+  },
+  {
+    "code": "C141",
+    "from": "BT College",
+    "to": "Madhyamgram",
+    "stops": [
+      "Doltala"
+    ],
+    "legacyCode": "C14/1"
+  },
+  {
+    "code": "C141",
+    "from": "Madhyamgram",
+    "to": "BT College",
+    "stops": [
+      "Doltala"
+    ],
+    "legacyCode": "C14/1"
+  },
+  {
+    "code": "C23",
+    "from": "College More",
+    "to": "DLF 1",
+    "stops": [
+      "Technopolis"
+    ],
+    "legacyCode": "C23"
+  },
+  {
+    "code": "C23",
+    "from": "DLF 1",
+    "to": "College More",
+    "stops": [
+      "Technopolis"
+    ],
+    "legacyCode": "C23"
+  },
+  {
+    "code": "C23",
+    "from": "Dankuni Housing",
+    "to": "Rajchandrapur",
+    "stops": [
+      "Maiti Para"
+    ],
+    "legacyCode": "C23"
+  },
+  {
+    "code": "C23",
+    "from": "Rajchandrapur",
+    "to": "Dankuni Housing",
+    "stops": [
+      "Maiti Para"
+    ],
+    "legacyCode": "C23"
+  },
+  {
+    "code": "C23A",
+    "from": "College More",
+    "to": "DLF 1",
+    "stops": [
+      "Technopolis"
+    ],
+    "legacyCode": "C23A"
+  },
+  {
+    "code": "C23A",
+    "from": "DLF 1",
+    "to": "College More",
+    "stops": [
+      "Technopolis"
+    ],
+    "legacyCode": "C23A"
+  },
+  {
+    "code": "C26",
+    "from": "Harinavi",
+    "to": "Khasmallick",
+    "stops": [
+      "Gobindapur"
+    ],
+    "legacyCode": "C26"
+  },
+  {
+    "code": "C26",
+    "from": "Khasmallick",
+    "to": "Harinavi",
+    "stops": [
+      "Gobindapur"
+    ],
+    "legacyCode": "C26"
+  },
+  {
+    "code": "C26",
+    "from": "Ruby",
+    "to": "VIP Bazar",
+    "stops": [
+      "Fortis"
+    ],
+    "legacyCode": "C26"
+  },
+  {
+    "code": "C26",
+    "from": "VIP Bazar",
+    "to": "Ruby",
+    "stops": [
+      "Fortis"
+    ],
+    "legacyCode": "C26"
+  },
+  {
+    "code": "C26A",
+    "from": "Ruby",
+    "to": "VIP Bazar",
+    "stops": [
+      "Fortis Hospital"
+    ],
+    "legacyCode": "C26A"
+  },
+  {
+    "code": "C26A",
+    "from": "VIP Bazar",
+    "to": "Ruby",
+    "stops": [
+      "Fortis Hospital"
+    ],
+    "legacyCode": "C26A"
+  },
+  {
+    "code": "C37",
+    "from": "Behala 14 No",
+    "to": "Majherhat",
+    "stops": [
+      "Taratala"
+    ],
+    "legacyCode": "C37"
+  },
+  {
+    "code": "C37",
+    "from": "Majherhat",
+    "to": "Behala 14 No",
+    "stops": [
+      "Taratala"
+    ],
+    "legacyCode": "C37"
+  },
+  {
+    "code": "C38",
+    "from": "Mominpore",
+    "to": "Taratala",
+    "stops": [
+      "Majherhat"
+    ],
+    "legacyCode": "C38"
+  },
+  {
+    "code": "C38",
+    "from": "Taratala",
+    "to": "Mominpore",
+    "stops": [
+      "Majherhat"
+    ],
+    "legacyCode": "C38"
+  },
+  {
+    "code": "D2",
+    "from": "Naihati Station",
+    "to": "Saheb Colony",
+    "stops": [
+      "Ramkrishna Talkies",
+      "Kathgola"
+    ],
+    "legacyCode": "D2"
+  },
+  {
+    "code": "D2",
+    "from": "Saheb Colony",
+    "to": "Naihati Station",
+    "stops": [
+      "Kathgola",
+      "Ramkrishna Talkies"
+    ],
+    "legacyCode": "D2"
+  },
+  {
+    "code": "D28",
+    "from": "Badarhat",
+    "to": "Bira Chowmatha",
+    "stops": [
+      "Icchapur"
+    ],
+    "legacyCode": "D28"
+  },
+  {
+    "code": "D28",
+    "from": "Bira Chowmatha",
+    "to": "Badarhat",
+    "stops": [
+      "Icchapur"
+    ],
+    "legacyCode": "D28"
+  },
+  {
+    "code": "D32",
+    "from": "Basirhat",
+    "to": "Taki Chowrangee",
+    "stops": [
+      "Murarisha Chowmatha"
+    ],
+    "legacyCode": "D32"
+  },
+  {
+    "code": "D32",
+    "from": "Taki Chowrangee",
+    "to": "Basirhat",
+    "stops": [
+      "Murarisha Chowmatha"
+    ],
+    "legacyCode": "D32"
+  },
+  {
+    "code": "D8",
+    "from": "Berachampa",
+    "to": "Jadurhati",
+    "stops": [
+      "Kaukepara",
+      "Nagar Kachua",
+      "Khaspur"
+    ],
+    "legacyCode": "D8"
+  },
+  {
+    "code": "D8",
+    "from": "Jadurhati",
+    "to": "Berachampa",
+    "stops": [
+      "Khaspur",
+      "Nagar Kachua",
+      "Kaukepara"
+    ],
+    "legacyCode": "D8"
+  },
+  {
+    "code": "DN13",
+    "from": "Biramnagar",
+    "to": "Katiahat Bazar",
+    "stops": [
+      "Gandharbapur"
+    ],
+    "legacyCode": "DN13"
+  },
+  {
+    "code": "DN13",
+    "from": "Gopalpur",
+    "to": "Malatipur",
+    "stops": [
+      "Ghoraras Beltala",
+      "Korapara"
+    ],
+    "legacyCode": "DN13"
+  },
+  {
+    "code": "DN13",
+    "from": "Katiahat Bazar",
+    "to": "Biramnagar",
+    "stops": [
+      "Gandharbapur"
+    ],
+    "legacyCode": "DN13"
+  },
+  {
+    "code": "DN13",
+    "from": "Malatipur",
+    "to": "Gopalpur",
+    "stops": [
+      "Korapara",
+      "Ghoraras Beltala"
+    ],
+    "legacyCode": "DN13"
+  },
+  {
+    "code": "DN13",
+    "from": "Nirman",
+    "to": "Sarapul",
+    "stops": [
+      "Dakbungalow Bazar"
+    ],
+    "legacyCode": "DN13"
+  },
+  {
+    "code": "DN13",
+    "from": "Sarapul",
+    "to": "Nirman",
+    "stops": [
+      "Dakbungalow Bazar"
+    ],
+    "legacyCode": "DN13"
+  },
+  {
+    "code": "DN161",
+    "from": "Agarhati",
+    "to": "Boyermari",
+    "stops": [
+      "Kanmari"
+    ],
+    "legacyCode": "DN16/1"
+  },
+  {
+    "code": "DN161",
+    "from": "BT College",
+    "to": "Birati",
+    "stops": [
+      "Gouripur"
+    ],
+    "legacyCode": "DN16/1"
+  },
+  {
+    "code": "DN161",
+    "from": "Bhojerhat",
+    "to": "Kantatala",
+    "stops": [
+      "Calcutta Leather Complex"
+    ],
+    "legacyCode": "DN16/1"
+  },
+  {
+    "code": "DN161",
+    "from": "Birati",
+    "to": "BT College",
+    "stops": [
+      "Gouripur"
+    ],
+    "legacyCode": "DN16/1"
+  },
+  {
+    "code": "DN161",
+    "from": "Boyermari",
+    "to": "Agarhati",
+    "stops": [
+      "Kanmari"
+    ],
+    "legacyCode": "DN16/1"
+  },
+  {
+    "code": "DN161",
+    "from": "Boyermari",
+    "to": "Malancha",
+    "stops": [
+      "Shirishtala",
+      "Rajbari",
+      "Mathbari"
+    ],
+    "legacyCode": "DN16/1"
+  },
+  {
+    "code": "DN161",
+    "from": "Dhamakhali",
+    "to": "Sarberia",
+    "stops": [
+      "Rampur",
+      "Fakirtala"
+    ],
+    "legacyCode": "DN16/1"
+  },
+  {
+    "code": "DN161",
+    "from": "Ghatakpukur",
+    "to": "Ghushighata",
+    "stops": [
+      "Bamunia",
+      "Chandipur",
+      "Ghoshpur"
+    ],
+    "legacyCode": "DN16/1"
+  },
+  {
+    "code": "DN161",
+    "from": "Ghushighata",
+    "to": "Ghatakpukur",
+    "stops": [
+      "Ghoshpur",
+      "Chandipur",
+      "Bamunia"
+    ],
+    "legacyCode": "DN16/1"
+  },
+  {
+    "code": "DN161",
+    "from": "Kantatala",
+    "to": "Bhojerhat",
+    "stops": [
+      "Calcutta Leather Complex"
+    ],
+    "legacyCode": "DN16/1"
+  },
+  {
+    "code": "DN161",
+    "from": "Malancha",
+    "to": "Boyermari",
+    "stops": [
+      "Mathbari",
+      "Rajbari",
+      "Shirishtala"
+    ],
+    "legacyCode": "DN16/1"
+  },
+  {
+    "code": "DN161",
+    "from": "Malancha",
+    "to": "Minakhan",
+    "stops": [
+      "Joygram"
+    ],
+    "legacyCode": "DN16/1"
+  },
+  {
+    "code": "DN161",
+    "from": "Minakhan",
+    "to": "Malancha",
+    "stops": [
+      "Joygram"
+    ],
+    "legacyCode": "DN16/1"
+  },
+  {
+    "code": "DN161",
+    "from": "Sarberia",
+    "to": "Dhamakhali",
+    "stops": [
+      "Fakirtala",
+      "Rampur"
+    ],
+    "legacyCode": "DN16/1"
+  },
+  {
+    "code": "DN17",
+    "from": "BT College",
+    "to": "Birati",
+    "stops": [
+      "Sukantanagar",
+      "Michaelnagar",
+      "Bankra",
+      "Gouripur"
+    ],
+    "legacyCode": "DN17"
+  },
+  {
+    "code": "DN17",
+    "from": "Babughat",
+    "to": "Esplanade",
+    "stops": [
+      "Akashbani Bhawan"
+    ],
+    "legacyCode": "DN17"
+  },
+  {
+    "code": "DN17",
+    "from": "Birati",
+    "to": "BT College",
+    "stops": [
+      "Gouripur",
+      "Bankra",
+      "Michaelnagar",
+      "Sukantanagar"
+    ],
+    "legacyCode": "DN17"
+  },
+  {
+    "code": "DN17",
+    "from": "Esplanade",
+    "to": "Babughat",
+    "stops": [
+      "Akashbani Bhawan"
+    ],
+    "legacyCode": "DN17"
+  },
+  {
+    "code": "DN28",
+    "from": "Adampur",
+    "to": "Hamadama",
+    "stops": [
+      "Ramnagar"
+    ],
+    "legacyCode": "DN28"
+  },
+  {
+    "code": "DN28",
+    "from": "Berachampa",
+    "to": "Deganga",
+    "stops": [
+      "Aturia"
+    ],
+    "legacyCode": "DN28"
+  },
+  {
+    "code": "DN28",
+    "from": "Deganga",
+    "to": "Berachampa",
+    "stops": [
+      "Aturia"
+    ],
+    "legacyCode": "DN28"
+  },
+  {
+    "code": "DN28",
+    "from": "Golabari",
+    "to": "Kadambagachi",
+    "stops": [
+      "Goakhali"
+    ],
+    "legacyCode": "DN28"
+  },
+  {
+    "code": "DN28",
+    "from": "Hamadama",
+    "to": "Adampur",
+    "stops": [
+      "Ramnagar"
+    ],
+    "legacyCode": "DN28"
+  },
+  {
+    "code": "DN28",
+    "from": "Kadambagachi",
+    "to": "Golabari",
+    "stops": [
+      "Goakhali"
+    ],
+    "legacyCode": "DN28"
+  },
+  {
+    "code": "DN35",
+    "from": "Bithari",
+    "to": "Duttapara",
+    "stops": [
+      "Nandibari"
+    ],
+    "legacyCode": "DN35"
+  },
+  {
+    "code": "DN35",
+    "from": "Duttapara",
+    "to": "Bithari",
+    "stops": [
+      "Nandibari"
+    ],
+    "legacyCode": "DN35"
+  },
+  {
+    "code": "DN35",
+    "from": "Kayosa Bazar",
+    "to": "Tentulia",
+    "stops": [
+      "Ramchandrapur Bazar"
+    ],
+    "legacyCode": "DN35"
+  },
+  {
+    "code": "DN35",
+    "from": "Sarapul",
+    "to": "Swarupnagar",
+    "stops": [
+      "Mallickbari",
+      "Malangapara"
+    ],
+    "legacyCode": "DN35"
+  },
+  {
+    "code": "DN35",
+    "from": "Swarupnagar",
+    "to": "Sarapul",
+    "stops": [
+      "Malangapara",
+      "Mallickbari"
+    ],
+    "legacyCode": "DN35"
+  },
+  {
+    "code": "DN35",
+    "from": "Tentulia",
+    "to": "Kayosa Bazar",
+    "stops": [
+      "Ramchandrapur Bazar"
+    ],
+    "legacyCode": "DN35"
+  },
+  {
+    "code": "DN44",
+    "from": "Airport Gate 3",
+    "to": "Durganagar",
+    "stops": [
+      "Belgharia Expressway"
+    ],
+    "legacyCode": "DN44"
+  },
+  {
+    "code": "DN44",
+    "from": "BT College",
+    "to": "Birati",
+    "stops": [
+      "Michaelnagar",
+      "Gouripur"
+    ],
+    "legacyCode": "DN44"
+  },
+  {
+    "code": "DN44",
+    "from": "Bamangachi",
+    "to": "Barasat Chapadali",
+    "stops": [
+      "Mondonkathi",
+      "Kazipara"
+    ],
+    "legacyCode": "DN44"
+  },
+  {
+    "code": "DN44",
+    "from": "Barasat Chapadali",
+    "to": "Bamangachi",
+    "stops": [
+      "Kazipara",
+      "Mondonkathi"
+    ],
+    "legacyCode": "DN44"
+  },
+  {
+    "code": "DN44",
+    "from": "Bira Chowmatha",
+    "to": "Duttapukur",
+    "stops": [
+      "Joypul Bazar"
+    ],
+    "legacyCode": "DN44"
+  },
+  {
+    "code": "DN44",
+    "from": "Birati",
+    "to": "BT College",
+    "stops": [
+      "Gouripur",
+      "Michaelnagar"
+    ],
+    "legacyCode": "DN44"
+  },
+  {
+    "code": "DN44",
+    "from": "Durganagar",
+    "to": "Airport Gate 3",
+    "stops": [
+      "Belgharia Expressway"
+    ],
+    "legacyCode": "DN44"
+  },
+  {
+    "code": "DN44",
+    "from": "Duttapukur",
+    "to": "Bira Chowmatha",
+    "stops": [
+      "Joypul Bazar"
+    ],
+    "legacyCode": "DN44"
+  },
+  {
+    "code": "DN47",
+    "from": "BT College",
+    "to": "Birati",
+    "stops": [
+      "Michaelnagar",
+      "Gouripur"
+    ],
+    "legacyCode": "DN47"
+  },
+  {
+    "code": "DN47",
+    "from": "Birati",
+    "to": "BT College",
+    "stops": [
+      "Gouripur",
+      "Michaelnagar"
+    ],
+    "legacyCode": "DN47"
+  },
+  {
+    "code": "DN47",
+    "from": "Ecopark",
+    "to": "Narkelbagan",
+    "stops": [
+      "Jatragachi"
+    ],
+    "legacyCode": "DN47"
+  },
+  {
+    "code": "DN47",
+    "from": "Karunamoyee",
+    "to": "Wipro",
+    "stops": [
+      "Saltlake 10no Tank"
+    ],
+    "legacyCode": "DN47"
+  },
+  {
+    "code": "DN47",
+    "from": "Narkelbagan",
+    "to": "Ecopark",
+    "stops": [
+      "Jatragachi"
+    ],
+    "legacyCode": "DN47"
+  },
+  {
+    "code": "DN47",
+    "from": "Wipro",
+    "to": "Karunamoyee",
+    "stops": [
+      "Saltlake 10no Tank"
+    ],
+    "legacyCode": "DN47"
+  },
+  {
+    "code": "E1",
+    "from": "Dhakuria",
+    "to": "Jadavpur 8B",
+    "stops": [
+      "Jadavpur University"
+    ],
+    "legacyCode": "E-1"
+  },
+  {
+    "code": "E1",
+    "from": "Jadavpur 8B",
+    "to": "Dhakuria",
+    "stops": [
+      "Jadavpur University"
+    ],
+    "legacyCode": "E-1"
+  },
+  {
+    "code": "E24",
+    "from": "Palashipara",
+    "to": "Tehatta",
+    "stops": [
+      "Jitpur"
+    ],
+    "legacyCode": "E24"
+  },
+  {
+    "code": "E24",
+    "from": "Tehatta",
+    "to": "Palashipara",
+    "stops": [
+      "Jitpur"
+    ],
+    "legacyCode": "E24"
+  },
+  {
+    "code": "E31",
+    "from": "Garh Bhowanipore",
+    "to": "Sehagori",
+    "stops": [
+      "Bidichandrapur",
+      "Shaoraberia"
+    ],
+    "legacyCode": "E31"
+  },
+  {
+    "code": "E31",
+    "from": "Sehagori",
+    "to": "Garh Bhowanipore",
+    "stops": [
+      "Shaoraberia",
+      "Bidichandrapur"
+    ],
+    "legacyCode": "E31"
+  },
+  {
+    "code": "E43",
+    "from": "Amta",
+    "to": "Sehagori",
+    "stops": [
+      "Betai Bandar",
+      "Khorop"
+    ],
+    "legacyCode": "E43"
+  },
+  {
+    "code": "E43",
+    "from": "Sehagori",
+    "to": "Amta",
+    "stops": [
+      "Khorop",
+      "Betai Bandar"
+    ],
+    "legacyCode": "E43"
+  },
+  {
+    "code": "E55",
+    "from": "Birati Station",
+    "to": "Madhyamgram",
+    "stops": [
+      "Birati"
+    ],
+    "legacyCode": "E55"
+  },
+  {
+    "code": "E55",
+    "from": "Madhyamgram",
+    "to": "Birati Station",
+    "stops": [
+      "Birati"
+    ],
+    "legacyCode": "E55"
+  },
+  {
+    "code": "E62",
+    "from": "Bhandarkhali",
+    "to": "Sitalia",
+    "stops": [
+      "Khulna"
+    ],
+    "legacyCode": "E62"
+  },
+  {
+    "code": "E62",
+    "from": "Sitalia",
+    "to": "Bhandarkhali",
+    "stops": [
+      "Khulna"
+    ],
+    "legacyCode": "E62"
+  },
+  {
+    "code": "E66",
+    "from": "Rampurhat",
+    "to": "Tarapith",
+    "stops": [
+      "Barshal"
+    ],
+    "legacyCode": "E66"
+  },
+  {
+    "code": "E66",
+    "from": "Tarapith",
+    "to": "Rampurhat",
+    "stops": [
+      "Barshal"
+    ],
+    "legacyCode": "E66"
+  },
+  {
+    "code": "E68",
+    "from": "Durgachak",
+    "to": "Haldia",
+    "stops": [
+      "Haldia Township"
+    ],
+    "legacyCode": "E68"
+  },
+  {
+    "code": "E68",
+    "from": "Haldia",
+    "to": "Durgachak",
+    "stops": [
+      "Haldia Township"
+    ],
+    "legacyCode": "E68"
+  },
+  {
+    "code": "E70",
+    "from": "Dherua",
+    "to": "Jhargram",
+    "stops": [
+      "Baita",
+      "Sevayatan"
+    ],
+    "legacyCode": "E70"
+  },
+  {
+    "code": "E70",
+    "from": "Jhargram",
+    "to": "Dherua",
+    "stops": [
+      "Sevayatan",
+      "Baita"
+    ],
+    "legacyCode": "E70"
+  },
+  {
+    "code": "E74",
+    "from": "Azabnagar",
+    "to": "Basubati Darbar Sharif",
+    "stops": [
+      "Basubati"
+    ],
+    "legacyCode": "E74"
+  },
+  {
+    "code": "E74",
+    "from": "Basubati Darbar Sharif",
+    "to": "Azabnagar",
+    "stops": [
+      "Basubati"
+    ],
+    "legacyCode": "E74"
+  },
+  {
+    "code": "K1",
+    "from": "Karunamoyee",
+    "to": "Wipro",
+    "stops": [
+      "Saltlake 10no Tank"
+    ],
+    "legacyCode": "K1"
+  },
+  {
+    "code": "K1",
+    "from": "Saltlake PNB",
+    "to": "Ultadanga",
+    "stops": [
+      "Ultadanga Hudco"
+    ],
+    "legacyCode": "K1"
+  },
+  {
+    "code": "K1",
+    "from": "Ultadanga",
+    "to": "Saltlake PNB",
+    "stops": [
+      "Ultadanga Hudco"
+    ],
+    "legacyCode": "K1"
+  },
+  {
+    "code": "K1",
+    "from": "Wipro",
+    "to": "Karunamoyee",
+    "stops": [
+      "Saltlake 10no Tank"
+    ],
+    "legacyCode": "K1"
+  },
+  {
+    "code": "K11",
+    "from": "Domjur",
+    "to": "Makardaha",
+    "stops": [
+      "Domjur Bdo Office"
+    ],
+    "legacyCode": "K11"
+  },
+  {
+    "code": "K11",
+    "from": "Makardaha",
+    "to": "Domjur",
+    "stops": [
+      "Domjur Bdo Office"
+    ],
+    "legacyCode": "K11"
+  },
+  {
+    "code": "K4",
+    "from": "Bonhooghly",
+    "to": "Dunlop",
+    "stops": [
+      "Indian Statistical Institute"
+    ],
+    "legacyCode": "K4"
+  },
+  {
+    "code": "K4",
+    "from": "Dakshineswar",
+    "to": "Dunlop",
+    "stops": [
+      "Alambazar",
+      "Tantipara",
+      "Sabedabagan"
+    ],
+    "legacyCode": "K4"
+  },
+  {
+    "code": "K4",
+    "from": "Dunlop",
+    "to": "Bonhooghly",
+    "stops": [
+      "Indian Statistical Institute"
+    ],
+    "legacyCode": "K4"
+  },
+  {
+    "code": "K4",
+    "from": "Dunlop",
+    "to": "Dakshineswar",
+    "stops": [
+      "Sabedabagan",
+      "Tantipara",
+      "Alambazar"
+    ],
+    "legacyCode": "K4"
+  },
+  {
+    "code": "K4",
+    "from": "Maniktala",
+    "to": "Rajabazar",
+    "stops": [
+      "Sukea Street"
+    ],
+    "legacyCode": "K4"
+  },
+  {
+    "code": "K4",
+    "from": "Rajabazar",
+    "to": "Maniktala",
+    "stops": [
+      "Sukea Street"
+    ],
+    "legacyCode": "K4"
+  },
+  {
+    "code": "KB15",
+    "from": "Baksara",
+    "to": "Belepole",
+    "stops": [
+      "Betore"
+    ],
+    "legacyCode": "KB15"
+  },
+  {
+    "code": "KB15",
+    "from": "Belepole",
+    "to": "Baksara",
+    "stops": [
+      "Betore"
+    ],
+    "legacyCode": "KB15"
+  },
+  {
+    "code": "KB16",
+    "from": "Bangur Avenue",
+    "to": "Kalindi",
+    "stops": [
+      "Laketown Jessore Road"
+    ],
+    "legacyCode": "KB16"
+  },
+  {
+    "code": "KB16",
+    "from": "Belgachia",
+    "to": "Patipukur",
+    "stops": [
+      "Duttabagan"
+    ],
+    "legacyCode": "KB16"
+  },
+  {
+    "code": "KB16",
+    "from": "Bikash Bhawan",
+    "to": "City Center 1",
+    "stops": [
+      "Central Park"
+    ],
+    "legacyCode": "KB16"
+  },
+  {
+    "code": "KB16",
+    "from": "Bikash Bhawan",
+    "to": "Karunamoyee",
+    "stops": [
+      "Mayukh Bhawan"
+    ],
+    "legacyCode": "KB16"
+  },
+  {
+    "code": "KB16",
+    "from": "City Center 1",
+    "to": "Bikash Bhawan",
+    "stops": [
+      "Central Park"
+    ],
+    "legacyCode": "KB16"
+  },
+  {
+    "code": "KB16",
+    "from": "College More",
+    "to": "Wipro",
+    "stops": [
+      "IBM"
+    ],
+    "legacyCode": "KB16"
+  },
+  {
+    "code": "KB16",
+    "from": "Kalindi",
+    "to": "Bangur Avenue",
+    "stops": [
+      "Laketown Jessore Road"
+    ],
+    "legacyCode": "KB16"
+  },
+  {
+    "code": "KB16",
+    "from": "Karigari Bhawan",
+    "to": "Shapoorji",
+    "stops": [
+      "Hajratala",
+      "Natunpukur"
+    ],
+    "legacyCode": "KB16"
+  },
+  {
+    "code": "KB16",
+    "from": "Karunamoyee",
+    "to": "Bikash Bhawan",
+    "stops": [
+      "Mayukh Bhawan"
+    ],
+    "legacyCode": "KB16"
+  },
+  {
+    "code": "KB16",
+    "from": "Karunamoyee",
+    "to": "Wipro",
+    "stops": [
+      "Saltlake 10no Tank"
+    ],
+    "legacyCode": "KB16"
+  },
+  {
+    "code": "KB16",
+    "from": "Patipukur",
+    "to": "Belgachia",
+    "stops": [
+      "Duttabagan"
+    ],
+    "legacyCode": "KB16"
+  },
+  {
+    "code": "KB16",
+    "from": "Saltlake CA Block",
+    "to": "Saltlake PNB",
+    "stops": [
+      "2 No Tank"
+    ],
+    "legacyCode": "KB16"
+  },
+  {
+    "code": "KB16",
+    "from": "Saltlake PNB",
+    "to": "Saltlake CA Block",
+    "stops": [
+      "2 No Tank"
+    ],
+    "legacyCode": "KB16"
+  },
+  {
+    "code": "KB16",
+    "from": "Saltlake PNB",
+    "to": "Ultadanga",
+    "stops": [
+      "Ultadanga Hudco"
+    ],
+    "legacyCode": "KB16"
+  },
+  {
+    "code": "KB16",
+    "from": "Shapoorji",
+    "to": "Karigari Bhawan",
+    "stops": [
+      "Natunpukur",
+      "Hajratala"
+    ],
+    "legacyCode": "KB16"
+  },
+  {
+    "code": "KB16",
+    "from": "Ultadanga",
+    "to": "Saltlake PNB",
+    "stops": [
+      "Ultadanga Hudco"
+    ],
+    "legacyCode": "KB16"
+  },
+  {
+    "code": "KB16",
+    "from": "Wipro",
+    "to": "College More",
+    "stops": [
+      "IBM"
+    ],
+    "legacyCode": "KB16"
+  },
+  {
+    "code": "KB16",
+    "from": "Wipro",
+    "to": "Karunamoyee",
+    "stops": [
+      "Saltlake 10no Tank"
+    ],
+    "legacyCode": "KB16"
+  },
+  {
+    "code": "KB17",
+    "from": "Baghajatin",
+    "to": "Jadavpur 8B",
+    "stops": [
+      "Sulekha"
+    ],
+    "legacyCode": "KB17"
+  },
+  {
+    "code": "KB17",
+    "from": "Dhakuria",
+    "to": "Jadavpur 8B",
+    "stops": [
+      "Jadavpur PS"
+    ],
+    "legacyCode": "KB17"
+  },
+  {
+    "code": "KB17",
+    "from": "Jadavpur 8B",
+    "to": "Baghajatin",
+    "stops": [
+      "Sulekha"
+    ],
+    "legacyCode": "KB17"
+  },
+  {
+    "code": "KB17",
+    "from": "Jadavpur 8B",
+    "to": "Dhakuria",
+    "stops": [
+      "Jadavpur PS"
+    ],
+    "legacyCode": "KB17"
+  },
+  {
+    "code": "KB17",
+    "from": "Narkelbagan",
+    "to": "Unitech Gate 1",
+    "stops": [
+      "Tata Medical"
+    ],
+    "legacyCode": "KB17"
+  },
+  {
+    "code": "KB17",
+    "from": "Unitech Gate 1",
+    "to": "Narkelbagan",
+    "stops": [
+      "Tata Medical"
+    ],
+    "legacyCode": "KB17"
+  },
+  {
+    "code": "KB21",
+    "from": "BT College",
+    "to": "Birati",
+    "stops": [
+      "Sukantanagar",
+      "Michaelnagar",
+      "Bankra",
+      "Gouripur"
+    ],
+    "legacyCode": "KB21"
+  },
+  {
+    "code": "KB21",
+    "from": "Birati",
+    "to": "BT College",
+    "stops": [
+      "Gouripur",
+      "Bankra",
+      "Michaelnagar",
+      "Sukantanagar"
+    ],
+    "legacyCode": "KB21"
+  },
+  {
+    "code": "KB21",
+    "from": "Mallick Bazar",
+    "to": "Moulali",
+    "stops": [
+      "Nonapukur",
+      "Ripon Street",
+      "Jora Girja",
+      "Entally Market"
+    ],
+    "legacyCode": "KB21"
+  },
+  {
+    "code": "KB21",
+    "from": "Maniktala",
+    "to": "Rajabazar",
+    "stops": [
+      "Sukea Street"
+    ],
+    "legacyCode": "KB21"
+  },
+  {
+    "code": "KB21",
+    "from": "Moulali",
+    "to": "Mallick Bazar",
+    "stops": [
+      "Entally Market",
+      "Jora Girja",
+      "Ripon Street",
+      "Nonapukur"
+    ],
+    "legacyCode": "KB21"
+  },
+  {
+    "code": "KB21",
+    "from": "Rajabazar",
+    "to": "Maniktala",
+    "stops": [
+      "Sukea Street"
+    ],
+    "legacyCode": "KB21"
+  },
+  {
+    "code": "MM5",
+    "from": "Kamdebpur",
+    "to": "Madhabpur",
+    "stops": [
+      "Santoshpur"
+    ],
+    "legacyCode": "MM5"
+  },
+  {
+    "code": "MM5",
+    "from": "Madhabpur",
+    "to": "Kamdebpur",
+    "stops": [
+      "Santoshpur"
+    ],
+    "legacyCode": "MM5"
+  },
+  {
+    "code": "MM6",
+    "from": "Beleghata",
+    "to": "Golabari",
+    "stops": [
+      "Tona"
+    ],
+    "legacyCode": "MM6"
+  },
+  {
+    "code": "MM6",
+    "from": "Golabari",
+    "to": "Beleghata",
+    "stops": [
+      "Tona"
+    ],
+    "legacyCode": "MM6"
+  },
+  {
+    "code": "MN3",
+    "from": "Habra Station",
+    "to": "Kalyangarh",
+    "stops": [
+      "Habra Manasabari"
+    ],
+    "legacyCode": "MN3"
+  },
+  {
+    "code": "MN3",
+    "from": "Hapania",
+    "to": "Nagarukhra",
+    "stops": [
+      "Singa",
+      "Jhikra Battala",
+      "Kajla",
+      "Banbania Chowmatha"
+    ],
+    "legacyCode": "MN3"
+  },
+  {
+    "code": "MN3",
+    "from": "Kalyangarh",
+    "to": "Habra Station",
+    "stops": [
+      "Habra Manasabari"
+    ],
+    "legacyCode": "MN3"
+  },
+  {
+    "code": "MN6",
+    "from": "8 No Kalibari",
+    "to": "Kachua",
+    "stops": [
+      "Ashoknagar Chowrangi"
+    ],
+    "legacyCode": "MN6"
+  },
+  {
+    "code": "MN6",
+    "from": "Bira Chowmatha",
+    "to": "Duttapukur",
+    "stops": [
+      "Joypul Bazar"
+    ],
+    "legacyCode": "MN6"
+  },
+  {
+    "code": "MN6",
+    "from": "Duttapukur",
+    "to": "Bira Chowmatha",
+    "stops": [
+      "Joypul Bazar"
+    ],
+    "legacyCode": "MN6"
+  },
+  {
+    "code": "MN6",
+    "from": "Habra Station",
+    "to": "Kalyangarh",
+    "stops": [
+      "Manasabari Bazar",
+      "Radha Chemical"
+    ],
+    "legacyCode": "MN6"
+  },
+  {
+    "code": "MN6",
+    "from": "Kachua",
+    "to": "8 No Kalibari",
+    "stops": [
+      "Ashoknagar Chowrangi"
+    ],
+    "legacyCode": "MN6"
+  },
+  {
+    "code": "MN6",
+    "from": "Kalyangarh",
+    "to": "Habra Station",
+    "stops": [
+      "Radha Chemical",
+      "Manasabari Bazar"
+    ],
+    "legacyCode": "MN6"
+  },
+  {
+    "code": "MN6",
+    "from": "Khatura Bazar",
+    "to": "Madhusankati",
+    "stops": [
+      "Jamdani"
+    ],
+    "legacyCode": "MN6"
+  },
+  {
+    "code": "MN6",
+    "from": "Madhusankati",
+    "to": "Khatura Bazar",
+    "stops": [
+      "Jamdani"
+    ],
+    "legacyCode": "MN6"
+  },
+  {
+    "code": "RT1",
+    "from": "Pilkhana",
+    "to": "Salkia Chowrasta",
+    "stops": [
+      "Bandha Ghat"
+    ],
+    "legacyCode": "RT-1"
+  },
+  {
+    "code": "RT10",
+    "from": "Babughat",
+    "to": "Barabazar",
+    "stops": [
+      "Esplanade",
+      "BBD Bag"
+    ],
+    "legacyCode": "RT-10"
+  },
+  {
+    "code": "RT10",
+    "from": "Bandha Ghat",
+    "to": "Golabarai PS",
+    "stops": [
+      "Salkia Chowrasta"
+    ],
+    "legacyCode": "RT-10"
+  },
+  {
+    "code": "RT10",
+    "from": "Golabarai PS",
+    "to": "Howrah Station",
+    "stops": [
+      "Pilkhana"
+    ],
+    "legacyCode": "RT-10"
+  },
+  {
+    "code": "RT10",
+    "from": "Pilkhana",
+    "to": "Salkia Chowrasta",
+    "stops": [
+      "Golabarai PS"
+    ],
+    "legacyCode": "RT-10"
+  },
+  {
+    "code": "RT13",
+    "from": "Howrah Station",
+    "to": "Posta Bazar",
+    "stops": [
+      "Barabazar"
+    ],
+    "legacyCode": "RT-13"
+  },
+  {
+    "code": "RT13",
+    "from": "Kazipara",
+    "to": "Shibpur Bazar",
+    "stops": [
+      "Avani Mall"
+    ],
+    "legacyCode": "RT-13"
+  },
+  {
+    "code": "RT13",
+    "from": "Malapara",
+    "to": "Barabazar",
+    "stops": [
+      "Posta Bazar"
+    ],
+    "legacyCode": "RT-13"
+  },
+  {
+    "code": "RT13A",
+    "from": "Howrah Station",
+    "to": "Posta Bazar",
+    "stops": [
+      "Barabazar"
+    ],
+    "legacyCode": "RT-13A"
+  },
+  {
+    "code": "RT13A",
+    "from": "Kazipara",
+    "to": "Shibpur Bazar",
+    "stops": [
+      "Avani Mall"
+    ],
+    "legacyCode": "RT-13A"
+  },
+  {
+    "code": "RT13A",
+    "from": "Malapara",
+    "to": "Barabazar",
+    "stops": [
+      "Posta Bazar"
+    ],
+    "legacyCode": "RT-13A"
+  },
+  {
+    "code": "RT18",
+    "from": "Golabarai PS",
+    "to": "Howrah Station",
+    "stops": [
+      "Pilkhana"
+    ],
+    "legacyCode": "RT-18"
+  },
+  {
+    "code": "RT18",
+    "from": "Pilkhana",
+    "to": "Salkia Chowrasta",
+    "stops": [
+      "Golabarai PS",
+      "Bandha Ghat"
+    ],
+    "legacyCode": "RT-18"
+  },
+  {
+    "code": "RT1A",
+    "from": "Golabarai PS",
+    "to": "Howrah Station",
+    "stops": [
+      "Pilkhana"
+    ],
+    "legacyCode": "RT-1A"
+  },
+  {
+    "code": "RT1A",
+    "from": "Pilkhana",
+    "to": "Salkia Chowrasta",
+    "stops": [
+      "Golabarai PS",
+      "Bandha Ghat"
+    ],
+    "legacyCode": "RT-1A"
+  },
+  {
+    "code": "RT2",
+    "from": "Golabarai PS",
+    "to": "Howrah Station",
+    "stops": [
+      "Pilkhana"
+    ],
+    "legacyCode": "RT-2"
+  },
+  {
+    "code": "RT2",
+    "from": "Pilkhana",
+    "to": "Salkia Chowrasta",
+    "stops": [
+      "Golabarai PS",
+      "Bandha Ghat"
+    ],
+    "legacyCode": "RT-2"
+  },
+  {
+    "code": "RT20",
+    "from": "Howrah Station",
+    "to": "Posta Bazar",
+    "stops": [
+      "Barabazar"
+    ],
+    "legacyCode": "RT-20"
+  },
+  {
+    "code": "RT20",
+    "from": "Kazipara",
+    "to": "Shibpur Bazar",
+    "stops": [
+      "Avani Mall"
+    ],
+    "legacyCode": "RT-20"
+  },
+  {
+    "code": "RT20",
+    "from": "Malapara",
+    "to": "Barabazar",
+    "stops": [
+      "Posta Bazar"
+    ],
+    "legacyCode": "RT-20"
+  },
+  {
+    "code": "RT20A",
+    "from": "Kazipara",
+    "to": "Shibpur Bazar",
+    "stops": [
+      "Avani Mall"
+    ],
+    "legacyCode": "RT-20A"
+  },
+  {
+    "code": "RT24",
+    "from": "Kazipara",
+    "to": "Shibpur Bazar",
+    "stops": [
+      "Avani Mall"
+    ],
+    "legacyCode": "RT-24"
+  },
+  {
+    "code": "RT25",
+    "from": "Bandha Ghat",
+    "to": "Golabarai PS",
+    "stops": [
+      "Salkia Chowrasta"
+    ],
+    "legacyCode": "RT-25"
+  },
+  {
+    "code": "RT25",
+    "from": "Golabarai PS",
+    "to": "Howrah Station",
+    "stops": [
+      "Pilkhana"
+    ],
+    "legacyCode": "RT-25"
+  },
+  {
+    "code": "RT25",
+    "from": "Pilkhana",
+    "to": "Salkia Chowrasta",
+    "stops": [
+      "Golabarai PS"
+    ],
+    "legacyCode": "RT-25"
+  },
+  {
+    "code": "RT25",
+    "from": "Salkia Chowrasta",
+    "to": "Malipanchghara",
+    "stops": [
+      "Bandha Ghat"
+    ],
+    "legacyCode": "RT-25"
+  },
+  {
+    "code": "RT29",
+    "from": "Tikiapara",
+    "to": "Howrah Maidan",
+    "stops": [
+      "Belilious Road"
+    ],
+    "legacyCode": "RT-29"
+  },
+  {
+    "code": "RT30",
+    "from": "Golabarai PS",
+    "to": "Howrah Station",
+    "stops": [
+      "Pilkhana"
+    ],
+    "legacyCode": "RT-30"
+  },
+  {
+    "code": "RT30",
+    "from": "Pilkhana",
+    "to": "Salkia Chowrasta",
+    "stops": [
+      "Golabarai PS",
+      "Bandha Ghat"
+    ],
+    "legacyCode": "RT-30"
+  },
+  {
+    "code": "RT39",
+    "from": "Golabarai PS",
+    "to": "Howrah Station",
+    "stops": [
+      "Pilkhana"
+    ],
+    "legacyCode": "RT-39"
+  },
+  {
+    "code": "RT39",
+    "from": "Pilkhana",
+    "to": "Salkia Chowrasta",
+    "stops": [
+      "Golabarai PS",
+      "Bandha Ghat"
+    ],
+    "legacyCode": "RT-39"
+  },
+  {
+    "code": "RT6",
+    "from": "Kazipara",
+    "to": "Shibpur Bazar",
+    "stops": [
+      "Avani Mall"
+    ],
+    "legacyCode": "RT-6"
+  },
+  {
+    "code": "RT6A",
+    "from": "Kazipara",
+    "to": "Shibpur Bazar",
+    "stops": [
+      "Avani Mall"
+    ],
+    "legacyCode": "RT-6A"
+  },
+  {
+    "code": "RT7",
+    "from": "Howrah Station",
+    "to": "Posta Bazar",
+    "stops": [
+      "Barabazar"
+    ],
+    "legacyCode": "RT-7"
+  },
+  {
+    "code": "RT7",
+    "from": "Malapara",
+    "to": "Barabazar",
+    "stops": [
+      "Posta Bazar"
+    ],
+    "legacyCode": "RT-7"
+  },
+  {
+    "code": "RT8",
+    "from": "Kazipara",
+    "to": "Shibpur Bazar",
+    "stops": [
+      "Avani Mall"
+    ],
+    "legacyCode": "RT-8"
+  },
+  {
+    "code": "S10",
+    "from": "Central Jail",
+    "to": "Nager Bazar",
+    "stops": [
+      "ILS Hospital"
+    ],
+    "legacyCode": "S10"
+  },
+  {
+    "code": "S10",
+    "from": "Nager Bazar",
+    "to": "Central Jail",
+    "stops": [
+      "ILS Hospital"
+    ],
+    "legacyCode": "S10"
+  },
+  {
+    "code": "S10A",
+    "from": "Bhowanipore",
+    "to": "Rabindra Sadan",
+    "stops": [
+      "Elgin",
+      "Exide"
+    ],
+    "legacyCode": "S10A"
+  },
+  {
+    "code": "S10A",
+    "from": "Esplanade",
+    "to": "Park Street",
+    "stops": [
+      "Mayo Road"
+    ],
+    "legacyCode": "S10A"
+  },
+  {
+    "code": "S10A",
+    "from": "Park Street",
+    "to": "Esplanade",
+    "stops": [
+      "Mayo Road"
+    ],
+    "legacyCode": "S10A"
+  },
+  {
+    "code": "S10A",
+    "from": "Rabindra Sadan",
+    "to": "Bhowanipore",
+    "stops": [
+      "Exide",
+      "Elgin"
+    ],
+    "legacyCode": "S10A"
+  },
+  {
+    "code": "S12",
+    "from": "College More",
+    "to": "DLF 1",
+    "stops": [
+      "Technopolis"
+    ],
+    "legacyCode": "S12"
+  },
+  {
+    "code": "S12",
+    "from": "DLF 1",
+    "to": "College More",
+    "stops": [
+      "Technopolis"
+    ],
+    "legacyCode": "S12"
+  },
+  {
+    "code": "S12",
+    "from": "Moulali",
+    "to": "Sealdah",
+    "stops": [
+      "Nrs Hospital"
+    ],
+    "legacyCode": "S12"
+  },
+  {
+    "code": "S12",
+    "from": "Sealdah",
+    "to": "Moulali",
+    "stops": [
+      "Nrs Hospital"
+    ],
+    "legacyCode": "S12"
+  },
+  {
+    "code": "S125",
+    "from": "Esplanade",
+    "to": "Wellington",
+    "stops": [
+      "Chandni Chowk"
+    ],
+    "legacyCode": "S-125"
+  },
+  {
+    "code": "S125",
+    "from": "Wellington",
+    "to": "Esplanade",
+    "stops": [
+      "Chandni Chowk"
+    ],
+    "legacyCode": "S-125"
+  },
+  {
+    "code": "S12D",
+    "from": "BBD Bag",
+    "to": "Barabazar",
+    "stops": [
+      "Shipping Corporation"
+    ],
+    "legacyCode": "S12D"
+  },
+  {
+    "code": "S12D",
+    "from": "Barabazar",
+    "to": "BBD Bag",
+    "stops": [
+      "Shipping Corporation"
+    ],
+    "legacyCode": "S12D"
+  },
+  {
+    "code": "S12E",
+    "from": "College More",
+    "to": "DLF 1",
+    "stops": [
+      "Technopolis"
+    ],
+    "legacyCode": "S12E"
+  },
+  {
+    "code": "S12E",
+    "from": "DLF 1",
+    "to": "College More",
+    "stops": [
+      "Technopolis"
+    ],
+    "legacyCode": "S12E"
+  },
+  {
+    "code": "S12E",
+    "from": "Narkelbagan",
+    "to": "Unitech Gate 2",
+    "stops": [
+      "Tata Cancer Hospital"
+    ],
+    "legacyCode": "S12E"
+  },
+  {
+    "code": "S12E",
+    "from": "Unitech Gate 2",
+    "to": "Narkelbagan",
+    "stops": [
+      "Tata Cancer Hospital"
+    ],
+    "legacyCode": "S12E"
+  },
+  {
+    "code": "S168",
+    "from": "Barabazar",
+    "to": "Howrah Station",
+    "stops": [
+      "Posta Bazar"
+    ],
+    "legacyCode": "S-168"
+  },
+  {
+    "code": "S168",
+    "from": "Posta Bazar",
+    "to": "Malapara",
+    "stops": [
+      "Barabazar"
+    ],
+    "legacyCode": "S-168"
+  },
+  {
+    "code": "S176",
+    "from": "Barabazar",
+    "to": "Howrah Station",
+    "stops": [
+      "Posta Bazar"
+    ],
+    "legacyCode": "S-176"
+  },
+  {
+    "code": "S176",
+    "from": "Posta Bazar",
+    "to": "Malapara",
+    "stops": [
+      "Barabazar"
+    ],
+    "legacyCode": "S-176"
+  },
+  {
+    "code": "S180",
+    "from": "Barabazar",
+    "to": "Howrah Station",
+    "stops": [
+      "Posta Bazar"
+    ],
+    "legacyCode": "S-180"
+  },
+  {
+    "code": "S180",
+    "from": "Posta Bazar",
+    "to": "Malapara",
+    "stops": [
+      "Barabazar"
+    ],
+    "legacyCode": "S-180"
+  },
+  {
+    "code": "S185",
+    "from": "Barabazar",
+    "to": "Howrah Station",
+    "stops": [
+      "Posta Bazar"
+    ],
+    "legacyCode": "S-185"
+  },
+  {
+    "code": "S185",
+    "from": "Posta Bazar",
+    "to": "Malapara",
+    "stops": [
+      "Barabazar"
+    ],
+    "legacyCode": "S-185"
+  },
+  {
+    "code": "S189",
+    "from": "Barabazar",
+    "to": "Howrah Station",
+    "stops": [
+      "Posta Bazar"
+    ],
+    "legacyCode": "S-189"
+  },
+  {
+    "code": "S189",
+    "from": "Posta Bazar",
+    "to": "Malapara",
+    "stops": [
+      "Barabazar"
+    ],
+    "legacyCode": "S-189"
+  },
+  {
+    "code": "S22",
+    "from": "Acropolis Mall",
+    "to": "Ruby",
+    "stops": [
+      "GST Bhawan"
+    ],
+    "legacyCode": "S22"
+  },
+  {
+    "code": "S22",
+    "from": "Behala 14 No",
+    "to": "Behala Chowrasta",
+    "stops": [
+      "Manton"
+    ],
+    "legacyCode": "S22"
+  },
+  {
+    "code": "S22",
+    "from": "Behala Chowrasta",
+    "to": "Behala 14 No",
+    "stops": [
+      "Manton"
+    ],
+    "legacyCode": "S22"
+  },
+  {
+    "code": "S22",
+    "from": "College More",
+    "to": "Wipro",
+    "stops": [
+      "Swasthya Bhawan"
+    ],
+    "legacyCode": "S22"
+  },
+  {
+    "code": "S22",
+    "from": "Karunamoyee",
+    "to": "Wipro",
+    "stops": [
+      "Saltlake 10no Tank",
+      "Swasthya Bhawan"
+    ],
+    "legacyCode": "S22"
+  },
+  {
+    "code": "S22",
+    "from": "Ruby",
+    "to": "Acropolis Mall",
+    "stops": [
+      "GST Bhawan"
+    ],
+    "legacyCode": "S22"
+  },
+  {
+    "code": "S22",
+    "from": "Wipro",
+    "to": "College More",
+    "stops": [
+      "Swasthya Bhawan"
+    ],
+    "legacyCode": "S22"
+  },
+  {
+    "code": "S22",
+    "from": "Wipro",
+    "to": "Karunamoyee",
+    "stops": [
+      "Swasthya Bhawan",
+      "Saltlake 10no Tank"
+    ],
+    "legacyCode": "S22"
+  },
+  {
+    "code": "S23A",
+    "from": "Airport Gate 1",
+    "to": "Airport Gate 3",
+    "stops": [
+      "Airport Gate 2.5"
+    ],
+    "legacyCode": "S23A"
+  },
+  {
+    "code": "S23A",
+    "from": "Airport Gate 3",
+    "to": "Airport Gate 1",
+    "stops": [
+      "Airport Gate 2.5"
+    ],
+    "legacyCode": "S23A"
+  },
+  {
+    "code": "S23A",
+    "from": "Ballyhalt",
+    "to": "Dakshineswar",
+    "stops": [
+      "Ballyghat"
+    ],
+    "legacyCode": "S23A"
+  },
+  {
+    "code": "S23A",
+    "from": "College More",
+    "to": "DLF 1",
+    "stops": [
+      "R S Software",
+      "Philips",
+      "Technopolis"
+    ],
+    "legacyCode": "S23A"
+  },
+  {
+    "code": "S23A",
+    "from": "College More",
+    "to": "Wipro",
+    "stops": [
+      "Techno India"
+    ],
+    "legacyCode": "S23A"
+  },
+  {
+    "code": "S23A",
+    "from": "DLF 1",
+    "to": "College More",
+    "stops": [
+      "Technopolis",
+      "Philips",
+      "R S Software"
+    ],
+    "legacyCode": "S23A"
+  },
+  {
+    "code": "S23A",
+    "from": "Dakshineswar",
+    "to": "Ballyhalt",
+    "stops": [
+      "Ballyghat"
+    ],
+    "legacyCode": "S23A"
+  },
+  {
+    "code": "S23A",
+    "from": "Ecopark",
+    "to": "Narkelbagan",
+    "stops": [
+      "Westin",
+      "Jatragachi"
+    ],
+    "legacyCode": "S23A"
+  },
+  {
+    "code": "S23A",
+    "from": "Karunamoyee",
+    "to": "Wipro",
+    "stops": [
+      "Saltlake 10no Tank"
+    ],
+    "legacyCode": "S23A"
+  },
+  {
+    "code": "S23A",
+    "from": "Narkelbagan",
+    "to": "Ecopark",
+    "stops": [
+      "Jatragachi",
+      "Westin"
+    ],
+    "legacyCode": "S23A"
+  },
+  {
+    "code": "S23A",
+    "from": "Wipro",
+    "to": "College More",
+    "stops": [
+      "Techno India"
+    ],
+    "legacyCode": "S23A"
+  },
+  {
+    "code": "S23A",
+    "from": "Wipro",
+    "to": "Karunamoyee",
+    "stops": [
+      "Saltlake 10no Tank"
+    ],
+    "legacyCode": "S23A"
+  },
+  {
+    "code": "S30",
+    "from": "Apollo Hospital",
+    "to": "Beleghata Building",
+    "stops": [
+      "Swabhumi",
+      "Saltlake Stadium"
+    ],
+    "legacyCode": "S30(IT Special)"
+  },
+  {
+    "code": "S30",
+    "from": "Apollo Hospital",
+    "to": "Bengal Chemical",
+    "stops": [
+      "Mani Square"
+    ],
+    "legacyCode": "S30(IT Special)"
+  },
+  {
+    "code": "S30",
+    "from": "Beleghata Building",
+    "to": "Apollo Hospital",
+    "stops": [
+      "Saltlake Stadium",
+      "Swabhumi"
+    ],
+    "legacyCode": "S30(IT Special)"
+  },
+  {
+    "code": "S30",
+    "from": "Bengal Chemical",
+    "to": "Apollo Hospital",
+    "stops": [
+      "Mani Square"
+    ],
+    "legacyCode": "S30(IT Special)"
+  },
+  {
+    "code": "S30",
+    "from": "Bengal Chemical",
+    "to": "Ultadanga",
+    "stops": [
+      "Saltlake Gate",
+      "Ultadanga Hudco"
+    ],
+    "legacyCode": "S30(IT Special)"
+  },
+  {
+    "code": "S30",
+    "from": "Chingrighata",
+    "to": "Nicco Park",
+    "stops": [
+      "Sukantanagar"
+    ],
+    "legacyCode": "S30(IT Special)"
+  },
+  {
+    "code": "S30",
+    "from": "College More",
+    "to": "DLF 1",
+    "stops": [
+      "Technopolis"
+    ],
+    "legacyCode": "S30(IT Special)"
+  },
+  {
+    "code": "S30",
+    "from": "DLF 1",
+    "to": "College More",
+    "stops": [
+      "Technopolis"
+    ],
+    "legacyCode": "S30(IT Special)"
+  },
+  {
+    "code": "S30",
+    "from": "Narkelbagan",
+    "to": "Unitech Gate 2",
+    "stops": [
+      "Tata Cancer Hospital"
+    ],
+    "legacyCode": "S30(IT Special)"
+  },
+  {
+    "code": "S30",
+    "from": "Nicco Park",
+    "to": "Chingrighata",
+    "stops": [
+      "Sukantanagar"
+    ],
+    "legacyCode": "S30(IT Special)"
+  },
+  {
+    "code": "S30",
+    "from": "Ultadanga",
+    "to": "Bengal Chemical",
+    "stops": [
+      "Ultadanga Hudco",
+      "Saltlake Gate"
+    ],
+    "legacyCode": "S30(IT Special)"
+  },
+  {
+    "code": "S30",
+    "from": "Unitech Gate 2",
+    "to": "Narkelbagan",
+    "stops": [
+      "Tata Cancer Hospital"
+    ],
+    "legacyCode": "S30(IT Special)"
+  },
+  {
+    "code": "S30A",
+    "from": "College More",
+    "to": "SDF",
+    "stops": [
+      "Webel"
+    ],
+    "legacyCode": "S30A(IT Special)"
+  },
+  {
+    "code": "S31",
+    "from": "Behala Chowrasta",
+    "to": "Sakher Bazar",
+    "stops": [
+      "Janakalyan"
+    ],
+    "legacyCode": "S31"
+  },
+  {
+    "code": "S31",
+    "from": "Jadavpur 8B",
+    "to": "South City",
+    "stops": [
+      "Jadavpur University",
+      "Jadavpur PS"
+    ],
+    "legacyCode": "S31"
+  },
+  {
+    "code": "S31",
+    "from": "Sakher Bazar",
+    "to": "Behala Chowrasta",
+    "stops": [
+      "Janakalyan"
+    ],
+    "legacyCode": "S31"
+  },
+  {
+    "code": "S31",
+    "from": "South City",
+    "to": "Jadavpur 8B",
+    "stops": [
+      "Jadavpur PS",
+      "Jadavpur University"
+    ],
+    "legacyCode": "S31"
+  },
+  {
+    "code": "S37",
+    "from": "Apollo Hospital",
+    "to": "Beleghata Building",
+    "stops": [
+      "Swabhumi"
+    ],
+    "legacyCode": "S37"
+  },
+  {
+    "code": "S37",
+    "from": "Apollo Hospital",
+    "to": "Bengal Chemical",
+    "stops": [
+      "Mani Square"
+    ],
+    "legacyCode": "S37"
+  },
+  {
+    "code": "S37",
+    "from": "BT College",
+    "to": "Birati",
+    "stops": [
+      "Sukantanagar"
+    ],
+    "legacyCode": "S37"
+  },
+  {
+    "code": "S37",
+    "from": "Beleghata Building",
+    "to": "Apollo Hospital",
+    "stops": [
+      "Swabhumi"
+    ],
+    "legacyCode": "S37"
+  },
+  {
+    "code": "S37",
+    "from": "Bengal Chemical",
+    "to": "Apollo Hospital",
+    "stops": [
+      "Mani Square"
+    ],
+    "legacyCode": "S37"
+  },
+  {
+    "code": "S37",
+    "from": "Birati",
+    "to": "BT College",
+    "stops": [
+      "Sukantanagar"
+    ],
+    "legacyCode": "S37"
+  },
+  {
+    "code": "S37",
+    "from": "Ruby",
+    "to": "VIP Bazar",
+    "stops": [
+      "Fortis"
+    ],
+    "legacyCode": "S37"
+  },
+  {
+    "code": "S37",
+    "from": "VIP Bazar",
+    "to": "Ruby",
+    "stops": [
+      "Fortis"
+    ],
+    "legacyCode": "S37"
+  },
+  {
+    "code": "S3A",
+    "from": "College Street",
+    "to": "Sealdah",
+    "stops": [
+      "Suryasen Street",
+      "Rajabazar Tram Depot"
+    ],
+    "legacyCode": "S3A"
+  },
+  {
+    "code": "S3A",
+    "from": "Shilpara",
+    "to": "Thakurpukur",
+    "stops": [
+      "Thakurpukur Bazar"
+    ],
+    "legacyCode": "S3A"
+  },
+  {
+    "code": "S3A",
+    "from": "Thakurpukur",
+    "to": "Shilpara",
+    "stops": [
+      "Thakurpukur Bazar"
+    ],
+    "legacyCode": "S3A"
+  },
+  {
+    "code": "S3B",
+    "from": "Kankurgachi",
+    "to": "Maniktala",
+    "stops": [
+      "Bagmari Bazar"
+    ],
+    "legacyCode": "S3B"
+  },
+  {
+    "code": "S3B",
+    "from": "Maniktala",
+    "to": "Kankurgachi",
+    "stops": [
+      "Bagmari Bazar"
+    ],
+    "legacyCode": "S3B"
+  },
+  {
+    "code": "S3W",
+    "from": "Acropolis Mall",
+    "to": "Ruby",
+    "stops": [
+      "GST Bhawan"
+    ],
+    "legacyCode": "S3W"
+  },
+  {
+    "code": "S3W",
+    "from": "Behala 14 No",
+    "to": "Behala Chowrasta",
+    "stops": [
+      "Manton"
+    ],
+    "legacyCode": "S3W"
+  },
+  {
+    "code": "S3W",
+    "from": "Behala Chowrasta",
+    "to": "Behala 14 No",
+    "stops": [
+      "Manton"
+    ],
+    "legacyCode": "S3W"
+  },
+  {
+    "code": "S3W",
+    "from": "College More",
+    "to": "DLF 1",
+    "stops": [
+      "Technopolis"
+    ],
+    "legacyCode": "S3W"
+  },
+  {
+    "code": "S3W",
+    "from": "DLF 1",
+    "to": "College More",
+    "stops": [
+      "Technopolis"
+    ],
+    "legacyCode": "S3W"
+  },
+  {
+    "code": "S3W",
+    "from": "Narkelbagan",
+    "to": "Unitech Gate 2",
+    "stops": [
+      "Tata Cancer Hospital"
+    ],
+    "legacyCode": "S3W"
+  },
+  {
+    "code": "S3W",
+    "from": "Ruby",
+    "to": "Acropolis Mall",
+    "stops": [
+      "GST Bhawan"
+    ],
+    "legacyCode": "S3W"
+  },
+  {
+    "code": "S3W",
+    "from": "Unitech Gate 2",
+    "to": "Narkelbagan",
+    "stops": [
+      "Tata Cancer Hospital"
+    ],
+    "legacyCode": "S3W"
+  },
+  {
+    "code": "S4",
+    "from": "Baisakhi",
+    "to": "Saltlake 4no Tank",
+    "stops": [
+      "Quality"
+    ],
+    "legacyCode": "S4"
+  },
+  {
+    "code": "S4",
+    "from": "Karunamoyee",
+    "to": "Purta Bhawan",
+    "stops": [
+      "Bidyut Bhawan"
+    ],
+    "legacyCode": "S4"
+  },
+  {
+    "code": "S4",
+    "from": "Purta Bhawan",
+    "to": "Karunamoyee",
+    "stops": [
+      "Bidyut Bhawan"
+    ],
+    "legacyCode": "S4"
+  },
+  {
+    "code": "S4",
+    "from": "Saltlake 4no Tank",
+    "to": "Baisakhi",
+    "stops": [
+      "Quality"
+    ],
+    "legacyCode": "S4"
+  },
+  {
+    "code": "S45",
+    "from": "Behala 14 No",
+    "to": "Majherhat",
+    "stops": [
+      "Taratala"
+    ],
+    "legacyCode": "S45"
+  },
+  {
+    "code": "S45",
+    "from": "Majherhat",
+    "to": "Behala 14 No",
+    "stops": [
+      "Taratala"
+    ],
+    "legacyCode": "S45"
+  },
+  {
+    "code": "S46",
+    "from": "Acropolis Mall",
+    "to": "Ruby",
+    "stops": [
+      "GST Bhawan"
+    ],
+    "legacyCode": "S46"
+  },
+  {
+    "code": "S46",
+    "from": "Ruby",
+    "to": "Acropolis Mall",
+    "stops": [
+      "GST Bhawan"
+    ],
+    "legacyCode": "S46"
+  },
+  {
+    "code": "S46",
+    "from": "Ruby",
+    "to": "VIP Bazar",
+    "stops": [
+      "Fortis"
+    ],
+    "legacyCode": "S46"
+  },
+  {
+    "code": "S46",
+    "from": "VIP Bazar",
+    "to": "Ruby",
+    "stops": [
+      "Fortis"
+    ],
+    "legacyCode": "S46"
+  },
+  {
+    "code": "S47",
+    "from": "BBD Bag",
+    "to": "Barabazar",
+    "stops": [
+      "GPO",
+      "Shipping Corporation"
+    ],
+    "legacyCode": "S47"
+  },
+  {
+    "code": "S47",
+    "from": "Barabazar",
+    "to": "BBD Bag",
+    "stops": [
+      "Shipping Corporation",
+      "GPO"
+    ],
+    "legacyCode": "S47"
+  },
+  {
+    "code": "S47A",
+    "from": "BBD Bag",
+    "to": "Barabazar",
+    "stops": [
+      "GPO",
+      "Shipping Corporation"
+    ],
+    "legacyCode": "S47A"
+  },
+  {
+    "code": "S47A",
+    "from": "Barabazar",
+    "to": "BBD Bag",
+    "stops": [
+      "Shipping Corporation",
+      "GPO"
+    ],
+    "legacyCode": "S47A"
+  },
+  {
+    "code": "S4C",
+    "from": "Haridevpur",
+    "to": "Tollygunge Metro",
+    "stops": [
+      "Tollygunge Karunamoyee"
+    ],
+    "legacyCode": "S4C"
+  },
+  {
+    "code": "S4C",
+    "from": "Tollygunge Metro",
+    "to": "Haridevpur",
+    "stops": [
+      "Tollygunge Karunamoyee"
+    ],
+    "legacyCode": "S4C"
+  },
+  {
+    "code": "S4D",
+    "from": "College More",
+    "to": "DLF 1",
+    "stops": [
+      "Technopolis"
+    ],
+    "legacyCode": "S4D"
+  },
+  {
+    "code": "S4D",
+    "from": "DLF 1",
+    "to": "College More",
+    "stops": [
+      "Technopolis"
+    ],
+    "legacyCode": "S4D"
+  },
+  {
+    "code": "S4D",
+    "from": "Parnasree",
+    "to": "Taratala",
+    "stops": [
+      "State Garage"
+    ],
+    "legacyCode": "S4D"
+  },
+  {
+    "code": "S4D",
+    "from": "Taratala",
+    "to": "Parnasree",
+    "stops": [
+      "State Garage"
+    ],
+    "legacyCode": "S4D"
+  },
+  {
+    "code": "S5",
+    "from": "Baghajatin",
+    "to": "Jadavpur 8B",
+    "stops": [
+      "Sulekha"
+    ],
+    "legacyCode": "S5"
+  },
+  {
+    "code": "S5",
+    "from": "Bhowanipore",
+    "to": "Rabindra Sadan",
+    "stops": [
+      "Elgin",
+      "Exide"
+    ],
+    "legacyCode": "S5"
+  },
+  {
+    "code": "S5",
+    "from": "Dhakuria",
+    "to": "Jadavpur 8B",
+    "stops": [
+      "Jodhpur Park",
+      "Jadavpur PS"
+    ],
+    "legacyCode": "S5"
+  },
+  {
+    "code": "S5",
+    "from": "Esplanade",
+    "to": "Park Street",
+    "stops": [
+      "Mayo Road"
+    ],
+    "legacyCode": "S5"
+  },
+  {
+    "code": "S5",
+    "from": "Jadavpur 8B",
+    "to": "Baghajatin",
+    "stops": [
+      "Sulekha"
+    ],
+    "legacyCode": "S5"
+  },
+  {
+    "code": "S5",
+    "from": "Jadavpur 8B",
+    "to": "Dhakuria",
+    "stops": [
+      "Jadavpur PS",
+      "Jodhpur Park"
+    ],
+    "legacyCode": "S5"
+  },
+  {
+    "code": "S5",
+    "from": "Park Street",
+    "to": "Esplanade",
+    "stops": [
+      "Mayo Road"
+    ],
+    "legacyCode": "S5"
+  },
+  {
+    "code": "S5",
+    "from": "Rabindra Sadan",
+    "to": "Bhowanipore",
+    "stops": [
+      "Exide",
+      "Elgin"
+    ],
+    "legacyCode": "S5"
+  },
+  {
+    "code": "S57",
+    "from": "BBD Bag",
+    "to": "Central",
+    "stops": [
+      "Lalbazar"
+    ],
+    "legacyCode": "S57"
+  },
+  {
+    "code": "S57",
+    "from": "Central",
+    "to": "BBD Bag",
+    "stops": [
+      "Lalbazar"
+    ],
+    "legacyCode": "S57"
+  },
+  {
+    "code": "S58",
+    "from": "Saltlake PNB",
+    "to": "Ultadanga",
+    "stops": [
+      "Ultadanga Hudco"
+    ],
+    "legacyCode": "S58"
+  },
+  {
+    "code": "S58",
+    "from": "Ultadanga",
+    "to": "Saltlake PNB",
+    "stops": [
+      "Ultadanga Hudco"
+    ],
+    "legacyCode": "S58"
+  },
+  {
+    "code": "S5N",
+    "from": "Baghajatin",
+    "to": "Jadavpur 8B",
+    "stops": [
+      "Sulekha"
+    ],
+    "legacyCode": "S5/N"
+  },
+  {
+    "code": "S5N",
+    "from": "Bhowanipore",
+    "to": "Rabindra Sadan",
+    "stops": [
+      "Elgin",
+      "Exide"
+    ],
+    "legacyCode": "S5/N"
+  },
+  {
+    "code": "S5N",
+    "from": "Dhakuria",
+    "to": "Jadavpur 8B",
+    "stops": [
+      "Jodhpur Park",
+      "Jadavpur PS"
+    ],
+    "legacyCode": "S5/N"
+  },
+  {
+    "code": "S5N",
+    "from": "Jadavpur 8B",
+    "to": "Baghajatin",
+    "stops": [
+      "Sulekha"
+    ],
+    "legacyCode": "S5/N"
+  },
+  {
+    "code": "S5N",
+    "from": "Jadavpur 8B",
+    "to": "Dhakuria",
+    "stops": [
+      "Jadavpur PS",
+      "Jodhpur Park"
+    ],
+    "legacyCode": "S5/N"
+  },
+  {
+    "code": "S5N",
+    "from": "Rabindra Sadan",
+    "to": "Bhowanipore",
+    "stops": [
+      "Exide",
+      "Elgin"
+    ],
+    "legacyCode": "S5/N"
+  },
+  {
+    "code": "S62",
+    "from": "Mukundapur",
+    "to": "Kalikapur",
+    "stops": [
+      "Medica Hospital"
+    ],
+    "legacyCode": "S62"
+  },
+  {
+    "code": "S64",
+    "from": "Baguiati",
+    "to": "Haldirams",
+    "stops": [
+      "Teghoria"
+    ],
+    "legacyCode": "S64"
+  },
+  {
+    "code": "S64",
+    "from": "Haldirams",
+    "to": "Baguiati",
+    "stops": [
+      "Teghoria"
+    ],
+    "legacyCode": "S64"
+  },
+  {
+    "code": "S7",
+    "from": "BBD Bag",
+    "to": "Barabazar",
+    "stops": [
+      "GPO"
+    ],
+    "legacyCode": "S7"
+  },
+  {
+    "code": "S7",
+    "from": "Barabazar",
+    "to": "BBD Bag",
+    "stops": [
+      "GPO"
+    ],
+    "legacyCode": "S7"
+  },
+  {
+    "code": "S9A",
+    "from": "Deshapriya Park",
+    "to": "Rashbehari",
+    "stops": [
+      "Lake Mall"
+    ],
+    "legacyCode": "S9A"
+  },
+  {
+    "code": "S9A",
+    "from": "Rashbehari",
+    "to": "Deshapriya Park",
+    "stops": [
+      "Lake Mall"
+    ],
+    "legacyCode": "S9A"
+  },
+  {
+    "code": "S9C",
+    "from": "College More",
+    "to": "DLF 1",
+    "stops": [
+      "Technopolis"
+    ],
+    "legacyCode": "S9C"
+  },
+  {
+    "code": "S9C",
+    "from": "DLF 1",
+    "to": "College More",
+    "stops": [
+      "Technopolis"
+    ],
+    "legacyCode": "S9C"
+  },
+  {
+    "code": "S9C",
+    "from": "Narkelbagan",
+    "to": "Unitech Gate 2",
+    "stops": [
+      "Tata Cancer Hospital"
+    ],
+    "legacyCode": "S9C"
+  },
+  {
+    "code": "S9C",
+    "from": "Unitech Gate 2",
+    "to": "Narkelbagan",
+    "stops": [
+      "Tata Cancer Hospital"
+    ],
+    "legacyCode": "S9C"
+  },
+  {
+    "code": "SD16",
+    "from": "Gariahat",
+    "to": "Garcha Road",
+    "stops": [
+      "Ballygunge Phari"
+    ],
+    "legacyCode": "SD-16"
+  },
+  {
+    "code": "ST22A",
+    "from": "Basanti",
+    "to": "Uttar Sonakhali",
+    "stops": [
+      "Basanti Bridge",
+      "Sonakhali Bus Stand"
+    ],
+    "legacyCode": "ST-22A"
+  },
+  {
+    "code": "ST22A",
+    "from": "Uttar Sonakhali",
+    "to": "Basanti",
+    "stops": [
+      "Sonakhali Bus Stand",
+      "Basanti Bridge"
+    ],
+    "legacyCode": "ST-22A"
+  },
+  {
+    "code": "ST31",
+    "from": "Esplanade",
+    "to": "Santragachi",
+    "stops": [
+      "PTS",
+      "Hastings",
+      "Toll Tax"
+    ],
+    "legacyCode": "ST-31"
+  },
+  {
+    "code": "ST31",
+    "from": "Santragachi",
+    "to": "Esplanade",
+    "stops": [
+      "Toll Tax",
+      "Hastings",
+      "PTS"
+    ],
+    "legacyCode": "ST-31"
+  },
+  {
+    "code": "ST39",
+    "from": "Baruipur Hospital",
+    "to": "Baruipur Station",
+    "stops": [
+      "Kachari Bazar"
+    ],
+    "legacyCode": "ST-39"
+  },
+  {
+    "code": "ST39",
+    "from": "Baruipur Station",
+    "to": "Baruipur Hospital",
+    "stops": [
+      "Kachari Bazar"
+    ],
+    "legacyCode": "ST-39"
+  },
+  {
+    "code": "ST39",
+    "from": "Harinavi",
+    "to": "Khasmallick",
+    "stops": [
+      "Haritala",
+      "Malancha",
+      "Gobindapur",
+      "Antara Mental Hospital"
+    ],
+    "legacyCode": "ST-39"
+  },
+  {
+    "code": "ST39",
+    "from": "Khasmallick",
+    "to": "Harinavi",
+    "stops": [
+      "Antara Mental Hospital",
+      "Gobindapur",
+      "Malancha",
+      "Haritala"
+    ],
+    "legacyCode": "ST-39"
+  },
+  {
+    "code": "ST39",
+    "from": "Khasmallick",
+    "to": "Padmapukur",
+    "stops": [
+      "Jogi Battala"
+    ],
+    "legacyCode": "ST-39"
+  },
+  {
+    "code": "ST39",
+    "from": "Padmapukur",
+    "to": "Khasmallick",
+    "stops": [
+      "Jogi Battala"
+    ],
+    "legacyCode": "ST-39"
+  },
+  {
+    "code": "ST7",
+    "from": "College More",
+    "to": "DLF 1",
+    "stops": [
+      "Technopolis"
+    ],
+    "legacyCode": "ST-7"
+  },
+  {
+    "code": "ST7",
+    "from": "DLF 1",
+    "to": "College More",
+    "stops": [
+      "Technopolis"
+    ],
+    "legacyCode": "ST-7"
+  },
+  {
+    "code": "ST7",
+    "from": "Narkelbagan",
+    "to": "Unitech Gate 1",
+    "stops": [
+      "Tata Cancer Hospital"
+    ],
+    "legacyCode": "ST-7"
+  },
+  {
+    "code": "ST7",
+    "from": "Unitech Gate 1",
+    "to": "Narkelbagan",
+    "stops": [
+      "Tata Cancer Hospital"
+    ],
+    "legacyCode": "ST-7"
+  },
+  {
+    "code": "VS10",
+    "from": "College More",
+    "to": "DLF 1",
+    "stops": [
+      "Technopolis"
+    ],
+    "legacyCode": "VS10"
+  },
+  {
+    "code": "VS10",
+    "from": "DLF 1",
+    "to": "College More",
+    "stops": [
+      "Technopolis"
+    ],
+    "legacyCode": "VS10"
+  },
+  {
+    "code": "VS10",
+    "from": "Deshapriya Park",
+    "to": "Rashbehari",
+    "stops": [
+      "Lake Mall"
+    ],
+    "legacyCode": "VS10"
+  },
+  {
+    "code": "VS10",
+    "from": "Rashbehari",
+    "to": "Deshapriya Park",
+    "stops": [
+      "Lake Mall"
+    ],
+    "legacyCode": "VS10"
+  },
+  {
+    "code": "VS14A",
+    "from": "Central Park",
+    "to": "Stadium Island",
+    "stops": [
+      "FD",
+      "GD"
+    ],
+    "legacyCode": "VS14A"
+  },
+  {
+    "code": "VS14A",
+    "from": "Stadium Island",
+    "to": "Central Park",
+    "stops": [
+      "GD",
+      "FD"
+    ],
+    "legacyCode": "VS14A"
+  },
+  {
+    "code": "VS6",
+    "from": "Behala 14 No",
+    "to": "Behala Chowrasta",
+    "stops": [
+      "Manton"
+    ],
+    "legacyCode": "VS6"
+  },
+  {
+    "code": "VS6",
+    "from": "Behala 14 No",
+    "to": "Majherhat",
+    "stops": [
+      "Taratala"
+    ],
+    "legacyCode": "VS6"
+  },
+  {
+    "code": "VS6",
+    "from": "Behala Chowrasta",
+    "to": "Behala 14 No",
+    "stops": [
+      "Manton"
+    ],
+    "legacyCode": "VS6"
+  },
+  {
+    "code": "VS6",
+    "from": "Majherhat",
+    "to": "Behala 14 No",
+    "stops": [
+      "Taratala"
+    ],
+    "legacyCode": "VS6"
+  }
+]

@@ -1,0 +1,159 @@
+================================================================
+KOLKATA METRO — LINE CONNECTIONS & NEAREST BUS STOPS
+================================================================
+Metro network: Blue (Line 1), Green (Line 2), Orange (Line 6),
+               Yellow (Line 4), Purple (Line 3)
+Bus stop names sourced from:
+  - kolbusopedia.com/bus-routes (private)
+  - kolbusopedia.com/bus-routes-government (government)
+
+Note: A metro station and its nearest bus stop usually share a
+name or sit at the same crossing. Where the metro station has no
+identically named bus stop, the closest stop actually served by
+buses is given, with the local landmark in brackets.
+
+================================================================
+SECTION 1 — CONNECTIONS BETWEEN METRO LINES (INTERCHANGES)
+================================================================
+
+1. NOAPARA
+   Blue Line  <->  Yellow Line
+   (Yellow Line branches off the Blue Line here toward the Airport.)
+
+2. ESPLANADE
+   Blue Line  <->  Green Line
+   (Busiest interchange; also the city's central bus hub.)
+
+3. KAVI SUBHASH (New Garia)
+   Blue Line  <->  Orange Line
+   (Southern terminus shared by both lines.)
+
+Rail interchanges shown on the map (metro <-> Indian Railways):
+   - Dum Dum            : Blue Line  <->  Dum Dum Jn (Eastern Rly)
+   - Dum Dum Cantonment : Yellow Line <->  Dum Dum Cantonment Rly
+   - Noapara            : Blue/Yellow <->  (rail link)
+   - Sealdah            : Green Line  <->  Sealdah Station (Eastern Rly)
+   - Howrah             : Green Line  <->  Howrah Station (Eastern/SE Rly)
+   - Dakshineswar/Baranagar : Blue Line <-> Baranagar-Dakshineswar Rly
+
+The PURPLE LINE (Joka–Majerhat) does not physically meet any
+other metro line on this map; it runs as a standalone corridor.
+(In the planned full network it will connect at Majerhat.)
+
+================================================================
+SECTION 2 — STATION-BY-STATION NEAREST BUS STOP
+================================================================
+
+----------------------------------------------------------------
+BLUE LINE (Line 1) — Dakshineswar to Kavi Subhash
+----------------------------------------------------------------
+Metro Station                | Nearest Bus Stop
+------------------------------|---------------------------------
+Dakshineswar                  | Dakshineswar
+Baranagar                     | Baranagar Bazar
+Noapara                       | Noapara (Tobin Road)
+Dum Dum                       | Dum Dum Station (Dumdum Chiria More)
+Belgachhia                    | Belgachia Metro
+Shyambazar                    | Shyambazar (5-point crossing)
+Shobhabazar Sutanuti          | Sovabazar Metro
+Girish Park                   | Girish Park
+Mahatma Gandhi Road           | M.G. Road Metro
+Central                       | Central Metro
+Chandni Chowk                 | Chandni Market (Chadni Chowk)
+Esplanade                     | Esplanade
+Park Street                   | Park Street
+Maidan                        | Maidan Metro
+Rabindra Sadan                | Rabindra Sadan
+Netaji Bhavan                 | Bhowanipore (Jadu Babu-r Bazar)
+Jatin Das Park                | Hazra More
+Kalighat                      | Kalighat
+Rabindra Sarobar              | Rabindra Sarovar (Tollygunge)
+Mahanayak Uttam Kumar         | Tollygunge Metro
+Netaji                        | Kudghat
+Masterda Surya Sen            | Bansdroni
+Gitanjali                     | Naktala
+Kavi Nazrul                   | Garia Bazar
+Shahid Khudiram               | Garia (Briji)
+Kavi Subhash                  | Garia Metro / 45 Bus Stand / Garia Bus Stand
+
+----------------------------------------------------------------
+GREEN LINE (Line 2) — Howrah Maidan to Salt Lake Sector V
+----------------------------------------------------------------
+Metro Station                | Nearest Bus Stop
+------------------------------|---------------------------------
+Howrah Maidan                 | Howrah Maidan
+Howrah                        | Howrah Station
+Mahakaran                     | BBD Bag / Dalhousie
+Esplanade                     | Esplanade
+Sealdah                       | Sealdah Station
+Phoolbagan                    | Phoolbagan
+Salt Lake Stadium             | Saltlake Stadium
+Bengal Chemical               | Bengal Chemical
+City Centre                   | City Centre (City Centre 1)
+Central Park                  | Central Park
+Karunamoyee                   | Karunamoyee
+Salt Lake Sector V            | Sector V — SDF More / College More
+
+----------------------------------------------------------------
+ORANGE LINE (Line 6) — Kavi Subhash to Beliaghata
+----------------------------------------------------------------
+Metro Station                | Nearest Bus Stop
+------------------------------|---------------------------------
+Kavi Subhash                  | Garia Metro / 45 Bus Stand
+Satyajit Ray                  | Hiland Park (Highland Park)
+Jyotirindra Nandi             | Kalikapur
+Kavi Sukanta                  | Mukundapur
+Hemanta Mukhopadhyay          | Ruby Crossing / Ruby Hospital
+VIP Bazar                     | VIP Bazar
+Ritwik Ghatak                 | Uttar Panchannagram (Nonadanga)
+Barun Sengupta                | Science City
+Beliaghata                    | Beleghata
+
+(The southern Orange Line stations run along the EM Bypass.
+Buses on the Bypass corridor stop at Hiland Park, Ajaynagar,
+Mukundapur, Kalikapur, Ruby, VIP Bazar, Uttar Panchannagram,
+Science City and Beleghata — exact nearest stop can vary by
+which side of the Bypass you exit.)
+
+----------------------------------------------------------------
+YELLOW LINE (Line 4) — Noapara to Jai Hind (Airport)
+----------------------------------------------------------------
+Metro Station                | Nearest Bus Stop
+------------------------------|---------------------------------
+Noapara                       | Noapara (Tobin Road)
+Dum Dum Cantonment            | Dum Dum Cantonment
+Jessore Road                  | Airport Gate No. 1 (Jessore Road)
+Jai Hind (Airport)            | Airport Domestic Terminus / Airport Gate
+
+----------------------------------------------------------------
+PURPLE LINE (Line 3) — Joka to Majerhat
+----------------------------------------------------------------
+Metro Station                | Nearest Bus Stop
+------------------------------|---------------------------------
+Joka                          | Joka (Joka Tram Depot / Joka ESI)
+Thakurpukur                   | Thakurpukur 3A / Thakurpukur Bazar
+Sakherbazar                   | Sakher Bazar
+Behala Chowrasta              | Behala Chowrasta
+Behala Bazar                  | Behala 14 No. (Manton / Behala PS)
+Taratala                      | Taratala
+Majerhat                      | Majerhat (Majherhat)
+
+================================================================
+SECTION 3 — QUICK NOTES
+================================================================
+- Most metro stations were deliberately named after the
+  crossing or locality they sit on, so the metro name and the
+  bus stop name are the same word in the large majority of cases.
+- The clearest exceptions (renamed metro stations) are on the
+  southern Blue Line: "Mahanayak Uttam Kumar" = Tollygunge,
+  "Netaji" = Kudghat, "Masterda Surya Sen" = Bansdroni,
+  "Gitanjali" = Naktala. Buses still use the old locality names.
+- Esplanade, Howrah, Sealdah, Dum Dum and Kavi Subhash double as
+  major bus terminals/hubs, so dozens of routes converge there.
+- Bus stop spellings vary across operators (e.g. Belgachia /
+  Belgacchia, Majherhat / Mahjerhat, Sovabazar / Sova Bazar);
+  the spellings above follow the kolbusopedia route listings.
+
+================================================================
+END OF DOCUMENT
+================================================================
