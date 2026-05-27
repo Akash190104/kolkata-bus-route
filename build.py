@@ -924,6 +924,14 @@ def find(o, d):
 
 # ---------------------------------------------------------------- hub coords
 HUB = {
+  "Exide":[22.5377,88.3317],
+  "Acropolis Mall":[22.5145,88.3929],
+  "Jadavpur University":[22.4998,88.3695],
+  "Deshapriya Park":[22.5174,88.3526],
+  "Sishu Mangal":[22.5245,88.3524],
+  "Garcha Road":[22.5257,88.3633],
+  "Ballygunge Phari":[22.5281,88.3661],
+  "Gariahat":[22.5197,88.3652],
   "Tollygunge Metro":[22.4943,88.3454],
   "Hazra":[22.5238,88.3466],
  "Esplanade":[22.5645,88.3510],"Howrah Station":[22.5838,88.3426],"Sealdah":[22.5675,88.3700],
