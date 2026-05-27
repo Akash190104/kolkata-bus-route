@@ -16,6 +16,7 @@ from collections import defaultdict, deque
 GRAPH_INSERT_MIN_KM = 0.8
 GRAPH_INSERT_MAX_KM = 2.2
 GRAPH_INSERT_MAX_PER_EDGE = 3
+INTERMEDIATE_HINTS_FILE = "route_intermediate_hints.json"
 
 # ---------------------------------------------------------------- normalisation
 # 1) token-level spelling fixes applied to the lowercased, punctuation-stripped key
@@ -43,6 +44,8 @@ SPELLING = {
     "belgachhia": "belgachia",
     "belgacchia": "belgachia",
     "belghoria": "belgharia",
+    "ultodanga": "ultadanga",
+    "lake town": "laketown",
     "beliaghata": "beleghata",
     "sova bajar": "sovabazar", "sova bazar": "sovabazar",
     "sobhabazar": "sovabazar", "shobhabazar": "sovabazar",
@@ -177,7 +180,8 @@ SPELLING = {
     "e m bypass": "em bypass",
     "b k paul": "bk paul",
     "s m nagar": "sm nagar",
-    "c a island": "ca island",
+    "c a island": "saltlake ca block",
+    "ca island": "saltlake ca block",
     "saltlake c a block": "saltlake ca block",
     "b e college": "be college",
 }
@@ -220,6 +224,7 @@ ALIASES = {
     "durgapur city centre": "durgapur city center",
     "ballygunge stn": "ballygunge station",
     "ballygunge s t n": "ballygunge station",
+    "bidhannagar road": "ultadanga",
     "santragachi bus terminal": "santragachi bus terminus",
     "unitech gate no 1": "unitech gate 1",
     "airport 1 no gate": "airport gate 1",
@@ -228,6 +233,16 @@ ALIASES = {
     # shorthand -> full name (keeps the place distinct, just spelled in full)
     "8b": "jadavpur 8b",
     "hudco": "ultadanga hudco",
+    "hudco more": "ultadanga hudco",
+    "pnb": "saltlake pnb",
+    "pnb more": "saltlake pnb",
+    "pnb island": "saltlake pnb",
+    "tank 4": "saltlake 4no tank",
+    "4 no tank": "saltlake 4no tank",
+    "10 no tank": "saltlake 10no tank",
+    "tank no 10": "saltlake 10no tank",
+    "ultadanga station": "ultadanga",
+    "ultodanga station": "ultadanga",
     "airport 1no": "airport gate 1", "airport 1": "airport gate 1",
     "airport 3no": "airport gate 3", "airport 3": "airport gate 3",
     "airport gate-1": "airport gate 1", "airport gate no 1": "airport gate 1",
@@ -256,6 +271,36 @@ ALIASES = {
 IGNORED_STOPS = {"more", "2", "3"}
 STOP_EXPANSIONS = {
     "thakurpukur bazar thakurpukur 3a": ["Thakurpukur Bazar", "Thakurpukur 3A"],
+}
+# BusRepo's own search aliases from script.js replaceLocAlias(). Keep these
+# conservative: only same-place spellings, or a familiar name pointed at the
+# nearest explicit stop when the source data has no separate stop for it.
+BUSREPO_SEARCH_ALIASES = {
+    "Bidhannagar Road": "Ultadanga",
+    "Exide More": "Exide",
+    "PG": "Rabindra Sadan",
+    "Dharmatala": "Esplanade",
+    "Sector V": "College More",
+    "Biswa Bangla Gate": "Narkelbagan",
+    "Mint": "Mominpore",
+    "Yuva Bharati Kirangan": "Saltlake Stadium",
+    "Yuva Bharati Krirangan": "Saltlake Stadium",
+    "Yuba Bharati Krirangan": "Saltlake Stadium",
+    "CMRI Hospital": "Ekbalpur",
+    "TCS Gitobitan": "Wipro More",
+    "Panihati": "Ghola Bazar",
+    "Candor Techspace": "Unitech Gate 1",
+    "RDB Cinema": "SDF More",
+}
+# Search-only aliases make familiar local names discoverable without adding
+# stops or edges to the graph. Keep these pointed at existing source stops.
+SEARCH_ALIASES = {
+    "Hudco": ["Ultadanga Hudco", "Ultadanga"],
+    "Hazra More": "Hazra",
+    "Topsia More": "Topsia",
+    "Lake Town": "Laketown",
+    "Prince Anwar Shah Connector": "Anwar Shah Road",
+    "Chetla": "Chetla Park",
 }
 # words that mark a junction -- "X More" is the same point as "X"
 JUNCTION = re.compile(r"\s+(more|crossing|xing)$")
@@ -441,6 +486,57 @@ def parse_busrepo_routes():
         return []
     return list(itertools.chain.from_iterable(parse_busrepo_file(path) for path in BUSREPO_FILES))
 
+def route_match_key(code):
+    code = re.sub(r"\(.*?\)", "", code).strip()
+    return re.sub(r"[^A-Za-z0-9]", "", code).upper()
+
+def apply_intermediate_hints(routes, path=INTERMEDIATE_HINTS_FILE):
+    """
+    Restore only bounded intermediate stops from older matched route data.
+
+    The current BusRepo route remains authoritative: a hint can only fill an
+    existing adjacent edge A -> C on the same route code, never create or
+    replace a route.
+    """
+    try:
+        raw_hints = json.load(open(path, encoding="utf-8"))
+    except FileNotFoundError:
+        print("no route intermediate hints file found")
+        return
+
+    hints_by_code = defaultdict(list)
+    for hint in raw_hints:
+        a, c = hint.get("from"), hint.get("to")
+        mids = hint.get("stops") or []
+        if a and c and mids:
+            hints_by_code[route_match_key(hint.get("code", ""))].append((a, c, mids))
+
+    added = 0
+    touched = 0
+    for route in routes:
+        hints = hints_by_code.get(route_match_key(route["code"]))
+        if not hints:
+            continue
+        by_edge = {(a, c): mids for a, c, mids in hints}
+        current_stops = set(route["stops"])
+        expanded = []
+        changed = False
+        for a, c in zip(route["stops"], route["stops"][1:]):
+            expanded.append(a)
+            mids = by_edge.get((a, c), [])
+            for stop in mids:
+                if stop in current_stops or stop in expanded or stop in (a, c):
+                    continue
+                expanded.append(stop)
+                current_stops.add(stop)
+                added += 1
+                changed = True
+        expanded.append(route["stops"][-1])
+        if changed:
+            route["stops"] = expanded
+            touched += 1
+    print(f"restored {added} bounded intermediate stops on {touched} current routes")
+
 PRIVATE_MINI_CODE = re.compile(r"^(S-\d|M-\d|MM\d|MN\d)", re.I)
 MINI_PUBLIC_NAMES = {
     "s-106": "Santoshpur BBD Bag Mini",
@@ -525,6 +621,24 @@ def route_graph_parts(routes):
             route_adj[a].add(b)
             route_adj[b].add(a)
     return stop_routes, stops, route_set, route_adj
+
+def add_export_alias(aliases, stop_set, alias, targets, force=False):
+    if isinstance(targets, str):
+        targets = [targets]
+    for target in targets:
+        target = canon(target)
+        if target in stop_set and (force or alias not in stop_set):
+            aliases[alias] = target
+            break
+
+def export_search_aliases(stops):
+    stop_set = set(stops)
+    aliases = {}
+    for alias, targets in SEARCH_ALIASES.items():
+        add_export_alias(aliases, stop_set, alias, targets)
+    for alias, targets in BUSREPO_SEARCH_ALIASES.items():
+        add_export_alias(aliases, stop_set, alias, targets, force=True)
+    return dict(sorted(aliases.items(), key=lambda item: item[0].lower()))
 
 def xy(stop, hub):
     lat, lng = hub[stop]
@@ -662,6 +776,7 @@ if bus_routes:
 else:
     raise SystemExit("Missing Bus Repository route sources. Expected raw_busrepo_routes1.js through raw_busrepo_routes4.js.")
 print("using listed bus stops only; inferred bus stop insertion disabled")
+apply_intermediate_hints(bus_routes)
 
 metro_routes = parse_metro("Kolkata_Metro_Bus_Connections.txt")
 print(f"parsed {len(metro_routes)} metro routes")
@@ -865,10 +980,11 @@ data = {
     "stops": [{"name": s, "routes": len(stop_routes[s]),
                "lat": HUB.get(s, [None, None])[0], "lng": HUB.get(s, [None, None])[1]}
               for s in sorted(stops, key=lambda s: -len(stop_routes[s]))],
+    "aliases": export_search_aliases(stops),
 }
 json.dump(data, open("busdata.json", "w"), ensure_ascii=False)
 print(f"exported busdata.json  ({len(data['routes'])} routes, {len(data['stops'])} stops, "
-      f"{sum(1 for s in stops if s in HUB)} geocoded)")
+      f"{sum(1 for s in stops if s in HUB)} geocoded, {len(data['aliases'])} aliases)")
 
 try:
     html = open("kolkata-bus-router.html", encoding="utf-8").read()
